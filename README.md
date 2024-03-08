@@ -56,8 +56,8 @@ X（Twitter）
 ■ **機能の実装方針予定**
 
 - The Movie Database (TMDb) API
-- FIGMA　API
+ユーザーがホラー映画を検索し、タイトル等の詳細情報を取得できるようにします。
 - Open AI API(GPT-4)
-- DeepL API
-- Health API/MyFitnessPal API
+ユーザーの目標体重や期間、好みに基づいて最適なホラー映画を推薦する際に使用します。
+
   
