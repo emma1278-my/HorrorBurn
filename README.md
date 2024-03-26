@@ -64,4 +64,5 @@ X（Twitter）
 - Goolge API
   Google Sign-Inを使用してユーザーにログインさせる場合に使用します。
 
-
+■**ER図**
+https://app.diagrams.net/#G1BszqDGxjLte4f9XsFe3sJcbjQG6uxwDM#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D
