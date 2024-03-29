@@ -15,14 +15,14 @@
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
         <button type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white" aria-expanded="false">
-          新規登録
+          マイページ
         </button>
         <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
           <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
           </div>
         </div>
       </div>
-      <a href="#" class="text-sm font-semibold leading-6 text-white">ログイン</a>
+     <<%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: "text-sm font-semibold leading-6 text-white" %>
     </div>
   </nav>
     <div class="lg:hidden" role="dialog" aria-modal="true">
