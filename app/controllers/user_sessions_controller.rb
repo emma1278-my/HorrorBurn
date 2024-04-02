@@ -1,22 +1,21 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
-
   def new; end
 
   def create
-    @user = login(params[:email], params[:password])
+    user = User.authenticate(params[:email], params[:password])
+
     if @user
-      # ログインに成功した場合、root_pathにリダイレクト
-      redirect_to root_path
+      session[:user_id] = user.id
+      redirect_back_or_to root_path, success: t('user_sessions.create.success')
     else
-      # ログインに失敗した場合、ログインページにリダイレクト
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     logout
-    redirect_to root_path
+    redirect_to root_path, status: :see_other, danger: t('user_sessions.destroy.success')
   end
 end
   

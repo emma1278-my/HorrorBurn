@@ -1,5 +1,5 @@
-<header class="bg-zinc-900">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-7" aria-label="Global">
+<header class="bg-transparent">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-4" aria-label="Global">
     <div class="flex lg:flex-1">
       <%= link_to top_index_path do %>
         <%= image_tag 'logo2.png', size: "200x200", class: "h-auto", alt: "" %>
@@ -12,13 +12,13 @@
         </svg>
       </button>
     </div>
-    <div class="bg-zinc-900 hidden lg:flex lg:gap-x-12">
+    <div class="bg-opacity-0 hidden lg:flex lg:gap-x-12">
       <div class="relative">
-        <%= link_to '新規登録', new_user_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-900" %>
-        <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-zinc-900 shadow-lg ring-1 ring-gray-900/5">      
+        <%= link_to t('header.users_new'), new_user_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-900" %>
+        <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-opacity-0 shadow-lg ring-1 ring-gray-900/5">      
         </div>
       </div>
-       <%= link_to 'ログイン', login_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-900" %>
+       <%= link_to t('header.login'), login_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-900" %>
     </div>
   </nav>
     <div class="lg:hidden" role="dialog" aria-modal="true">

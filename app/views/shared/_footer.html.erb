@@ -1,16 +1,15 @@
-<footer class="text-gray-600 bg-zinc-900 body-font">
+<footer class="bg-opacity-0 body-font">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">  
+    <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">  
      </a>
-    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 HorrorBurn
-  
+    <p class="text-sm text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 HorrorBurn
     </p>
     <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
       <div class="px-5 py-2">
-            <%= link_to "利用規約", terms_of_service_path, class: "text-gray-500 transition duration-100 hover:text-gray-900 active:text-indigo-600" %>
+            <%= link_to t('footer.terms_of_service'), terms_of_service_path, class: "text-white transition duration-100 hover:text-gray-900 active:text-indigo-600" %>
             </div>
             <div class="px-5 py-2">
-                <%= link_to "プライバシーポリシー", privacy_policy_path, class: "text-gray-500 transition duration-100 hover:text-gray-900 active:text-indigo-600" %>
+                <%= link_to t('footer.privacy_policy'), privacy_policy_path, class: "text-white transition duration-100 hover:text-gray-900 active:text-indigo-600" %>
             </div>
     </span>
     <aside>

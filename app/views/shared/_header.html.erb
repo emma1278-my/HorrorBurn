@@ -1,4 +1,4 @@
-<header class="bg-neutral-950">
+<header class="bg-opacity-0">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-7" aria-label="Global">
     <div class="flex lg:flex-1 navbar bg-base-100">
       <%= link_to top_index_path do %>
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-     <<%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: "text-sm font-semibold leading-6 text-white" %>
+     <<%= link_to t('header_logout'), logout_path, data: { turbo_method: :delete }, class: "text-sm font-semibold leading-6 text-white" %>
     </div>
   </nav>
     <div class="lg:hidden" role="dialog" aria-modal="true">

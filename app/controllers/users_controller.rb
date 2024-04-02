@@ -1,22 +1,23 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
 
-  def new; end
+  def new
+    @user = User.new
+  end
 
   def create
-
     @user = User.new(user_params)
     if @user.save
-      redirect_to login_path
+      redirect_to root_path, success: t('.success')
     else
-      render 'new'
+      flash.now[:danger] = t('users.create.failure')
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def user_params
-     params.require(:user).permit(:last_name, :first_name, :email, :password, 
-:password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name)
   end
 end
