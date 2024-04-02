@@ -1,14 +1,15 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login
+ 
   def new; end
 
   def create
-    user = User.authenticate(params[:email], params[:password])
-
+     @user = login(params[:email], params[:password])
     if @user
-      session[:user_id] = user.id
-      redirect_back_or_to root_path, success: t('user_sessions.create.success')
+      flash[:success] = t(".success")
+      redirect_back_or_to root_path
     else
+      flash.now[:alert] = t(".alert")
       render :new, status: :unprocessable_entity
     end
   end

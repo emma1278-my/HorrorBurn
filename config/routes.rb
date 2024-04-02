@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
   get 'privacy_policy', to: 'tops#privacy_policy'
   get 'terms_of_service', to: 'tops#terms_of_service'
-
+ 
   resources :users, only: %i[new create]
+  
+  resource :profile, only: %i[show edit update]
 end

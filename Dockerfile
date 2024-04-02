@@ -30,4 +30,6 @@ RUN chmod +x /usr/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
 
+RUN /app/bin/rails assets:precompile
+
 CMD ["./bin/dev"]
