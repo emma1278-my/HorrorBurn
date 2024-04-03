@@ -4,6 +4,7 @@ ja:
       create: 登録
       submit: 保存
       update: 更新
+      edit: 編集
     label:
       email: メールアドレス
       password: パスワード
@@ -46,12 +47,19 @@ ja:
   footer:
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
-  boards:
-    new:
-     title: 掲示板作成
+  profiles:
+    show:
+     title: プロフィール 
+     edit: 編集
+    edit:
+     title: プロフィール編集
+     to_login_page: ログインページへ
+     avatar: アイコン
+     edit: 編集
     board:
         title: 'タイトル'
         body: '本文'
         board_image: 'サムネイル'
     create:
       success: 掲示板の作成が完了しました
+  edit: 編集

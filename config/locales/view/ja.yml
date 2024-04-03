@@ -9,6 +9,7 @@ ja:
         name: 名前
         password: パスワード
         password_confirmation: パスワード確認
+        avatar: アイコン
       board:
         title: 'タイトル'
         body: '本文'

@@ -13,7 +13,7 @@ gem "pg", "~> 1.1"
 gem 'carrierwave'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
-
+gem 'draper'
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 

@@ -1,4 +1,4 @@
-<div class="container pt-3">
+<section class="p-8 max-w-4xl mx-auto my-10 border-gray-400/30 bg-gray-500 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 text-white"> 
   <div class="row">
     <div class="col-md-10 offset-md-1">
       <h1 class="float-left mb-5"><%= t('.title') %></h1>
@@ -9,14 +9,14 @@
           <td><%= current_user.email %></td>
         </tr>
         <tr>
-          <th scope="row"><%= User.human_attribute_name(:full_name) %></th>
-          <td><%= current_user.decorate.full_name %></td>
+          <th scope="row"><%= User.human_attribute_name(:name) %></th>
+          <td><%= current_user.name %></td>
         </tr>
         <tr>
           <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
-          <td><%= image_tag current_user.avatar_url, class: 'rounded-circle', size: '50x50' %></td>
+          <td><%= image_tag current_user.avatar_url, class: 'rounded-full', width: '100', height: '100' %></td>
         </tr>
       </table>
     </div>
   </div>
-</div>
+</section>

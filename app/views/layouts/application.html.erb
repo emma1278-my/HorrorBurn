@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
-   <body class="flex flex-col min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-violet-600">
+   <body class="flex flex-col min-h-screen bg-gradient-to-b bg-zinc-900">
    <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
     <%= render 'shared/flash_message' %>
+    <div class="flex-grow">
     <%= yield %>
+    </div> 
     <%= render 'shared/footer' %>
+    
   </body>
 </html>
