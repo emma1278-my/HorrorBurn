@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   
   resource :profile, only: %i[show edit update]
+  get '/users/withdraw', to: 'users#withdraw'
+  patch  '/users/withdraw' => 'users#withdraw'
+
 end

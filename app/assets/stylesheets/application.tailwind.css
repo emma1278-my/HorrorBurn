@@ -2,3 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-9 {
+    @apply border-none transition-all duration-300 overflow-hidden relative;
+  }
+  .btn-9:after {
+    @apply absolute top-0 left-0 w-full h-full bg-[#1fd1f9] bg-gradient-to-br from-[#1fd1f9] to-[#b621fe] transition-all duration-300;
+    content: "";
+    z-index: -1;
+  }
+  .btn-9:hover {
+    @apply bg-transparent text-white;
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255,255,255,.5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  }
+  .btn-9:hover:after {
+    transform: scale(2) rotate(180deg);
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255,255,255,.5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  }
+}

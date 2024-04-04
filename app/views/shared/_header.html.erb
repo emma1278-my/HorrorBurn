@@ -7,15 +7,16 @@
         <%= image_tag 'logo2.png', size: "200x200", class: "h-auto", alt: "" %>
       <% end %>
     </div>
-    <div class="flex lg:hidden ">
 
+    <div class="flex lg:hidden ">
       <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
-        
       </button>
+      
     </div>
+
     <div class="bg-opacity-0 hidden lg:flex lg:gap-x-12">
      <div class="relative mt-4">
       <%= link_to t('header.profile'), profile_path(current_user), class: "text-sm font-semibold leading-6 text-white hover:text-gray-900" %>
@@ -24,14 +25,29 @@
       </div>
       
       <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete }, class: "text-sm font-semibold leading-6 text-white hover:text-gray-900 mt-4" %>
-    <div class="dropdown dropdown-end">
+
+    <div class="dropdown dropdown-end inline-block relative">
     <div tabindex="0" role="button" class="btn btn-ghost btn-circle icon">
-      <div class="w-10 rounded-full">
-        <%= image_tag(current_user.avatar_url, alt: "user icon", class: "w-10 rounded-full") %>
-      </div>
+    <div class="w-10 rounded-full">
+     <%= image_tag(current_user.avatar_url, alt: "user icon", class: "w-10 rounded-full") %>
     </div>
-    </div>
-      </nav>
+   </div>
+    <ul tabindex="0" class="dropdown-menu absolute hidden text-gray-700 pt-1">
+     <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+    <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, class: 'menu-item rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap' %>
+    <%= link_to (t '.title'), top_index_path, class: 'menu-item rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap' %>
+    <%= link_to (t 'profiles.show.title'), profile_path, class: 'menu-item rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap' %>
+    </ul>
+  </div>
+</div>
+
+<style>
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+</style>
+  </nav>
     <div class="lg:hidden" role="dialog" aria-modal="true">
     </div>
 </header>
+   
