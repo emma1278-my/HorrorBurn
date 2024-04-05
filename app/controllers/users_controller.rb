@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create guest_login]
 
   def new
     @user = User.new
@@ -25,6 +25,17 @@ class UsersController < ApplicationController
     reset_session
     flash[:notice] = "退会しました"
     redirect_to root_path
+  end
+
+  def guest_login
+    @guest_user = User.create(
+    name: 'ゲスト',
+    email: SecureRandom.uuid + "@email.com",
+    password: 'password',
+    password_confirmation: 'password',)
+    auto_login(@guest_user)
+    flash[:success] = t('.success')
+    redirect_to new_metabolism_calculators_path
   end
 
   private

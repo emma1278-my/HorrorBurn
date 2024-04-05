@@ -18,7 +18,7 @@ class UserSessionsController < ApplicationController
     logout
     redirect_to root_path, status: :see_other, danger: t('user_sessions.destroy.success')
   end
-  
+
 protected
   
 def reject_end_user

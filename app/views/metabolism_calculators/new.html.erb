@@ -1,72 +1,70 @@
 <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
-    <!-- Author: FormBold Team -->
-    <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 bg-gray-500 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 text-white w-full">
+    <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
         <form>
             <div class="text-left mt-12 ml-10">
                 <label for="height" class="mb-3 block text-base font-medium">
                   身 長
                 </label>
                 <input type="text" name="name" id="name" placeholder="cm"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
+                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
             </div>
-            <div class="mb-5">
+            <div class="text-left mt-12 ml-10">
                 <label for="weight" class="mb-3 block text-base font-medium">
                     体 重
                 </label>
-                <input type="text" name="phone" id="phone" placeholder="kg"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
+                <input type="text" name="weight" id="weight" placeholder="kg"
+                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
             </div>
-            <div class="mb-5">
+            <div class="text-left mt-12 ml-10">
                 <label for="gender" class="mb-3 block text-base font-medium">
                     性 別
                 </label>
                <div class="flex space-x-4 items-baseline group">
               <div class="rounded-full flex bg-gray-50 border border-gray-300 py-2 px-4 space-x-4 group-checked:border-gray-500">
               <div>
-              <input type="radio" name="rdo" id="yes" class="peer">
+              <input type="radio" name="gender" id="gender" class="gender">
              <label for="yes" class="cursor-pointer peer-checked:text-blue-700 peer-checked:cursor-default text-gray-400">男性</label>
               </div>
              <div>
-            <input type="radio" name="rdo" id="no" class="peer">
+            <input type="radio" name="gender" id="gender" class="gender">
             <label for="no" class="cursor-pointer peer-checked:text-gray-800 peer-checked:cursor-default text-gray-400">女性</label>
            </div>
           </div>
          </div>
                     
             </div>
-            <div class="mb-5">
+            <div class="text-left mt-12 ml-10">
                 <label for="age" class="mb-3 block text-base font-medium">
                     年 齢
                 </label>
                 <input type="text" name="phone" id="phone" placeholder="歳"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
+                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2"  />
             </div>
-            <div class="mb-5">
+            <div class="text-left mt-12 ml-10">
                 <label for="target_weight" class="mb-3 block text-base font-medium">
                     目 標 体 重
                 </label>
                 <input type="text" name="phone" id="phone" placeholder="kg"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
+                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
             </div>
 
 
 
             <div class="-mx-3 flex flex-wrap">
                 <div class="w-full px-3 sm:w-1/2">
-                    <div class="mb-5">
+                    <div class="text-left mt-12 ml-10">
                         <label for="date" class="mb-3 block text-base font-medium">
                             い つ ま で に
                         </label>
                         <input type="date" name="date" id="date"
-                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
+                            class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />
                     </div>
                 </div>
             </div>
           <div>
-                <button
-                    class=" hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold outline-none mt-6 mb-8">
-                <%= link_to "計算する", new_metabolism_calculators_path, class: 'btn btn-9 float-right shadow-lg rounded-lg shadow-violet-300' %>
-                </button>
+             <div class="text-left mt-12 ml-10 mb-8"> 
+                <%= link_to "計算する", new_metabolism_calculators_path, class: 'btn btn-9 float-center shadow-lg rounded-lg shadow-violet-300' %>
+            </div>
             </div>
         </form>
     </div>

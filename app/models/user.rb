@@ -12,4 +12,20 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (is_deleted == false)
   end
+
+  private
+    # ランダムなユーザーIDを生成
+  def set_user_id
+      while self.id.blank? || User.find_by(id: self.id).present? do
+        self.id = SecureRandom.base58
+    end
+  end
+
+    # ゲストユーザーを作成する
+  def self.guest_login
+      random_pass = SecureRandom.base36
+      create!(name: "ゲストユーザー",
+              password: random_pass,
+              guest: true)
+  end
 end

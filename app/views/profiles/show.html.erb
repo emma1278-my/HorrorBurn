@@ -1,49 +1,43 @@
-<body class="antialiased">
-    <section class="p-8 max-w-4xl mx-auto my-10">
-        <main class="profile-page ">
-                <div class="container">
-                    <div class="relative flex flex-col min-w-0 break-words border-gray-400/30 bg-gray-500 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 text-white w-full mb-6 -mt-64">
-                        <div class="px-6">
-                            <div class="flex flex-wrap justify-center">
-                                <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-                                </div>
-                                <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-                                </div>
-                                <div class="w-full lg:w-4/12 px-4 lg:order-1">
-                                </div>
-                            </div>
-                            <div class="text-center mt-12">
-                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
-                                  <h1 class="float-left mb-5"><%= t('.title') %></h1>  
-                                </h3>
-                                <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-9 float-right shadow-lg rounded-lg shadow-violet-300' %>
-                        <table class="table">
-                            <tr>
-                                <th scope="row"><%= User.human_attribute_name(:email) %></th>
-                                <td><%= current_user.email %></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><%= User.human_attribute_name(:name) %></th>
-                                <td><%= current_user.name %></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
-                                <td><%= image_tag current_user.avatar_url, class: 'rounded-full', width: '100', height: '100' %></td>
-                            </tr>
-                        </table>
-                            </div>
-                        </div>
-                    </div>
+  <section class="p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300 text-white font-kiwi-maru">
+    <main class="profile-page ">
+      <div class="container">
+        
+          <div class="px-6">
+            <div class="flex flex-wrap justify-center">
+              <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+              </div>
+                <div class="w-full lg:w-4/12 px-4 lg:order-1">
                 </div>
-        </main>
-    </section>
-</body>
-                            
-    <div class="flex flex-col justify-center items-center h-screen">
-  <div class="flex p-5 max-w-4xl mx-auto my-10 text-white text-center">
+                </div>
+                <div class="text-center mt-12">
+                <h3 class="text-4xl font-semibold leading-normal text-gray-800 mb-2">
+                <h1 class="float-left mb-5"><%= t('.title') %></h1>  
+                </h3>
+                <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-9 float-right shadow-lg rounded-lg shadow-violet-300' %>
+                <table class="table">
+                <tr>
+                <th scope="row"><%= User.human_attribute_name(:email) %></th>
+                <td><%= current_user.email %></td>
+                </tr>
+                <tr>
+                <th scope="row"><%= User.human_attribute_name(:name) %></th>
+                <td><%= current_user.name %></td>
+                </tr>
+                <tr>
+                <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
+                <td><%= image_tag current_user.avatar_url, class: 'rounded-full', width: '100', height: '100' %></td>
+                </tr>
+                </table>           
+          </div>
+        </div>
+      </div>
+    </main>
+</section>  
+                                
+  <div class="flex p-5 max-w-4xl mx-auto my-10 text-white text-center justify-center items-center ">
     <h2>パスワードを変更する</h2>
+ 
+    <%= link_to "退会希望の方はこちら", users_withdraw_path, method: :patch, class: "rounded-full bg-pink-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white float-right shadow-lg rounded-lg shadow-violet-300 items-right", data: { confirm: "本当に退会しますか？" } %>
   </div>
-  <%= link_to "退会希望の方はこちら", users_withdraw_path, method: :patch, class: "btn btn-danger p-8 max-w-xl mx-auto my-10 border-gray-400/30 bg-violet-300 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 text-black", data: { confirm: "本当に退会しますか？" } %>
-</div>
 
 

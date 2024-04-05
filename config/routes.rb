@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
   get 'privacy_policy', to: 'tops#privacy_policy'
+  get "guest_login", to: "users#guest_login"
 
    # 利用規約とプライバシーポリシー
   get 'terms_of_service', to: 'tops#terms_of_service'
