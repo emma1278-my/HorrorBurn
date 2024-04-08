@@ -10,6 +10,7 @@ ja:
       password: パスワード
   defaults:
     register: '登 録'
+    edit: '編 集'
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -64,4 +65,6 @@ ja:
         board_image: 'サムネイル'
     create:
       success: 掲示板の作成が完了しました
-  edit: 編集
+    metabolism_calculators:
+      new: 早速やってみよう
+    

@@ -34,10 +34,8 @@
     </main>
 </section>  
                                 
-  <div class="flex p-5 max-w-4xl mx-auto my-10 text-white text-center justify-center items-center ">
-    <h2>パスワードを変更する</h2>
- 
-    <%= link_to "退会希望の方はこちら", users_withdraw_path, method: :patch, class: "rounded-full bg-pink-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white float-right shadow-lg rounded-lg shadow-violet-300 items-right", data: { confirm: "本当に退会しますか？" } %>
+  <div class="p-8 max-w-4xl mx-auto my-10  font-kiwi-maru">
+     <%= link_to 'passwordを変更する', new_password_reset_path, class: "rounded-full bg-pink-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white float-right shadow-lg rounded-lg shadow-violet-300 items-right" %>
+
+      <%= link_to "退会希望の方はこちら", users_withdraw_path, method: :patch, class: "text-xs text-white dark:text-gray-400 hover:underline", data: { confirm: "本当に退会しますか？" } %>
   </div>
-
-

@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get 'terms_of_service', to: 'tops#terms_of_service'
   resources :password_resets, only: [:new, :create, :edit, :update]
   # 基礎代謝算出
+  resources :metabolism_calculators, only: [:new, :show, :create]
   get 'metabolism_calculators/new', to: 'metabolism_calculators#new', as: 'new_metabolism_calculators'
-  post 'metabolism_calculators/show', to: 'metabolism_calculators#show'
+  post 'metabolism_calculators/show', to: 'metabolism_calculators#show', as: 'show_metabolism_calculators'
 
   resources :users, only: %i[new create]
 

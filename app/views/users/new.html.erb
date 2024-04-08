@@ -1,5 +1,4 @@
-<div class="max-w-4xl mx-auto my-10 py-6 sm:py-12">
-  <div class="max-w-[550px] mx-auto px-6 relative flex flex-col justify-center min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
+<div class="w-full max-w-sm p-6 m-auto mx-auto backdrop-blur-lg rounded-md border border-gray-200/30 mb-8 shadow-violet-300 shadow-2xl">
   
     <%= form_with(model: @user, local: true, html: { class: 'card-body' }) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
@@ -8,13 +7,13 @@
                 <span class="relative top-[-20px]">新規登録</span>
             </label>
             <%= f.label :name, class: "block text-sm text-white dark:text-gray-200" %>
-            <%= f.text_field :name, class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2", required: true %>
+            <%= f.text_field :name, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40", required: true %>
         </div>
 
         <div class="mt-4">
             <div class="flex flex-col">
                 <%= f.label :email, User.human_attribute_name(:email), class: "block text-sm text-white dark:text-gray-200" %>
-                <%= f.email_field :email, class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>
+                <%= f.email_field :email, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" %>
             </div>
         </div>
 
@@ -23,14 +22,14 @@
                 <div class="flex justify-between items-center">
                     <%= f.label :password, User.human_attribute_name(:password), class: "block text-sm text-white dark:text-gray-200" %>   
                 </div>
-                <%= f.password_field :password, class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2", required: true %>
+                <%= f.password_field :password, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40", required: true %>
             </div>
         </div>
 
         <div class="mt-4">
             <div class="flex flex-col">
                 <%= f.label :password_confirmation, class: "block text-sm text-white dark:text-gray-200", required: true  %>
-                <%= f.password_field :password_confirmation, class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>
+                <%= f.password_field :password_confirmation, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" %>
             </div>
         </div>
 

@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_05_091142) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_07_080748) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "movie_weight_loss_goals", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "weight"
+    t.integer "calorie_burned"
+    t.integer "runtime"
+    t.date "weight_achieved_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_movie_weight_loss_goals_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "gender"
+    t.integer "age"
+    t.float "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
