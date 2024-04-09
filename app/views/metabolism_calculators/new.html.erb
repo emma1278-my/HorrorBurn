@@ -1,73 +1,53 @@
-  <p class="text-center text-lg text-white mt-6 ">
-    目標体重達を成のための目標映画視聴数を算出します
-    <br>以下質問にお答えください
-  </p>
- <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
-    <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
-    
-        <form>
+<p class="text-center text-lg text-white mt-6 ">
+  目標体重達を成のための目標映画視聴数を算出します
+  <br>以下質問にお答えください
+</p>
+<div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
+  <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
+    <%= form_with model: @profile, local: true do |form| %>
+      <div class="text-left mt-12 ml-10">
+        <%= form.label :height, '身 長 は ?', class: "mb-3 block text-base font-medium" %>
+        <%= form.number_field :height, id: "weight", placeholder: "cm", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %> cm
+      </div>
+      <div class="text-left mt-12 ml-10">
+        <%= form.label :weight, '体 重 は ?', class: "mb-3 block text-base font-medium" %>
+        <%= form.number_field :weight, id: "weight", placeholder: "kg", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %> kg
+      </div>
+      <div class="text-left mt-12 ml-10">
+        <label for="gender" class="mb-3 block text-base font-medium">
+          性 別 は ?
+        </label>
+        <div class="flex space-x-4 items-baseline group">
+          <div class="rounded-full flex bg-gray-50 border border-gray-300 py-2 px-4 space-x-4 group-checked:border-gray-500">
+            <%= form.radio_button :gender, :male, id: :gender_male, class: "gender" %>
+            <%= form.label :gender_male, "男性", class: "cursor-pointer peer-checked:text-blue-700 peer-checked:cursor-default text-gray-400" %>
+            <%= form.radio_button :gender, :female, id: :gender_female, class: "gender" %>
+            <%= form.label :gender_female, "女性", class: "cursor-pointer peer-checked:text-gray-800 peer-checked:cursor-default text-gray-400" %>
+          </div>
+        </div>
+      </div>
+      <div class="text-left mt-12 ml-10">
+        <%= form.label :age, '年 齢 は ?', class: "mb-3 block text-base font-medium" %>
+        <%= form.number_field :age, id: "age", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %> 歳
+      </div>
+      <%= form.fields_for :movie_weight_loss_goal do |movie_weight_loss_goal_form| %>
+        <div class="text-left mt-12 ml-10">
+          <%= movie_weight_loss_goal_form.label :weight, '目 標 体 重 は ?', class: "mb-3 block text-base font-medium" %>
+          <%= movie_weight_loss_goal_form.number_field :weight, id: "target_weight", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %> kg
+        </div>
+        <div class="-mx-3 flex flex-wrap">
+          <div class="w-full px-3 sm:w-1/2">
             <div class="text-left mt-12 ml-10">
-                <label for="height" class="mb-3 block text-base font-medium">
-                  身 長 は ?
-                </label>
-                <input type="text" name="name" id="name" placeholder="cm"
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" /> cm
+              <%= movie_weight_loss_goal_form.label :goal_date, "いつまでに達成したい？", class: "mb-3 block text-base font-medium" %>
+              <%= movie_weight_loss_goal_form.date_field :goal_date, id: "date", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %> までに
             </div>
-            <div class="text-left mt-12 ml-10">
-                <label for="weight" class="mb-3 block text-base font-medium">
-                    体 重 は ?
-                </label>
-                <input type="text" name="weight" id="weight" placeholder="kg"
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" /> kg
-            </div>
-            <div class="text-left mt-12 ml-10">
-                <label for="gender" class="mb-3 block text-base font-medium">
-                    性 別 は ?
-                </label>
-               <div class="flex space-x-4 items-baseline group">
-              <div class="rounded-full flex bg-gray-50 border border-gray-300 py-2 px-4 space-x-4 group-checked:border-gray-500">
-              <div>
-              <input type="radio" name="gender" id="gender" class="gender">
-             <label for="yes" class="cursor-pointer peer-checked:text-blue-700 peer-checked:cursor-default text-gray-400">男性</label>
-              </div>
-              <div>
-              <input type="radio" name="gender" id="gender" class="gender">
-              <label for="no" class="cursor-pointer peer-checked:text-gray-800 peer-checked:cursor-default text-gray-400">女性</label>
-              </div>
-              </div>
-            </div>   
-            </div>
-            <div class="text-left mt-12 ml-10">
-                <label for="age" class="mb-3 block text-base font-medium">
-                    年 齢 は ?
-                </label>
-                <input type="text" name="phone" id="phone" placeholder="歳"
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2"  /> 歳
-            </div>
-            <div class="text-left mt-12 ml-10">
-                <label for="target_weight" class="mb-3 block text-base font-medium">
-                    目 標 体 重 は ?
-                </label>
-                <input type="text" name="phone" id="phone" placeholder="kg"
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" /> kg
-            </div>
-
-            <div class="-mx-3 flex flex-wrap">
-                <div class="w-full px-3 sm:w-1/2">
-                    <div class="text-left mt-12 ml-10">
-                        <label for="date" class="mb-3 block text-base font-medium">
-                            い つ ま で に 達 成 し た い ？
-                        </label>
-                        <input type="date" name="date" id="date"
-                            class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" /> ま で に
-                    </div>
-                </div>
-            </div>
-          <div>
-             <div class="text-right mt-12 ml-10 mb-8"> 
-                <%= link_to "計算する", show_metabolism_calculators_path, class: 'btn btn-9 float-center shadow-lg rounded-lg shadow-violet-300' %>
-            </div>
-            </div>
-        </form>
-    </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="text-right mt-12 ml-10 mb-8">
+        <%= form.submit "計算する", class: 'btn btn-9 float-center shadow-lg rounded-lg shadow-violet-300 mt-6 mb-8 bg-violet-300' %>
+      </div>
+    <% end %>
+  </div>
 </div>
+

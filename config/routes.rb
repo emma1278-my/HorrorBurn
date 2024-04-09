@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'movies/search'
+  get 'movies/show'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? 
   
   root "tops#index"
@@ -19,9 +21,9 @@ Rails.application.routes.draw do
   post 'metabolism_calculators/show', to: 'metabolism_calculators#show', as: 'show_metabolism_calculators'
 
   resources :users, only: %i[new create]
-
+  resources :profiles
   # プロフィール
-  resource :profile, only: %i[show edit update]
+  resource :profile, only: %i[show edit update new create]
   get '/users/withdraw', to: 'users#withdraw'
   patch  '/users/withdraw' => 'users#withdraw'
 

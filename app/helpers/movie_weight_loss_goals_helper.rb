@@ -1,0 +1,2 @@
+module MovieWeightLossGoalsHelper
+end

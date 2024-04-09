@@ -1,6 +1,26 @@
 class MetabolismCalculatorsController < ApplicationController
   skip_before_action :require_login, only: [:new, :show]
   
+  def new
+    @profile = Profile.new
+    @movie_weight_loss_goal = MovieWeightLossGoal.new
+  end
+
+  def create
+    @profile = Profile.new(profile_params)
+    if @profile.save
+      @movie_weight_loss_goal = @profile.build_weight_loss_goal(movie_weight_loss_goal_params)
+      if @movie_weight_loss_goal.save
+        # 基礎代謝を算出する処理をここに記述
+        
+        redirect_to new_metabolism_calculators_path
+      else
+        lash.now[:alert] = t('.fail')
+      render :new, status: :unprocessable_entity
+    end
+  end
+end
+
   def calculate
     # calculate_bmr methodを呼び出し、結果を取得
     result = calculate_bmr(params[:gender], params[:weight].to_f, params[:height].to_f, params[:age].to_i)
@@ -30,9 +50,19 @@ class MetabolismCalculatorsController < ApplicationController
     @result = session[:result]
   end
 
-  # 計算結果のやり直し  
-  def destroy 
-    session.delete(:result)
-    # ここにリダイレクトなどの処理を書く
+  # 計算結果のやり直し
+def destroy
+  session.delete(:result)
+  redirect_to new_metabolism_calculators_path
+end
+
+  private
+
+  def profile_params
+    params.require(:profile).permit(:gender, :age, :height)
+  end
+
+  def movie_weight_loss_goal_params
+    params.require(:movie_weight_loss_goal).permit(:weight, :weight_achieved_date)
   end
 end

@@ -16,7 +16,7 @@ gem "puma", ">= 5.0"
 gem 'draper'
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
-
+gem 'themoviedb-api'
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
