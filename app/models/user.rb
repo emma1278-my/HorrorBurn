@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
+  has_one :profile
+  has_many :movie_weight_loss_goals
+
   private
     # ランダムなユーザーIDを生成
   def set_user_id

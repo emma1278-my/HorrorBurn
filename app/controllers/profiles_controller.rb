@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
       end
     end
   
+   
     private
   
     def set_user
@@ -22,7 +23,10 @@ class ProfilesController < ApplicationController
     end
   
     def user_params
-      params.require(:user).permit(:email, :name, :avatar, :avatar_cash)
+      params.require(:user).permit(:email, :name, :avatar, :avatar_cash, :height, :weight, :gender)
     end
   end
 
+  
+
+  

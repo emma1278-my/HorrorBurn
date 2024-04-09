@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_07_080748) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_08_052729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_07_080748) do
     t.integer "access_count_to_reset_password_page", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
+  end
+
+  create_table "weight_logs", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "weight"
+    t.date "measured_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

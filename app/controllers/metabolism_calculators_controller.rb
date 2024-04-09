@@ -1,20 +1,38 @@
 class MetabolismCalculatorsController < ApplicationController
   skip_before_action :require_login, only: [:new, :show]
+  
+  def calculate
+    # calculate_bmr methodを呼び出し、結果を取得
+    result = calculate_bmr(params[:gender], params[:weight].to_f, params[:height].to_f, params[:age].to_i)
+    session[:result] = result
 
-  def new
-    # ここでは特に初期化処理は必要ないが、フォームオブジェクトなどを使う場合はここで初期化する
+    # 計算結果をweight_loss_goalsテーブルに保存
+    movie_weight_loss_goal = MovieWeightLossGoal.new(result: result)
+    if movie_weight_loss_goal.save
+      # 保存に成功、結果を表示するためのshowページへリダイレクト
+      redirect_to new_metabolism_calculators_path
+    else
+      flash.now[:alert] = t('.fail')
+      render :new, status: :unprocessable_entity
+    end
   end
 
-  def create
-    # ここでフォームからの入力値を基に計算を行い、結果をセッションなどに保存
-    # 計算結果をshowアクションで表示するためには、その結果をどこかに一時的に保存する必要がある
-    # ここでは例としてセッションを使用
-    session[:calculation_result] = 計算結果
-    redirect_to metabolism_calculator_path(id: 何かしらの識別子)
+  def calculate_bmr(gender, weight, height, age)
+    if gender == 'male'
+      13.397 * weight + 4.799 * height - 5.677 * age + 88.362
+    elsif gender == 'female'
+      9.247 * weight + 3.098 * height - 4.33 * age + 447.593
+    end
   end
 
   def show
-    # createアクションで計算し保存した結果を取り出す
-    @result = session[:calculation_result]
+    # 計算結果を取得
+    @result = session[:result]
+  end
+
+  # 計算結果のやり直し  
+  def destroy 
+    session.delete(:result)
+    # ここにリダイレクトなどの処理を書く
   end
 end
