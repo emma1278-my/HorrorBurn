@@ -67,4 +67,7 @@ ja:
       success: 掲示板の作成が完了しました
     metabolism_calculators:
       new: 早速やってみよう
-    
+  tops:
+    title:
+      terms_of_service: 利用規約
+      privacy_policy: プライバシーポリシー  
