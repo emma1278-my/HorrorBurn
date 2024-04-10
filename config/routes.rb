@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'movies/search'
-  get 'movies/show'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? 
   
   root "tops#index"
@@ -10,8 +8,9 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
   get 'privacy_policy', to: 'tops#privacy_policy'
-  get "guest_login", to: "users#guest_login"
- 
+  get 'guest_login', to: "users#guest_login"
+  get 'movies/search', to: 'movies#search', as: 'movies_search'
+
    # 利用規約とプライバシーポリシー
   get 'terms_of_service', to: 'tops#terms_of_service'
   resources :password_resets, only: [:new, :create, :edit, :update]
@@ -26,6 +25,5 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update new create]
   get '/users/withdraw', to: 'users#withdraw'
   patch  '/users/withdraw' => 'users#withdraw'
-
-
+ 
 end
