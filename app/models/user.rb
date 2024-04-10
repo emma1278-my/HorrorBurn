@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :movie_weight_loss_goals
-
+  has_one :dashboard, class_name: 'UserDashboard'
   private
     # ランダムなユーザーIDを生成
   def set_user_id

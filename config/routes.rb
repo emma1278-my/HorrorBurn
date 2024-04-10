@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'privacy_policy', to: 'tops#privacy_policy'
   get 'guest_login', to: "users#guest_login"
   get 'movies/search', to: 'movies#search', as: 'movies_search'
+  get 'dashboards/index', to: 'dashboards#index', as: 'dashboard_path'
 
    # 利用規約とプライバシーポリシー
   get 'terms_of_service', to: 'tops#terms_of_service'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :profiles
+  resources :dashboards, only: %i[index create show]
   # プロフィール
   resource :profile, only: %i[show edit update new create]
   get '/users/withdraw', to: 'users#withdraw'
