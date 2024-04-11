@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  
+  accepts_nested_attributes_for :profile, :movie_weight_loss_goals
+
   mount_uploader :avatar, AvatarUploader
   
   validates :email, uniqueness: true, presence: true
@@ -13,6 +14,7 @@ class User < ApplicationRecord
   has_one :profile
   has_many :movie_weight_loss_goals
   has_one :dashboard, class_name: 'UserDashboard'
+  
   private
     # ランダムなユーザーIDを生成
   def set_user_id
