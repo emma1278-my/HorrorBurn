@@ -11,12 +11,12 @@
             </svg>
             Manage dashboard
           </button>
-          <button class="inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-            体重を入力する
-          </button>
+        <%= link_to weight_logs_path, class: "btn btn-7 inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3" do %>
+       <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+       </svg>
+       体重を入力する
+       <% end %>
         </div>
       </div>
       <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -69,7 +69,7 @@
       </section>
       <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
         <div class="flex flex-col md:col-span-2 md:row-span-2 bg-white shadow rounded-lg">
-          <div class="px-6 py-5 font-semibold border-b border-gray-100">体重記録</div>
+          <div class="px-6 py-3 font-semibold border-b border-gray-100">体重記録</div>
           <div class="p-4 flex-grow">
             <div class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
           </div>

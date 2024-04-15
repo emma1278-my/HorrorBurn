@@ -7,7 +7,7 @@
         <form>
             <div class="text-left mt-12 ml-10">
                 <label for="height" class="mb-3 block text-base font-medium">
-                  期 間 ま で     
+                  減 量 目 標 体 重     
                 </label>
                 <input type="text" name="day" id="day" 
                     class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" /> kg
@@ -15,9 +15,9 @@
             <div class="text-left mt-12 ml-10">
                 <label for="weight" class="mb-3 block text-base font-medium">
                   基 礎 代 謝
+              
+                <p>基礎代謝: <%= @basal_metabolic_rate %> kcal</p>  
                 </label>
-                <input type="text" name="weight" id="weight" 
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" /> kcal
             </div>
       
             <div class="text-left mt-12 ml-10">
@@ -29,10 +29,10 @@
             </div>
             <div class="text-left mt-12 ml-10 mb-8">
                 <label for="target_weight" class="mb-3 block text-base font-medium">
-                    目 標 ま で        
+                    目 標 体 重 ま で        
                 </label>
                 <input type="text" name="phone" id="phone" 
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />  分 映 画 を 観 ま し ょ う
+                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />  分 ホ ラ ー 映 画 を 観 ま し ょ う
         <div class="max-w-md mt-6">
          <%= link_to 'やり直す', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300 mb-8" %>
         </div>

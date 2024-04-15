@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :profiles
   resources :dashboards, only: %i[index create show]
+  resources :weight_logs, only: %i[create edit update]
+  get 'weight_logs', to: 'weight_logs#new'
   # プロフィール
   resource :profile, only: %i[show edit update new create]
   get '/users/withdraw', to: 'users#withdraw'
