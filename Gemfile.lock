@@ -104,6 +104,7 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
+    chartkick (5.0.6)
     childprocess (5.0.0)
     concurrent-ruby (1.2.3)
     config (5.4.0)
@@ -133,6 +134,8 @@ GEM
       net-http
     ffi (1.16.3)
     globalid (1.2.1)
+      activesupport (>= 6.1)
+    groupdate (6.4.0)
       activesupport (>= 6.1)
     hashie (5.0.0)
     http-accept (1.7.0)
@@ -332,10 +335,12 @@ DEPENDENCIES
   bootsnap
   capybara
   carrierwave
+  chartkick
   config
   cssbundling-rails
   debug
   draper
+  groupdate
   jbuilder
   jsbundling-rails
   letter_opener_web

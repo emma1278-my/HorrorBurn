@@ -10,11 +10,11 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :movie_weight_loss_goals
   accepts_nested_attributes_for :profile, :movie_weight_loss_goals
   has_one :dashboard, class_name: 'UserDashboard'
- 
+  has_many :weight_logs, dependent: :destroy
 
   
   private
