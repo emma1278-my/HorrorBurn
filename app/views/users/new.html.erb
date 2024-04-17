@@ -1,5 +1,5 @@
 <div class="w-full max-w-sm p-6 m-auto mx-auto backdrop-blur-lg rounded-md border border-gray-200/30 mb-8 shadow-violet-300 shadow-2xl">
-  
+   <script src="https://accounts.google.com/gsi/client" async defer></script>
     <%= form_with(model: @user, local: true, html: { class: 'card-body' }) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div>
@@ -39,14 +39,20 @@
     <% end %> 
 
     <div class="mt-6">
-        <button type="button" class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
-        <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
-        <path fill-rule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clip-rule="evenodd"/>
-        </svg>
-       Googleでログイン
-    </button>
-
+      <div id="g_id_onload"
+      data-client_id="398057253598-bkae77077iqivgd6s2j85i7tmr1jnmla.apps.googleusercontent.com"
+      data-login_uri="http://localhost:3000/oauth/callback?provider=google"
+      data-auto_prompt="false">
     </div>
+    <div class="g_id_signin"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left">
+    </div>
+  
     
     <div class="mt-6 mb-8">
     <button class="relative z-10 bg-[#b621fe] border-none rounded-md text-white py-3 px-6 text-base font-medium focus:shadow-md w-1/2 transition duration-300 ease-in-out hover:bg-[#663dff] hover:text-white active:top-[2px] shadow-violet-300 shadow-xl focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">

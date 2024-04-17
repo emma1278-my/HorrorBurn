@@ -15,7 +15,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile, :movie_weight_loss_goals
   has_one :dashboard, class_name: 'UserDashboard'
   has_many :weight_logs, dependent: :destroy
-
+  has_many :authentications, :dependent => :destroy
+  accepts_nested_attributes_for :authentications
   
   private
 

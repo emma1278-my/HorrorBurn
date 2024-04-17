@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'oauths/oauth'
+  get 'oauths/callback'
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? 
   
   root "tops#index"
@@ -6,12 +9,15 @@ Rails.application.routes.draw do
   get 'top_index' , to: 'tops#index'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy'
   get 'privacy_policy', to: 'tops#privacy_policy'
   get 'guest_login', to: "users#guest_login"
   get 'movies/search', to: 'movies#search', as: 'movies_search'
   get 'dashboards/index', to: 'dashboards#index', as: 'dashboard_path'
-
+  
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  
    # 利用規約とプライバシーポリシー
   get 'terms_of_service', to: 'tops#terms_of_service'
   resources :password_resets, only: [:new, :create, :edit, :update]
