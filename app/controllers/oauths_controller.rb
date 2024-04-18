@@ -1,9 +1,7 @@
 class OauthsController < ApplicationController
-  protect_from_forgery except: :callback
+  skip_before_action :require_login
   
-  skip_before_action :require_login, raise: false
-
-   def oauth
+  def oauth
     #指定されたプロバイダの認証ページにユーザーをリダイレクトさせる
     login_at(auth_params[:provider])
   end
@@ -11,7 +9,7 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
     # 既存のユーザーをプロバイダ情報を元に検索し、存在すればログイン
-    if (@user = login_url(provider))
+    if (@user = login_from(provider))
       redirect_to root_path, notice:"#{provider.titleize}アカウントでログインしました"
     else
       begin

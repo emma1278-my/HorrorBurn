@@ -38,26 +38,24 @@
         </div>
     <% end %> 
 
-    <div class="mt-6">
-      <div id="g_id_onload"
-      data-client_id="398057253598-bkae77077iqivgd6s2j85i7tmr1jnmla.apps.googleusercontent.com"
-      data-login_uri="http://localhost:3000/oauth/callback?provider=google"
-      data-auto_prompt="false">
+  <div class="mt-6">
+    <div class="relative flex items-center justify-center">
+      <span class="absolute inset-x-0 h-px bg-gray-300"></span>
+      <span class="relative px-4 text-sm text-gray-400 bg-zinc-900">または</span>
     </div>
-    <div class="g_id_signin"
-      data-type="standard"
-      data-size="large"
-      data-theme="outline"
-      data-text="sign_in_with"
-      data-shape="rectangular"
-      data-logo_alignment="left">
-    </div>
-  
+  </div> 
+        <div class ="mt-6">
+      <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
+ 
+
+  </div>
     
-    <div class="mt-6 mb-8">
-    <button class="relative z-10 bg-[#b621fe] border-none rounded-md text-white py-3 px-6 text-base font-medium focus:shadow-md w-1/2 transition duration-300 ease-in-out hover:bg-[#663dff] hover:text-white active:top-[2px] shadow-violet-300 shadow-xl focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-    <%= link_to "ゲストユーザーでお試し", guest_login_path %>
-    </button>
-    </div>
+   <div class="mt-6 mb-8">
+  <button class="relative z-10 bg-[#b621fe] border-none rounded-md text-white py-3 px-6 text-base font-medium focus:shadow-md transition duration-300 ease-in-out hover:bg-[#663dff] hover:text-white active:top-[2px] shadow-violet-300 shadow-xl focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+    <%= link_to "ゲストユーザーで試す", guest_login_path, class: "text-white no-underline inline-block" %>
+  </button>
+</div>
   </div>  
+</div>
+</div>
 </div>

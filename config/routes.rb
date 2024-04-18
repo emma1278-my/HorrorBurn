@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'guest_login', to: "users#guest_login"
   get 'movies/search', to: 'movies#search', as: 'movies_search'
   get 'dashboards/index', to: 'dashboards#index', as: 'dashboard_path'
+  delete 'logout', to: 'user_sessions#destroy'
   
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback"

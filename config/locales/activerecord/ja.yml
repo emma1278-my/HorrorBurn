@@ -40,6 +40,8 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+    guest_login:
+      success: お試し版です。ぜひ新規登録してお楽しみください！  
   header:
     login: ログイン
     logout: ログアウト
@@ -74,3 +76,6 @@ ja:
   dashboards:
     show:
       title: マイページ  
+  weight_logs:
+    create:
+      save_weight_log: 体重を記録しました 

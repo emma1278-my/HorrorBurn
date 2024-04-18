@@ -155,10 +155,10 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
-  config.google.key = "YOUR_GOOGLE_CLIENT_ID"
-  config.google.secret = "YOUR_GOOGLE_CLIENT_SECRET"
-  config.google.callback_url = "YOUR_APPLICATION_CALLBACK_URL"
-  config.google.user_info_mapping = {:email => "email"}
+  config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
+  config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
+  config.google.callback_url = 'http://localhost:3000/oauth/callback?provider=google'
+  config.google.user_info_mapping = {:email => "email", :username => "name"}
 
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
@@ -224,7 +224,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.line.bot_prompt = "normal"
   # config.line.user_info_mapping = {name: 'displayName'}
 
-  
+  config.user_class = "User"
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2
   # config.discord.key = "xxxxxx"
