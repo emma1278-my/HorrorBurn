@@ -1,62 +1,55 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-<body class="flex bg-gray-100 min-h-screen mt-6 mb-6 text-white">        
+<body class="flex bg-gray-100 min-h-screen mt-6 mb-6 text-white ">        
     <main class="p-6 sm:p-10 space-y-6">
       <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
         <div class="mr-6">
           <h1 class="text-4xl font-semibold mb-2 text-white"><%= t('.title') %></h1>
         </div>
-        <div class="flex flex-wrap items-start justify-end -mb-3">
-          <button class="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3">
+          <div class="flex flex-wrap items-start justify-end -mb-3">
+          <%= link_to movies_search_path, class: "inline-flex px-5 py-3 text-purple bg-white hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline" do %>       
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
             </svg>
-            Manage dashboard
-          </button>
-        <%= link_to weight_logs_path, class: "inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3" do %>
-       <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
-       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-       </svg>
-       体重を入力する
-       <% end %>
+              映画を入力
+            <% end %>
+
+          <%= link_to weight_logs_path, class: "inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline" do %>
+          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+            体重を入力
+          <% end %>
+          </div>
         </div>
-      </div>
       <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
+        <div class="flex items-center p-8 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
           <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-200 rounded-full mr-6">
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0 1 18 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-3.75 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0 1 18 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 0 1 6 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
             </svg> 
-
-
-
-
-
-
           </div>
           <div>
-            <span class="block text-2xl font-bold">62</span>
+            <span class="block text-2xl font-bold">62 本</span>
             <span class="block text-gray-500">映画視聴数</span>
           </div>
         </div>
         
-          <div class="flex items-center p-8 bg-white shadow rounded-lg">
+          <div class="flex items-center p-8 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
           <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-teal-600 bg-teal-100 rounded-full mr-6">
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <div>
-            <span class="block text-2xl font-bold">139分</span>
+            <span class="block text-2xl font-bold">139 分</span>
             <span class="block text-gray-500">総映画視聴時間</span>
           </div>
         </div>
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
+        <div class="flex items-center p-8 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
           <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">         
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" />
             </svg>
-
-        
           </div>
       <div>
         <% if @weight_logs.present? %>
@@ -70,38 +63,36 @@
       </section>
 
       <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
-        <div class="flex flex-col md:col-span-2 md:row-span-2 bg-white shadow rounded-lg">
-          <div class="px-6 py-3 font-semibold border-b border-gray-100">体重記録</div>
-          <div class="p-4 flex-grow">
-            <div class="p-4 flex-grow rounded-md">  
-          <%= line_chart @weight_logs.map { |created_at, weight| { created_at.strftime("%Y年%m月%d日") => weight } }.inject(:merge),
-            height: "800px",
-            library: {
-              xtitle: "日付",
-              ytitle: "体重",
-              suffix: "kg",
-              backgroundColor: '#252525',
-              chartArea: { backgroundColor: '#252525' },
-              vAxis: {
-                viewWindow: {
-                  min: @min_weight,
-                  max: @max_weight
-                },
-                textStyle: { color: '#ffffff' }
-              },
-                hAxis: {
-                textStyle: { color: '#ffffff' }
-              },
-              series: {
-                0 => { color: '#6633CC' }
-              }
-            } %>
-            </div>
+        <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
+          <div class="px-6 py-3 font-semibold border-b border-gray-100 mt-2">体重記録</div>
+            <div class="p-4 flex-grow">
+              <div class="p-4 flex-grow rounded-md">  
+                <%= line_chart @weight_logs.map { |created_at, weight| { created_at.strftime("%Y年%m月%d日") => weight } }.inject(:merge),
+                  suffix: "kg",
+                  height: "800px",
+                  library: {
+                  xtitle: "日付",
+                  ytitle: "体重",
+                  backgroundColor: '#252525',
+                  chartArea: { backgroundColor: '#252525', width: '80%', height: '80%' },
+                  vAxis: {
+                    viewWindow: {
+                      min: @min_weight,
+                      max: @max_weight
+                    },
+                    textStyle: { color: '#ffffff' }
+                    },
+                  hAxis: {
+                    textStyle: { color: '#ffffff' }
+                  },
+                  series: { 0 => { color: '#6633CC' } }
+                  } %>
+              </div>
             </div> 
-        </div>
+          </div>
                 
-        <div class="row-span-3 bg-white shadow rounded-lg">
-          <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
+        <div class="row-span-3 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
+          <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100 ">
             <span>映画視聴履歴</span>
             <button type="button" class="inline-flex justify-center rounded-md px-1 -mr-1 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-600" id="options-menu" aria-haspopup="true" aria-expanded="true">
               Descending
@@ -172,15 +163,15 @@
             </ul>
           </div>
         </div>
-        <div class="flex flex-col row-span-3 bg-white shadow rounded-lg">
-        
+
+
+        <div class="flex flex-col row-span-3 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
           <div class="px-6 py-5 font-semibold border-b border-gray-100">あなたにおススメの映画</div>
-          <div class="p-4 flex-grow">
-            <div class="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">movies</div>
+            <div class="p-4 flex-grow">
+              <div class="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">movies</div>
+            </div>
           </div>
-        </div>
-      </section>
-     
+      </section> 
     </main>
   </div>
 </body>
