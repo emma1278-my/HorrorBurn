@@ -30,21 +30,10 @@
 
   <div class="flex items-center mt-2 -mx-1 mb-6">
     <button class="flex items-center justify-center w-full px-6 py-2 mx-9 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none shadow-blue-300 shadow-lg">
-      <div class="mt-6">
-      <div id="g_id_onload"
-      data-client_id="398057253598-bkae77077iqivgd6s2j85i7tmr1jnmla.apps.googleusercontent.com"
-      data-login_uri="http://localhost:3000/oauth/callback?provider=google"
-      data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin"
-      data-type="standard"
-      data-size="large"
-      data-theme="outline"
-      data-text="sign_in_with"
-      data-shape="rectangular"
-      data-logo_alignment="left">
-    </div>
-      <span class="hidden mx-2 sm:inline">Googleアカウントでログイン</span>
+
+      <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
+
+    
     </button>
   </div>
 </div>

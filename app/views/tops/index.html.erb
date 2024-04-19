@@ -5,17 +5,64 @@
       <p class="mt-4 text-lg text-gray-300">
         </p>
     </div>
-  <div class="max-w-2xl mx-auto">
+  <div class="max-w-2xl mx-auto text-white">
+  <p><span class="block float-left text-6xl mr-3 mb-3 text-center">2</span>012年のウエストミンスター大学の研究では、体重50㎏の女性が90分のホラー映画を観ると、30分間ほどウォーキングをしたのと同じ約113カロリーを消費することが明らかになっています。 恐い映像やホラー映画の視聴後に感じる疲労感は、恐怖や緊張によって引き起こされる心拍数の上昇や基礎代謝の増加により、カロリーが消費されると考えられます。つまりホラー映画を見るだけでダイエットが実現できるということです。本アプリはホラー映画を見ながらダイエットの継続をサポートします。</p>
+   <p class="text-center text-3xl text-gray-300 mt-12">アプリの使い方</p>
   </div>
-    <div class="hero min-h-screen bg-base-200">
-      <div class="max-w-md">
-      <%= link_to '早速つかってみる', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
-    </div>
-   
-  </div>
-
   
-     
-   
+  
+    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 p-4 md:p-8">
+    <!-- Step 1 -->
+    <div
+        class="p-8 py-12 sm:p-12 rounded-3xl bg-white border border-gray-100 bg-opacity-50 shadow-2xl shadow-gray-600/10">
+        <div class="space-y-12">
+            <div class="m-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-50">
+                <span class="font-bold text-xl text-green-600">1</span>
+            </div>
+            <div class="space-y-4">
+                <h3 class="text-2xl font-semibold text-gray-800 transition text-center">Data Collection</h3>
+                <p class="text-gray-600">Upload diverse datasets containing various types of information for analysis.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div
+        class="p-8 py-12 sm:p-12 rounded-3xl bg-white border border-gray-100 bg-opacity-50 shadow-2xl shadow-gray-600/10">
+        <div class="space-y-12">
+            <div class="m-auto flex h-12 w-12 items-center justify-center rounded-full bg-orange-50">
+                <span class="font-bold text-xl text-orange-600">2</span>
+            </div>
+            <div class="space-y-4">
+                <h3 class="text-2xl font-semibold text-gray-800 transition text-center">Model Training</h3>
+                <p class="text-gray-600">Allow the AI model to learn patterns and insights from the provided data. This
+                    may take some time.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div
+        class="p-8 py-12 sm:p-12 rounded-3xl bg-white border border-gray-100 bg-opacity-50 shadow-2xl shadow-gray-600/10">
+        <div class="space-y-12">
+            <div class="m-auto flex h-12 w-12 items-center justify-center rounded-full bg-purple-50">
+                <span class="font-bold text-xl text-purple-600">3</span>
+            </div>
+            <div class="space-y-4">
+                <h3 class="text-2xl font-semibold text-gray-800 transition text-center">Insights Delivery</h3>
+                <p class="text-gray-600">Receive comprehensive insights and analysis results based on the trained AI
+                    model.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex flex-col space-y-8 mt-7">
+  <div class="hero bg-base-200 mt-17 space-y-12">
+    <div class="max-w-md">
+      <%= link_to '早速使ってみる', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 btn-effect mt-16" %>
+    </div>
+  </div>
+  </div>
 </section>
 

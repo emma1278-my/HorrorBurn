@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'oauths/oauth'
-  get 'oauths/callback'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? 
   
@@ -36,5 +34,11 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update new create]
   get '/users/withdraw', to: 'users#withdraw'
   patch  '/users/withdraw' => 'users#withdraw'
- 
+
+  resources :movies, only: [:show] do
+    collection do
+      get :search
+    end
+  end
+  resource :dashboard, only: [:show]
 end
