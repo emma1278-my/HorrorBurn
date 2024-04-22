@@ -6,7 +6,7 @@ class MovieWeightLossGoal < ApplicationRecord
     user = @movie_weight_loss_goal.user
     @basal_metabolic_rate = user.calculate_bmr
     # 1日の消費カロリは、必要なパラメータに応じて呼び出す
-    @daily_calorie_consumption = user.calculate_daily_calories(mets, movie_watching_hours)
+    @daily_calorie_consumption = user.calculate_daily_calories(mets, movie_runtime)
   end
 
   def total_runtime(target_calories)

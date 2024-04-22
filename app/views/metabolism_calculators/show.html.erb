@@ -1,22 +1,21 @@
   <p class="text-center text-lg text-white mt-6 ">
-    結果がこちら！
+    結果がこちら
   </p>
- <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
-    <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
+<div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
+  <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
     
         <form>
             <div class="text-left mt-12 ml-10">
                 <label for="height" class="mb-3 block text-base font-medium">
-                  減 量 目 標 体 重     
+                  目 標 減 量 体 重 ま で 後   
                 </label>
-                <input type="text" name="day" id="day" 
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" /> kg
+                
+                 <span class="block text-2xl font-bold"><%= @weight_difference.abs %> kg</span>
             </div>
             <div class="text-left mt-12 ml-10">
                 <label for="weight" class="mb-3 block text-base font-medium">
                   基 礎 代 謝
-              
-                <p>基礎代謝: <%= @basal_metabolic_rate %> kcal</p>  
+              <span class="block text-2xl font-bold"><%= @results[:bmr] %> kcal</span>
                 </label>
             </div>
       
@@ -24,22 +23,21 @@
                 <label for="age" class="mb-3 block text-base font-medium">
                    目 標 ま で の 総 消 費 カ ロ リ ー
                 </label>
-                <input type="text" name="phone" id="phone" 
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2"  /> kcal
+                <span class="block text-2xl font-bold"><%= @results[:total_calories] %> kcal</span> 
             </div>
             <div class="text-left mt-12 ml-10 mb-8">
                 <label for="target_weight" class="mb-3 block text-base font-medium">
                     目 標 体 重 ま で        
                 </label>
-                <input type="text" name="phone" id="phone" 
-                    class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" />  分 ホ ラ ー 映 画 を 観 ま し ょ う
-        <div class="max-w-md mt-6">
-         <%= link_to 'やり直す', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300 mb-8" %>
-        </div>
-            </div>
-            </div>
-            
-         
-        </form>
+                 <span class="block text-2xl font-bold"><%= @results[:total_movie_runtime] %></span> 分 ホ ラ ー 映 画 を 観 ま し ょ う
+        <div class="max-w-md mt-6 mr-4">
+  <%= link_to 'やり直す', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
+</div>
+    <div class="pl-2 mr-4 max-w-md mt-10">
+      <%= link_to 'マイページへ', dashboard_path, class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300" %>
     </div>
+            </div>
+            </div>
+        </form>
+  </div>
 </div>
