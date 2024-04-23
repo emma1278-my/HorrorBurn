@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   require 'themoviedb-api'
-  Tmdb::Api.key("1f9e177c4c3d2fcfc3db47f6ff5d8fad")
   Tmdb::Api.language("ja")
 
 
@@ -12,6 +11,7 @@ class MoviesController < ApplicationController
         url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja"
       end
       @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
+      @movies = response['results']
   end
   
   def show

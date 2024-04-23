@@ -38,11 +38,11 @@ class ProfilesController < ApplicationController
     end
   
     def user_params
-      params.require(:user).permit(:email, :name, :avatar, :avatar_cash, :height, :weight, :gender)
+      params.require(:user).permit(:email, :name, :avatar, :avatar_cash, :weight)
     end
 
     def calculator_params
-      params.require(:metabolism_calculator).permit(:weight, :height, :age, :gender)
+      params.require(:metabolism_calculator).permit(:weight)
     end
   end
 

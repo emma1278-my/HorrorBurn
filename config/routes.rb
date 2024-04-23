@@ -20,6 +20,7 @@ Rails.application.routes.draw do
    # 利用規約とプライバシーポリシー
   get 'terms_of_service', to: 'tops#terms_of_service'
   resources :password_resets, only: [:new, :create, :edit, :update]
+  
   # 基礎代謝算出
   resources :metabolism_calculators
   get 'metabolism_calculators/new', to: 'metabolism_calculators#new', as: 'new_metabolism_calculators'
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   resources :dashboards, only: %i[index create show]
   resources :weight_logs, only: %i[create edit update]
   get 'weight_logs', to: 'weight_logs#new'
+
   # プロフィール
   resource :profile, only: %i[show edit update new create]
   get '/users/withdraw', to: 'users#withdraw'

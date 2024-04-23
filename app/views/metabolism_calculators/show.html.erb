@@ -8,28 +8,20 @@
             <div class="text-left mt-12 ml-10">
                 <label for="height" class="mb-3 block text-base font-medium">
                   目 標 減 量 体 重 ま で 後   
-                </label>
-                
-                 <span class="block text-2xl font-bold"><%= @weight_difference.abs %> kg</span>
-            </div>
-            <div class="text-left mt-12 ml-10">
-                <label for="weight" class="mb-3 block text-base font-medium">
-                  基 礎 代 謝
-              <span class="block text-2xl font-bold"><%= @results[:bmr] %> kcal</span>
-                </label>
-            </div>
-      
+                </label>                
+             <span class="block text-2xl font-bold">kg</span>
+            </div>      
             <div class="text-left mt-12 ml-10">
                 <label for="age" class="mb-3 block text-base font-medium">
-                   目 標 ま で の 総 消 費 カ ロ リ ー
+                   目 標 体 重 到 達 ま で に 必 要 な カ ロ リ ー
                 </label>
-                <span class="block text-2xl font-bold"><%= @results[:total_calories] %> kcal</span> 
+                <span class="block text-2xl font-bold"> kcal</span> 
             </div>
             <div class="text-left mt-12 ml-10 mb-8">
                 <label for="target_weight" class="mb-3 block text-base font-medium">
                     目 標 体 重 ま で        
                 </label>
-                 <span class="block text-2xl font-bold"><%= @results[:total_movie_runtime] %></span> 分 ホ ラ ー 映 画 を 観 ま し ょ う
+                 <span class="block text-2xl font-bold"></span> 分 ホ ラ ー 映 画 を 観 ま し ょ う
         <div class="max-w-md mt-6 mr-4">
   <%= link_to 'やり直す', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
 </div>

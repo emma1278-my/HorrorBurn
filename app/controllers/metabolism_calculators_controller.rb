@@ -12,15 +12,7 @@ class MetabolismCalculatorsController < ApplicationController
   def create
     # フォームから送信されたパラメータを受け取る
     weight = params[:weight].to_f
-    height = params[:height].to_f
-    age = params[:age].to_i
-    gender = params[:gender]
-    # 性別に応じた性別指数の設定
-    gender = user.male? ? 0.5473 : (0.5473 * 2)
-    # BMRの計算
-    bmr = calculate_bmr(weight, height, age, gender)
-    # 目標までの総消費カロリーの算出
-    total_calories = total_calories_needed(bmr)
+
     # ホラー映画視聴で消費するための総時間の計算
     total_movie_runtime = total_movie_runtime_needed_for_movies(total_calories)
     # 計算結果をビューに渡す
@@ -47,25 +39,9 @@ class MetabolismCalculatorsController < ApplicationController
   end
 
   private
-  
-  # ここに先ほどの計算メソッドを定義する
-  def calculate_bmr(weight, height, age, gender)
-    ((0.1238 + (0.0481 * weight) + (0.0234 * height) - (0.0138 * age) - gender) * 1000) / 4.186
-  end
-
-  def total_calories_needed(bmr)
-    bmr * 1.2
-  end
-
-  def total_hours_needed_for_movies(total_calories)
-     # ホラー映画を観て消費されるカロリーで割る
-  movie_sessions_needed = total_calories / 113.0 
-  # 必要なホラー映画視聴回数に90分を乗じて総視聴時間を求める
-  movie_sessions_needed * 90 
-  end
 
   def profile_params
-    params.require(:profile).permit(:gender, :age, :height)
+    params.require(:profile).permit(:weight)
   end
 
   def movie_weight_loss_goal_params
