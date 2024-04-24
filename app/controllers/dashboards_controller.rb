@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   before_action :require_login
-  before_action :check_guest_user, only: [:dashboard]
+  before_action :check_guest_user
 
   def show
     @user = current_user

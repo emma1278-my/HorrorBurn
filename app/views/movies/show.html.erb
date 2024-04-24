@@ -1,10 +1,25 @@
-<div class="movie-detail text-white">
+<section class="flex relative justify-center p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300">
+  <div class="movie-detail text-white">
+    <div class="text-center">
+      <p class="text-lg font-extrabold tracking-tight text-white mb-8">
+        <%= link_to dashboard_path(movie_id: @movie['id']), class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-2 py-1 no-underline float-right" do %>       
+          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+              映画を入力
+            <% end %>  
+      </p>
+    </div>
+   
     <p><%= @movie['title'] %></p>
-    <p><%= @movie['release_date'] %></p>
-    <p><%= @movie['runtime'] %>分</p>
+    <p>公開日 <%= @movie['release_date'] %></p>
+    <p>上映時間 <%= @movie['runtime'] %>分</p>
     <% if @movie['poster_path'] %>
         <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'],class: "card-size" %></p>
     <% end %>
     <p><%= @movie['overview'] %></p>
-    <%#= link_to "マイページへ", dashboard_path(movie_id: @movie['id']) %>
-</div>
+    <div class="ml-auto"> 
+ 
+    <%= link_to "検索ページに戻る", movies_search_path(movie_id: @movie['id']), class: "text-white bg-blue-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
+  </div>
+</section>

@@ -26,10 +26,13 @@
           <div class="card">
             <div class="card-upperinfo">
               <% if movieinfo['table']['results'][i]['table']['title'].present? %>
-                <h3><%= link_to movieinfo['table']['results'][i]['table']['title'], movie_path(movieinfo['table']['results'][i]['table']['id']) %></h3>
+                <h3 class><%= link_to movieinfo['table']['results'][i]['table']['title'], movie_path(movieinfo['table']['results'][i]['table']['id']), class: "text-white no-underline"%></h3>
               <% end %>
               <% if movieinfo['table']['results'][i]['table']['release_date'].present? %>
-                <p class="release-date text-white"><%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
+                <p class="release-date text-white">公開日:  <%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
+              <% end %>
+              <% if movieinfo['table']['results'][i]['table']['runtime'].present? %>
+                <p class="runtime text-white"><%= movieinfo['table']['results'][i]['table']['runtime'] %></p>
               <% end %>
             </div>
             <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
@@ -41,4 +44,5 @@
       </div>
     <% end %>
   </div>
+   <%= paginate @movies %>
 </section>

@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 
 
   def search
+    page_number = params[:page] || 1
     if params[:looking_for]
       movie_title = params[:looking_for]
       url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title)
@@ -10,7 +11,7 @@ class MoviesController < ApplicationController
       url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja"
     end
     response = Net::HTTP.get(URI.parse(url))
-    @movies = JSON.parse(response)['results']
+    @movies = Kaminari.paginate_array(JSON.parse(response)['results']).page(page_number).per(10)
   end
   
   def show
