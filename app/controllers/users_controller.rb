@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def guest_login
     @guest_user = User.create(
     name: 'ゲスト',
-    email: SecureRandom.uuid + "@email.com",
+    email: SecureRandom.uuid + "@example.com",
     password: 'password',
     password_confirmation: 'password',)
     auto_login(@guest_user)

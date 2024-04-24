@@ -1,7 +1,7 @@
-<div class="movie-detail">
+<div class="movie-detail text-white">
     <p><%= @movie['title'] %></p>
     <p><%= @movie['release_date'] %></p>
-    <p><%= @movie['runtime'] %></p>
+    <p><%= @movie['runtime'] %>分</p>
     <% if @movie['poster_path'] %>
         <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'],class: "card-size" %></p>
     <% end %>
