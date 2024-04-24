@@ -25,13 +25,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
 
   create_table "movie_weight_loss_goals", force: :cascade do |t|
     t.integer "user_id"
-    t.float "weight"
-    t.integer "calorie_burned"
-    t.integer "runtime"
-    t.date "weight_achieved_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_movie_weight_loss_goals_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -54,12 +49,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "gender"
-    t.integer "age"
-    t.float "height"
+    t.bigint "user_id", null: false
+    t.integer "target_calorie"
+    t.float "target_weight"
+    t.integer "remaining_runtime"
+    t.date "weight_achieved_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,5 +87,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
 
   add_foreign_key "movies_histories", "movies"
   add_foreign_key "movies_histories", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "weight_logs", "users"
 end

@@ -10,42 +10,37 @@ class MetabolismCalculatorsController < ApplicationController
   end
 
   def create
-    # フォームから送信されたパラメータを受け取る
-    weight = params[:weight].to_f
-
-    # ホラー映画視聴で消費するための総時間の計算
-    total_movie_runtime = total_movie_runtime_needed_for_movies(total_calories)
+    # フォームから送られてきたデータ
+    current_weight = params[:current_weight].to_f
+    target_weight = params[:target_weight].to_f
+    @remaining_weight = current_weight - target_weight
+    # 計算式
+    calories_per_movie = 113 # 90分のホラー映画で消費されるカロリー
+    movie_duration = 90 # ホラー映画の時間（分）
+    @target_calorie = (current_weight - target_weight) * 7200
+    # 必要なホラー映画視聴時間を計算
+    @remaining_runtime = (@target_calorie / 113.0) * movie_duration
+    session[:remaining_weight] = @remaining_weight
+    session[:target_calorie] = @target_calorie
+    session[:remaining_runtime] = @remaining_runtime
     # 計算結果をビューに渡す
-    @results = {
-      bmr: bmr,
-      total_calories: total_calories,
-      total_movie_runtime: total_movie_runtime
-    }
-     
-  if movie_weight_loss_goal.save
-    redirect_to show_metabolism_calculators_path
-  else
-    flash.now[:alert] = t(".alert")
-      render :new, status: :unprocessable_entity
-    end 
+    render :show, notice: '計算完了！'
   end
 
-  
 
   # 計算結果のやり直し
   def destroy
-    session.delete(:result)
+    session.delete(:remaining_weight)
+    session.delete(:target_calorie)
+    session.delete(:remaining_runtime)
+   
     redirect_to new_metabolism_calculators_path
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:weight)
-  end
-
-  def movie_weight_loss_goal_params
-    params.require(:movie_weight_loss_goal).permit(:weight, :weight_achieved_date)
+    params.require(:profile).permit(:weight, :weight_achieved_date)
   end
 end
 
