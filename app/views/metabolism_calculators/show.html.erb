@@ -1,4 +1,4 @@
-  <p class="text-center text-lg text-white mt-6 ">
+  <p class="text-center text-lg text-white mt-6">
     結果がこちら
   </p>
 <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
@@ -14,20 +14,20 @@
                 <label for="age" class="mb-3 block text-base font-medium">
                    目 標 体 重 到 達 ま で に 必 要 な カ ロ リ ー
                 </label>
-                <span class="block text-2xl font-bold"><%= session[:target_calorie].round %> kcal</span> 
+                <span class="block text-2xl font-bold"><%= number_with_delimiter(session[:target_calorie].round) %> kcal</span> 
             </div>
             <div class="text-left mt-12 ml-10 mb-8">
                 <label for="target_weight" class="mb-3 block text-base font-medium">
                     目 標 体 重 ま で        
                 </label>
                 <div class="flex items-baseline">
-                <span class="block text-2xl font-bold"><%= @remaining_runtime.round %> 分 </span>
+                <span class="block text-2xl font-bold"><%= @remaining_runtime.round %> 時間 </span>
                 <p class="ml-8 mb-3 block text-sm font-medium">ホ ラ ー 映 画 を 観 ま し ょ う</p>
                 </div>
-            </div> 
-            <%= link_to 'やり直す', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
+            </div>
             <div class="pl-2 mr-4 max-w-md mt-10">
-              <%= link_to 'マイページへ', dashboard_path(id: current_user.id), class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300" %>
+            <%= link_to ' やり直す ', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
+              <%= link_to 'マイページへ', dashboard_path(id: current_user.id), class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 mb-8 ml-10" %>
             </div>
             </div>
           </div>

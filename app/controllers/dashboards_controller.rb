@@ -19,7 +19,7 @@ class DashboardsController < ApplicationController
 
   def check_guest_user
     if current_user.email.end_with?('@example.com')
-      flash[:alert] = 'マイページを使用するためには本登録してください'
+      flash[:alert] = t('dashboards.check_guest_user.trial')
       redirect_to new_user_path
     end
   end

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   
   # 基礎代謝算出
-  resources :metabolism_calculators
+  resources :metabolism_calculators, only: %i[new create destroy show]
   get 'metabolism_calculators/new', to: 'metabolism_calculators#new', as: 'new_metabolism_calculators'
   post 'metabolism_calculators', to: 'metabolism_calculators#create'
    

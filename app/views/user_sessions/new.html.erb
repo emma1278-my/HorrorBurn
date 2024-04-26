@@ -1,9 +1,10 @@
 <div class="w-full max-w-sm p-6 m-auto mx-auto backdrop-blur-lg rounded-md border border-gray-200/30 mb-8 shadow-violet-300 shadow-2xl">
   <%= form_with(url: login_path, local: true) do |f| %>
+  
     <div class="card-body">
       <div>
         <label for="login" class="block text-lg text-white dark:text-gray-200 text-center font-bold">
-          <span class="relative top-[-20px]">ログイン</span>
+          <span class="relative top-[-20px]">ロ グ イ ン</span>
         </label>
 
         <%= f.label :email, User.human_attribute_name(:email), class: "block text-sm text-white dark:text-gray-200" %>
@@ -30,10 +31,7 @@
 
   <div class="flex items-center mt-2 -mx-1 mb-6">
     <button class="flex items-center justify-center w-full px-6 py-2 mx-9 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none shadow-blue-300 shadow-lg">
-
       <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
-
-    
     </button>
   </div>
 </div>

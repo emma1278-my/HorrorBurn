@@ -19,12 +19,12 @@ class MetabolismCalculatorsController < ApplicationController
     movie_duration = 90 # ホラー映画の時間（分）
     @target_calorie = (current_weight - target_weight) * 7200
     # 必要なホラー映画視聴時間を計算
-    @remaining_runtime = (@target_calorie / 113.0) * movie_duration
+    @remaining_runtime = (@target_calorie / 113.0) * movie_duration / 60.0
     session[:remaining_weight] = @remaining_weight
     session[:target_calorie] = @target_calorie
     session[:remaining_runtime] = @remaining_runtime
     # 計算結果をビューに渡す
-    render :show, notice: '計算完了！'
+    render :show
   end
 
 

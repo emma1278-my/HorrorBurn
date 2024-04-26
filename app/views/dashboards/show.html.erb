@@ -41,7 +41,7 @@
             </svg>
           </div>
           <div>
-            <span class="block text-2xl font-bold"> <%= session[:remaining_runtime].round %> 分</span>
+            <span class="block text-2xl font-bold"> <%= session[:remaining_runtime] ? session[:remaining_runtime].round : 0 %> 時間</span>
             <span class="block text-gray-500">目標映画視聴時間</span>
           </div>
         </div>
@@ -69,7 +69,7 @@
 
           </div>
           <div>
-            <span class="block text-2xl font-bold"><%= session[:remaining_weight].round(2) %> kg</span>
+       <span class="block text-2xl font-bold"><%= session[:remaining_weight] ? session[:remaining_weight].round(2) : 0 %> kg</span>
             <span class="block text-gray-500">目標体重まで</span>
           </div>      
         </div>
@@ -81,14 +81,14 @@
             <div class="p-4 flex-grow">
               <div class="p-4 flex-grow rounded-md">  
                 <%= line_chart @weight_logs.map { |created_at, weight| { created_at.strftime("%Y年%m月%d日") => weight } }.inject(:merge),
-                  suffix: "kg",
-                  height: "800px",
+                  label: "体重(kg)",
+                  height: "900px",
                   width: "100%",
                   library: {
                   xtitle: "日付",
                   ytitle: "体重",
-                  backgroundColor: '#252525',
-                  chartArea: { backgroundColor: '#252525', width: '80%', height: '80%' },
+                  backgroundColor: 'transparent',
+                  chartArea: { backgroundColor: 'transparent', width: '80%', height: '80%' },
                   vAxis: {
                     viewWindow: {
                       min: @min_weight,
@@ -97,10 +97,14 @@
                     textStyle: { color: '#ffffff' }
                     },
                   hAxis: {
-                    textStyle: { color: '#ffffff' }
+                    textStyle: { color: '#ffffff'}
                   },
-                  series: { 0 => { color: '#6633CC' } }
-                  } %>
+                  crosshair: { 
+                    focused: { color: '#3bc', opacity: 0.8 } 
+                  },
+                  series: { 0 => { color: '#6633CC', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 3, pointsVisible: true } }
+                  
+                   } %>
               </div>
             </div> 
           </div>

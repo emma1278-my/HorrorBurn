@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       auto_login(@user)
       redirect_to root_path
     else
-      flash.now[:alert] = t(".alert")
+      flash.now[:alert] = t(".failure")
       render :new, status: :unprocessable_entity
     end
   end
@@ -20,10 +20,9 @@ class UsersController < ApplicationController
 
   def withdraw
     @user = User.find(current_user.id)
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会しました"
+    flash[:notice] = t(".notice")
     redirect_to root_path
   end
 
