@@ -1,9 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :set_user,only: %i[edit update]
 
-    def show; end
-    
-    
+    def show
+     # @profile = Profile.find(params[:id])
+     # @bmr = @profile.calculate_bmr
+    end
+        
     def edit; end
 
     def update
@@ -15,7 +17,7 @@ class ProfilesController < ApplicationController
       end
     end
   
-   
+  
     private
   
     def set_user
@@ -23,7 +25,11 @@ class ProfilesController < ApplicationController
     end
   
     def user_params
-      params.require(:user).permit(:email, :name, :avatar, :avatar_cash, :height, :weight, :gender)
+      params.require(:user).permit(:email, :name, :avatar, :avatar_cash, :weight)
+    end
+
+    def calculator_params
+      params.require(:metabolism_calculator).permit(:weight)
     end
   end
 

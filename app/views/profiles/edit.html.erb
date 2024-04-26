@@ -1,4 +1,4 @@
-<section class="p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300 text-white font-kiwi-maru">
+<section class="p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300 text-white">
 <h1 class="text-lg mb-5"><%= t('.title') %></h1>
 
 <div class="container">
@@ -23,11 +23,9 @@
           </div> 
           <div class="mt-5 mb-5">
           <%= f.submit class: "btn btn-9 float-left shadow-lg rounded-lg shadow-violet-300 bg-violet-300" %>
-          </div>
-        </div>  
-      <% end %>
-      <div class='text-center'>
-        <%= link_to t('.to_login_page'), login_path %>
+      <% end %> 
+      </div>
+      </div>  
       </div>
     </div>
   </div>

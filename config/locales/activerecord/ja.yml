@@ -9,8 +9,8 @@ ja:
       email: メールアドレス
       password: パスワード
   defaults:
-    register: '登 録'
-    edit: '編 集'
+    register: 登 録
+    edit: 編 集
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -22,17 +22,20 @@ ja:
       create_board: 掲示板作成
       bookmark_index: ブックマーク一覧
       profile: プロフィール
+  application:
+    not_authenticated: ログインしてください
   user_sessions:
     new:
       title: ログイン
       login: ログイン
       to_register_page: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
-    create:
-      success: ログインしました
-      failure: ログインに失敗しました
     destroy:
       success: ログアウトしました
+    create:
+      alert: メールアドレスかパスワードが正しくありません
+      success: ログインしました
+      failure: ログインに失敗しました   
   users:
     new:
       title: 新規登録
@@ -40,14 +43,18 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+      withdraw: 退会しました
     guest_login:
-      success: お試し版です。ぜひ新規登録してお楽しみください！  
+      success: お試し版です。ぜひ本登録してお楽しみください！
+    withdraw:
+      notice: 退会しました！またのご利用お待ちしています
   header:
     login: ログイン
     logout: ログアウト
     users_new: 新規登録
     bookmark_index: ブックマーク一覧
     profile: プロフィール
+    dashboard: マイページ
     metabolism_calculators: 目標体重をいれる
   footer:
     terms_of_service: 利用規約
@@ -61,21 +68,15 @@ ja:
      to_login_page: ログインページへ
      avatar: アイコン
      edit: 編集
-    board:
-        title: 'タイトル'
-        body: '本文'
-        board_image: 'サムネイル'
-    create:
-      success: 掲示板の作成が完了しました
-    metabolism_calculators:
-      new: 早速やってみよう
   tops:
     title:
       terms_of_service: 利用規約
       privacy_policy: プライバシーポリシー
   dashboards:
     show:
-      title: マイページ  
+      title: マイページ 
+    check_guest_user:
+      trial: マイページを使用するためには本登録してください
   weight_logs:
     create:
-      save_weight_log: 体重を記録しました 
+      save_weight_log: 体重を記録しました

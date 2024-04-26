@@ -1,40 +1,46 @@
 class MetabolismCalculatorsController < ApplicationController
   skip_before_action :require_login, only: [:new, :show, :create, :destroy]
   
-  def new
-    @movie_weight_loss_goal = MovieWeightLossGoal.new
+  def new; end
+
+  def calculate_weight_difference
+    weight = params[:weight].to_f
+    target_weight = params[:target_weight].to_f
+    @weight_difference = weight - target_weight
   end
 
   def create
-    @movie_weight_loss_goal = MovieWeightLossGoal.new(movie_weight_loss_goal_params)
-      if @movie_weight_loss_goal.save
-        # 保存成功時の処理
-        redirect_to new_metabolism_calculators_path
-      else
-        # 保存失敗時の処理
-        render :new
-    end
+    # フォームから送られてきたデータ
+    current_weight = params[:current_weight].to_f
+    target_weight = params[:target_weight].to_f
+    @remaining_weight = current_weight - target_weight
+    # 計算式
+    calories_per_movie = 113 # 90分のホラー映画で消費されるカロリー
+    movie_duration = 90 # ホラー映画の時間（分）
+    @target_calorie = (current_weight - target_weight) * 7200
+    # 必要なホラー映画視聴時間を計算
+    @remaining_runtime = (@target_calorie / 113.0) * movie_duration / 60.0
+    session[:remaining_weight] = @remaining_weight
+    session[:target_calorie] = @target_calorie
+    session[:remaining_runtime] = @remaining_runtime
+    # 計算結果をビューに渡す
+    render :show
   end
 
- # 計算結果を取得
-  def show
-  @movie_weight_loss_goal = MovieWeightLossGoal.find(params[:id])
-  end
-  
+
   # 計算結果のやり直し
   def destroy
-    session.delete(:result)
+    session.delete(:remaining_weight)
+    session.delete(:target_calorie)
+    session.delete(:remaining_runtime)
+   
     redirect_to new_metabolism_calculators_path
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:gender, :age, :height)
-  end
-
-  def movie_weight_loss_goal_params
-    params.require(:movie_weight_loss_goal).permit(:weight, :weight_achieved_date)
+    params.require(:profile).permit(:weight, :weight_achieved_date)
   end
 end
 

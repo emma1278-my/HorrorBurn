@@ -22,7 +22,7 @@ class MovieWeightLossGoalsController < ApplicationController
   private
   
   def profile_params
-    params.require(:profile).permit(:height, :weight, :gender)
+    params.require(:profile).permit(:weight)
   end
   
 end

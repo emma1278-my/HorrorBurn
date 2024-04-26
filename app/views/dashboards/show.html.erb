@@ -29,7 +29,7 @@
             </svg> 
           </div>
           <div>
-            <span class="block text-2xl font-bold">62 本</span>
+            <span class="block text-2xl font-bold"><%= @total_movie_runtime %> 本</span>
             <span class="block text-gray-500">映画視聴数</span>
           </div>
         </div>
@@ -41,8 +41,8 @@
             </svg>
           </div>
           <div>
-            <span class="block text-2xl font-bold">139 分</span>
-            <span class="block text-gray-500">総映画視聴時間</span>
+            <span class="block text-2xl font-bold"> <%= session[:remaining_runtime] ? session[:remaining_runtime].round : 0 %> 時間</span>
+            <span class="block text-gray-500">目標映画視聴時間</span>
           </div>
         </div>
         <div class="flex items-center p-8 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
@@ -69,7 +69,7 @@
 
           </div>
           <div>
-            <span class="block text-2xl font-bold">何 kg</span>
+       <span class="block text-2xl font-bold"><%= session[:remaining_weight] ? session[:remaining_weight].round(2) : 0 %> kg</span>
             <span class="block text-gray-500">目標体重まで</span>
           </div>      
         </div>
@@ -81,14 +81,14 @@
             <div class="p-4 flex-grow">
               <div class="p-4 flex-grow rounded-md">  
                 <%= line_chart @weight_logs.map { |created_at, weight| { created_at.strftime("%Y年%m月%d日") => weight } }.inject(:merge),
-                  suffix: "kg",
-                  height: "800px",
+                  label: "体重(kg)",
+                  height: "900px",
                   width: "100%",
                   library: {
                   xtitle: "日付",
                   ytitle: "体重",
-                  backgroundColor: '#252525',
-                  chartArea: { backgroundColor: '#252525', width: '80%', height: '80%' },
+                  backgroundColor: 'transparent',
+                  chartArea: { backgroundColor: 'transparent', width: '80%', height: '80%' },
                   vAxis: {
                     viewWindow: {
                       min: @min_weight,
@@ -97,10 +97,14 @@
                     textStyle: { color: '#ffffff' }
                     },
                   hAxis: {
-                    textStyle: { color: '#ffffff' }
+                    textStyle: { color: '#ffffff'}
                   },
-                  series: { 0 => { color: '#6633CC' } }
-                  } %>
+                  crosshair: { 
+                    focused: { color: '#3bc', opacity: 0.8 } 
+                  },
+                  series: { 0 => { color: '#6633CC', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 3, pointsVisible: true } }
+                  
+                   } %>
               </div>
             </div> 
           </div>
@@ -123,47 +127,42 @@
                   <img src="https://randomuser.me/api/portraits/women/82.jpg" alt="Annette Watson profile picture">
                 </div>
                 <span class="text-gray-600">Annette Watson</span>
-                <span class="ml-auto font-semibold">9.3</span>
               </li>
               <li class="flex items-center">
                 <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
                   <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Calvin Steward profile picture">
                 </div>
                 <span class="text-gray-600">Calvin Steward</span>
-                <span class="ml-auto font-semibold">8.9</span>
               </li>
               <li class="flex items-center">
                 <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
                   <img src="https://randomuser.me/api/portraits/men/80.jpg" alt="Ralph Richards profile picture">
                 </div>
                 <span class="text-gray-600">Ralph Richards</span>
-                <span class="ml-auto font-semibold">8.7</span>
               </li>
               <li class="flex items-center">
                 <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
                   <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Bernard Murphy profile picture">
                 </div>
                 <span class="text-gray-600">Bernard Murphy</span>
-                <span class="ml-auto font-semibold">8.2</span>
               </li>
               <li class="flex items-center">
                 <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
                   <img src="https://randomuser.me/api/portraits/women/78.jpg" alt="Arlene Robertson profile picture">
                 </div>
                 <span class="text-gray-600">Arlene Robertson</span>
-                <span class="ml-auto font-semibold">8.2</span>
               </li>
             </ul>
           </div>
        </div>
+  </div>
+ </section> 
     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
     <div class="px-6 py-5 font-semibold border-b border-gray-100">あなたにおススメの映画</div>
     <div class="p-4 flex-grow">
       <div class="flex items-center justify-center px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">movies</div>
     </div>
   </div>
- </section> 
-   
      
   
     </main>
