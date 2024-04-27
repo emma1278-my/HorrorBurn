@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   resources :metabolism_calculators, only: %i[new create destroy show]
   get 'metabolism_calculators/new', to: 'metabolism_calculators#new', as: 'new_metabolism_calculators'
   post 'metabolism_calculators', to: 'metabolism_calculators#create'
-   
+  get '/metabolism_calculators', to: redirect('/metabolism_calculators/new')
+  
   resources :users, only: %i[new create]
   resources :profiles
   resources :dashboards, only: %i[index create show]

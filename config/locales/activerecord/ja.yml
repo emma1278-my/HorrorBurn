@@ -10,7 +10,7 @@ ja:
       password: パスワード
   defaults:
     register: 登 録
-    edit: 編 集
+    edit: 変 更
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -55,7 +55,8 @@ ja:
     bookmark_index: ブックマーク一覧
     profile: プロフィール
     dashboard: マイページ
-    metabolism_calculators: 目標体重をいれる
+    metabolism_calculators: ホラー映画視聴ノルマ計算
+    movie_search: 映画検索
   footer:
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
