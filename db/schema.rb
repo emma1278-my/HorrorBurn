@@ -23,12 +23,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
-  create_table "movie_weight_loss_goals", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.integer "runtime"

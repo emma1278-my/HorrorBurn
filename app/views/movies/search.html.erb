@@ -32,7 +32,7 @@
                 <p class="release-date text-white">公開日:  <%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
               <% end %>
               <% if movieinfo['table']['results'][i]['table']['runtime'].present? %>
-                <p class="runtime text-white"><%= movieinfo['table']['results'][i]['table']['runtime'] %></p>
+                <p class="runtime text-white"><%= movieinfo['table']['results'][i]['table']['runtime'] %>分</p>
               <% end %>
             </div>
             <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
