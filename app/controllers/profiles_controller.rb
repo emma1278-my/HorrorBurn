@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
 
     def show
      # @profile = Profile.find(params[:id])
-     # @bmr = @profile.calculate_bmr
     end
         
     def edit; end
@@ -23,7 +22,7 @@ class ProfilesController < ApplicationController
     def set_user
       @user = User.find(current_user.id)
     end
-  
+
     def user_params
       params.require(:user).permit(:email, :name, :avatar, :avatar_cash, :weight)
     end

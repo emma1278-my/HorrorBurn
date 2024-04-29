@@ -16,10 +16,10 @@ class MetabolismCalculatorsController < ApplicationController
     @remaining_weight = current_weight - target_weight
     # 計算式
     calories_per_movie = 113 # 90分のホラー映画で消費されるカロリー
-    movie_duration = 90 # ホラー映画の時間（分）
-    @target_calorie = (current_weight - target_weight) * 7200
+    movie_duration = 90 # ホラー映画の時間(分)
+    @target_calorie = (current_weight - target_weight) * 7200  #脂肪1kgあたりに必要な消費カロリー
     # 必要なホラー映画視聴時間を計算
-    @remaining_runtime = (@target_calorie / 113.0) * movie_duration / 60.0
+    @remaining_runtime = (@target_calorie / 113.0) * movie_duration / 60.0 # ホラー映画の時間(h)
     session[:remaining_weight] = @remaining_weight
     session[:target_calorie] = @target_calorie
     session[:remaining_runtime] = @remaining_runtime
@@ -27,20 +27,19 @@ class MetabolismCalculatorsController < ApplicationController
     render :show
   end
 
-
   # 計算結果のやり直し
   def destroy
     session.delete(:remaining_weight)
     session.delete(:target_calorie)
     session.delete(:remaining_runtime)
-   
+    session.delete(:target_weight)
     redirect_to new_metabolism_calculators_path
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:weight, :weight_achieved_date)
+    params.require(:profile).permit(:weight, :weight_achieved_date, :target_weight)
   end
 end
 
