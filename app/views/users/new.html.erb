@@ -2,18 +2,18 @@
    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <%= form_with(model: @user, local: true, html: { class: 'card-body' }) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
-        <div>
+        <div class="mt-4">
             <label for="user_new" class="block text-lg text-white dark:text-gray-200 text-center font-bold">
                 <span class="relative top-[-20px]">新 規 登 録</span>
             </label>
             <%= f.label :name, class: "block text-sm text-white dark:text-gray-200" %>
-            <%= f.text_field :name, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40", required: true %>
+            <%= f.text_field :name, class: "block px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40", required: true %>
         </div>
 
         <div class="mt-4">
             <div class="flex flex-col">
                 <%= f.label :email, User.human_attribute_name(:email), class: "block text-sm text-white dark:text-gray-200" %>
-                <%= f.email_field :email, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" %>
+                <%= f.email_field :email, class: "block px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" %>
             </div>
         </div>
 
@@ -22,20 +22,22 @@
                 <div class="flex justify-between items-center">
                     <%= f.label :password, User.human_attribute_name(:password), class: "block text-sm text-white dark:text-gray-200" %>   
                 </div>
-                <%= f.password_field :password, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40", required: true %>
+                <%= f.password_field :password, class: "block  px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40", required: true %>
             </div>
         </div>
 
         <div class="mt-4">
             <div class="flex flex-col">
                 <%= f.label :password_confirmation, class: "block text-sm text-white dark:text-gray-200", required: true  %>
-                <%= f.password_field :password_confirmation, class: "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" %>
+                <%= f.password_field :password_confirmation, class: "block px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" %>
             </div>
         </div>
 
         <div class="mt-6">
+        <div class="flex flex-col item-center items-center justify-center">
             <%= f.submit (t 'defaults.register'), class: "relative z-10 bg-[#b621fe] border-none rounded-md text-white py-3 px-6 text-base font-medium focus:shadow-md w-1/2 transition duration-300 ease-in-out hover:bg-[#663dff] hover:text-white active:top-[2px] shadow-violet-300 shadow-xl focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50" %>  
         </div>
+      </div>
     <% end %> 
 
   <div class="mt-6">
@@ -45,13 +47,16 @@
     </div>
   </div> 
         <div class ="mt-6">
-        
-      <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
- 
+         <div class="relative flex items-center justify-center">
+    <button class="flex items-center justify-center w-full px-6 py-2 mx-9 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none shadow-blue-300 shadow-lg">
+      <%= link_to "Googleアカウントでログイン", auth_at_provider_path(provider: :google), class: "text-white no-underline inline-block" %>
+    </button>
+  </div>
 
   </div>
     
    <div class="mt-6 mb-8">
+    <div class="relative flex items-center justify-center">
   <button class="relative z-10 bg-[#b621fe] border-none rounded-md text-white py-3 px-6 text-base font-medium focus:shadow-md transition duration-300 ease-in-out hover:bg-[#663dff] hover:text-white active:top-[2px] shadow-violet-300 shadow-xl focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
     <%= link_to "ゲストユーザーで試す", guest_login_path, class: "text-white no-underline inline-block" %>
   </button>
