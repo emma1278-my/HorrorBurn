@@ -16,7 +16,7 @@ class WeightLogsController < ApplicationController
     @weight_log = current_user.weight_logs.new(weight_params)
     if @weight_log.save
    # 目標体重
-    target_weight = current_user.profile.target_weight
+    session[:target_weight] = target_weight
       flash[:success] = t(".save_weight_log")
   # 最新の体重
     latest_weight = @weight_log.weight

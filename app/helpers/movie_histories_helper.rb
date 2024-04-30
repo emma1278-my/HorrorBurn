@@ -1,0 +1,2 @@
+module MovieHistoriesHelper
+end

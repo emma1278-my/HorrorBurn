@@ -13,8 +13,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
   has_one :profile, dependent: :destroy
-  has_many :movie_weight_loss_goals
-  accepts_nested_attributes_for :profile, :movie_weight_loss_goals
+  has_many :movie_histories
   has_one :dashboard, class_name: 'UserDashboard'
   has_many :weight_logs, dependent: :destroy
    

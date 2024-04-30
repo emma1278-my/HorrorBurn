@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_30_011505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
+  create_table "movie_histories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_movie_histories_on_user_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.integer "runtime"
@@ -30,16 +38,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
     t.integer "calories_burned"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "movies_histories", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "movie_id", null: false
-    t.date "added_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_movies_histories_on_movie_id"
-    t.index ["user_id"], name: "index_movies_histories_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -79,8 +77,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_115929) do
     t.index ["user_id"], name: "index_weight_logs_on_user_id"
   end
 
-  add_foreign_key "movies_histories", "movies"
-  add_foreign_key "movies_histories", "users"
+  add_foreign_key "movie_histories", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "weight_logs", "users"
 end
