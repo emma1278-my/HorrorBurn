@@ -23,6 +23,7 @@ class MetabolismCalculatorsController < ApplicationController
     session[:remaining_weight] = @remaining_weight
     session[:target_calorie] = @target_calorie
     session[:remaining_runtime] = @remaining_runtime
+    
     # 計算結果をビューに渡す
     render :show
   end

@@ -1,5 +1,5 @@
 class WeightLog < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
   validates :weight, presence: true
   
   def self.weight_log_for_day(user)

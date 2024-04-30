@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/users/withdraw', to: 'users#withdraw'
   patch  '/users/withdraw' => 'users#withdraw'
 
+  resources :movie_histories, only: [:create]
+  get '/movie_histories', to: redirect('/dashboards/show')
   resources :movies, only: [:show] do
     collection do
       get :search

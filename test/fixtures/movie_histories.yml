@@ -2,10 +2,8 @@
 
 one:
   user: one
-  movie: one
-  added_at: 2024-04-18
+  movie_id: 1
 
 two:
   user: two
-  movie: two
-  added_at: 2024-04-18
+  movie_id: 1

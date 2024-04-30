@@ -7,7 +7,7 @@ class DashboardsController < ApplicationController
     @profile = @user.profile
     @weight_logs = @user.weight_logs.order(created_at: :asc).pluck(:created_at, :weight)
     @latest_weight_log = @user.weight_logs.order(created_at: :desc).first
- 
+    @movie_histories = current_user.movie_histories
     if @latest_weight_log.present? && @user.profile.present?
       current_weight = @latest_weight_log.weight
       target_weight = @user.profile.target_weight

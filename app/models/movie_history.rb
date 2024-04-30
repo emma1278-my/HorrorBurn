@@ -1,3 +1,3 @@
-class Authentication < ApplicationRecord
+class MovieHistory < ApplicationRecord
   belongs_to :user, dependent: :destroy
 end

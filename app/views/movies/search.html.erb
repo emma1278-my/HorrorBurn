@@ -11,7 +11,7 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
             </svg>
           </div>
-          <%= search_field_tag :looking_for, nil, class: "block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "日本語の映画タイトルを入れてください", required: true %>
+          <%= search_field_tag :looking_for, nil, class: "block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "映画タイトルを入れてください", required: true %>
           <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-violet-600 dark:hover:bg-gray-700 dark:focus:ring-blue-800">検 索</button>
         </div>
       <% end %>
@@ -19,7 +19,7 @@
     <%# 映画を表示 %>
     <% if params[:looking_for].present? %>
       <% movieinfo = JSON.parse((Tmdb::Search.movie(params[:looking_for])).to_json) %>
-      <h2><%= params[:looking_for] %>の検索結果</h2>
+      <h2 class="text-white text-3xl">"<%= params[:looking_for] %>"の検索結果</h2>
       <% i = 0 %>
       <div class="card-wrapper">
         <% while i < movieinfo['table']['results'].count %>
@@ -36,7 +36,7 @@
               <% end %>
             </div>
             <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
-              <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'], class: "card-img", size: "200x300" %></p>
+              <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'], class: "card-img round-2xl", size: "200x300" %></p>
             <% end %>
           </div>
           <% i += 1 %>

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MoviesHistoryTest < ActiveSupport::TestCase
+class MovieHistoriesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
