@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_30_011505) do
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.float "current_weight"
     t.integer "target_calorie"
     t.float "target_weight"
     t.integer "remaining_runtime"

@@ -1,10 +1,12 @@
 class MovieHistoriesController < ApplicationController
+
   def create
-    @movie_history = current_user.movie_histories.build(movie_id: params[:movie_id])
+    @movie = Movie.find(params[:movie_id])
+    @movie_history = current_user.movie_histories.build(movie: @movie)
     if @movie_history.save
-      redirect_to dashboard_path, notice: '映画を記録しました。'
+      redirect_to dashboard_path, notice: '視聴履歴に追加しました。'
     else
-      redirect_to movies_search_path, alert: '映画の記録に失敗しました。'
+      redirect_to movies_search_path(movie_id: params[:movie_id]), alert: '視聴履歴の追加に失敗しました。'
     end
   end
 end
