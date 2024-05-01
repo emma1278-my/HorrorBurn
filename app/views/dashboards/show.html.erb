@@ -109,32 +109,28 @@
             </div> 
           </div>
                 
-        <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300  h-[50%]">
-          <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-            <span>映画視聴履歴</span>
-           
-            <!-- Refer here for full dropdown menu code: https://tailwindui.com/components/application-ui/elements/dropdowns -->
-          </div>
-          <div class="overflow-y-auto" style="max-height: 24rem;">
-            <ul class="p-6 space-y-6">
-              <li class="flex items-center">
-                 <% @movie_histories.each do |movie_history| %>
-                  <li> <%= movie_history.movie_id %></li>
-                  <% end %>
-              </li>
-            
-              <li class="flex items-center">
-                <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                  <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Bernard Murphy profile picture">
-                </div>
-                <span class="text-gray-600">Bernard Murphy</span>
-              </li>
-             
-            </ul>
-          </div>
-       </div>
+     <<div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
+  <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
+    <span>映画視聴履歴</span>
   </div>
+  <div class="overflow-auto">
+    <%= debug(@movie_histories) %>
+    <% if @movie_histories.any? %>
+      <ul>
+        <% @movie_histories.each do |history| %>
+          <% if history.movie.present? %> 
+            <li><%= history.movie.title %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>視聴履歴はありません。</p>
+    <% end %>
+  </div>
+</div>
+
  </section> 
+
     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
     <div class="px-6 py-5 font-semibold border-b border-gray-100">あなたにおススメの映画</div>
     <div class="p-4 flex-grow">

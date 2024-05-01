@@ -23,3 +23,31 @@ class MoviesController < ApplicationController
     @movie = JSON.parse(response)
   end
 end
+
+  def create
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to @movie, notice: '映画が正常に作成されました。'
+    else
+      render :new
+    end
+  end
+
+private 
+
+  def movie_params
+    params.require(:movie).permit(:title, :runtime)
+  end
+
+def save_movies(movies)
+  current_user = User.find(session[:user_id])
+  movies.each do |movie_data|
+    movie = Movie.find_or_initialize_by(tmdb_id: movie_data['id'])
+    unless movie.persisted?
+      movie.title = movie_data['title']
+      movie.runtime = movie_data['runtime']
+      movie.save!
+    end
+    MovieHistory.create!(user_id: current_user.id, movie_id: movie.id)
+  end
+end
