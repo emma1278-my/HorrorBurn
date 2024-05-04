@@ -377,6 +377,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   draper
+  faraday
   googleauth
   groupdate
   jbuilder
