@@ -3,12 +3,6 @@ class MetabolismCalculatorsController < ApplicationController
   
   def new; end
 
-  def calculate_weight_difference
-    weight = params[:weight].to_f
-    target_weight = params[:target_weight].to_f
-    @weight_difference = weight - target_weight
-  end
-
   def create
     # フォームから送られてきたデータ
     current_weight = params[:current_weight].to_f
@@ -23,12 +17,12 @@ class MetabolismCalculatorsController < ApplicationController
     session[:remaining_weight] = @remaining_weight
     session[:target_calorie] = @target_calorie
     session[:remaining_runtime] = @remaining_runtime
-    
-    # 計算結果をビューに渡す
+    session[:target_weight] = @target_weight
+   
     render :show
   end
 
-  # 計算結果のやり直し
+  # 計算結果やり直し
   def destroy
     session.delete(:remaining_weight)
     session.delete(:target_calorie)

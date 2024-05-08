@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
     if params[:looking_for]
       movie_title = params[:looking_for]
       movies = []
-      (1..5).each do |page|
+      (1..3).each do |page|
         url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title) + "&page=#{page}"
         response = Net::HTTP.get_response(URI.parse(url))
         if response.code == "200"
@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
       end
     else
       movies = []
-      (1..5).each do |page|
+      (1..3).each do |page|
         url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja&page=#{page}"
         response = Net::HTTP.get_response(URI.parse(url))
         if response.code == "200"
@@ -29,7 +29,6 @@ class MoviesController < ApplicationController
     end
     @movies = Kaminari.paginate_array(movies).page(params[:page]).per(20)
   end
-
 
 
   def show
@@ -43,7 +42,7 @@ end
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to @movie, notice: '映画が正常に作成されました。'
+      redirect_to @movie, notice: '映画が保存されました。'
     else
       render :new
     end

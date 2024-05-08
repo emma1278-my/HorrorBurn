@@ -9,13 +9,13 @@
         <div class="w-full flex justify-center">
           <div class="h-32 w-32">
           <% if current_user.guest? %>
-           <%= image_tag 'guest_icon.png', class: 'rounded-full', width: '100', height: '100' %>
+           <%= image_tag 'guset.png', class: 'item-center justyfy-center rounded-full', width: '125', height: '125' %>
            <% else %>
-            <%= image_tag current_user.avatar_url, class: 'rounded-full', width: '100', height: '100' %>
+            <%= image_tag current_user.avatar_url, class: 'item-center rounded-full', width: '125', height: '125' %>
           <% end %>
           </div>
         </div>
-        <div class="mt-4 text-xl text-center">
+        <div class="mt-8 text-xl justyfy-center text-center">
           <p><%= current_user.name %></p>
           <p><%= current_user.email %></p>
         </div>
