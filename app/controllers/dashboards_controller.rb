@@ -10,6 +10,7 @@ class DashboardsController < ApplicationController
     @movie_histories = current_user.movie_histories.includes(:movie)
     if @latest_weight_log.present? && @user.profile.present?
       current_weight = @latest_weight_log.weight
+      session[:target_weight] = target_weight
       target_weight = session[:target_weight].to_f
       @remaining_weight = current_weight - target_weight
     end

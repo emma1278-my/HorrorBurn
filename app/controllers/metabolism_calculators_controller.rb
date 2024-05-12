@@ -14,11 +14,12 @@ class MetabolismCalculatorsController < ApplicationController
     @target_calorie = (current_weight - target_weight) * 7200  #脂肪1kgあたりに必要な消費カロリー
     # 必要なホラー映画視聴時間を計算
     @remaining_runtime = (@target_calorie / 113.0) * movie_duration / 60.0 # ホラー映画の時間(h)
+    session[:current_weight] = current_weight
+    session[:target_weight] = target_weight
     session[:remaining_weight] = @remaining_weight
     session[:target_calorie] = @target_calorie
     session[:remaining_runtime] = @remaining_runtime
-    session[:target_weight] = @target_weight
-   
+    
     render :show
   end
 
