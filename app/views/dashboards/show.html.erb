@@ -1,3 +1,4 @@
+
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <body class="flex bg-gray-100 min-h-screen mt-6 mb-6 text-white ">        
     <main class="p-6 sm:p-10 space-y-6">
@@ -10,7 +11,7 @@
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
             </svg>
-              映画を入力
+              映画を記録
             <% end %>
 
           <%= link_to weight_logs_path, class: "inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline" do %>
@@ -22,6 +23,7 @@
           </div>
         </div>
       <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      
         <div class="flex items-center p-8 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
           <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-200 rounded-full mr-6">
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -42,7 +44,7 @@
           </div>
           <div>
             <span class="block text-2xl font-bold"> <%= session[:remaining_runtime] ? session[:remaining_runtime].round : 0 %> 時間</span>
-            <span class="block text-gray-500">目標映画視聴時間</span>
+            <span class="block text-gray-500">目標体重までの目標映画視聴時間</span>
           </div>
         </div>
         <div class="flex items-center p-8 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
@@ -52,6 +54,7 @@
             </svg>
           </div>
       <div>
+      
         <% if @weight_logs.present? %>
         <span class="block text-2xl font-bold"><%= @weight_logs.last[1] %> kg</span>
         <% else %>
@@ -69,8 +72,8 @@
 
           </div>
           <div>
-       <span class="block text-2xl font-bold"><%= session[:remaining_weight] ? session[:remaining_weight].round(2) : 0 %> kg</span>
-            <span class="block text-gray-500">目標体重まであと</span>
+       <span class="block text-2xl font-bold"><%= session[:target_weight] %> kg</span>
+            <span class="block text-gray-500">目標体重</span>
           </div>      
         </div>
       </section>
@@ -109,36 +112,38 @@
             </div> 
           </div>
                 
-     <<div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
+     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
     <span>映画視聴履歴</span>
   </div>
-  <div class="overflow-auto">
-    <%= debug(@movie_histories) %>
-    <% if @movie_histories.any? %>
-      <ul>
-        <% @movie_histories.each do |history| %>
-          <% if history.movie.present? %> 
-            <li><%= history.movie.title %></li>
-          <% end %>
+    <div class="overflow-auto">
+      <%= debug(@movie_histories) %>
+        <% if @movie_histories.any? %>
+          <ul>
+            <% @movie_histories.each do |history| %>
+              <% if history.movie.present? %> 
+                <li><%= history.movie.title %></li>
+              <% end %>
         <% end %>
-      </ul>
-    <% else %>
-      <p class="justify-center">視聴履歴がありません</p>
-    <% end %>
+          </ul>
+        <% else %>
+          <p class="justify-center">視聴履歴がありません</p>
+        <% end %>
+    </div>
   </div>
-</div>
 
  </section> 
+   </main>
+  </div>
+</body>
 
+<!--
     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
     <div class="px-6 py-5 font-semibold border-b border-gray-100">あなたにおススメの映画</div>
     <div class="p-4 flex-grow">
       <div class="flex items-center justify-center px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">movies</div>
     </div>
-  </div>
-     
+  </div>   
+      
   
-    </main>
-  </div>
-</body>
+ 

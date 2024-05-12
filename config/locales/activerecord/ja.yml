@@ -80,4 +80,7 @@ ja:
       trial: マイページを使用するためには本登録してください
   weight_logs:
     create:
-      save_weight_log: 体重を記録しました
+      success: 体重を記録しました
+  movie_histories:
+    create:
+      success: 映画を記録しました

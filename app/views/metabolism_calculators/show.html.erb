@@ -4,14 +4,26 @@
 <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
   <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
         <form>
-            <div class="text-left mt-12 ml-10">
-                <label for="height" class="mb-3 block text-base font-medium">
-                  目 標 体 重 ま で 残 り   
+          <div class="text-left mt-12 ml-10 mb-8">
+                <div class="text-left mt-12 ml-10">
+                <label for="target_weight" class="mb-3 block text-base font-medium">
+                  目 標 体 重  
                 </label>                
-             <span class="block text-2xl font-bold"> <%= session[:remaining_weight].round(2) %> kg</span>
-            </div>      
+             <span class="block text-base"> <%= session[:target_weight] %> kg に 対 し て</span>
+            </div> 
+                <div class="text-left mt-12 ml-10 mb-8">
+                <label for="remaining_weight" class="mb-3 block text-base font-medium">
+                    目 標 体 重 ま で 残 り       
+                </label>
+                <div class="flex items-baseline">
+                <span class="block text-2xl font-bold"><%= session[:remaining_weight].round(2) %> kg</span>
+                <p class="ml-8 mb-3 block text-sm font-medium">減 ら し ま し ょ う</p>
+                </div>
+            </div>
+
+
             <div class="text-left mt-12 ml-10">
-                <label for="age" class="mb-3 block text-base font-medium">
+                <label for="target_calorie" class="mb-3 block text-base font-medium">
                    目 標 体 重 到 達 ま で に 必 要 な 減 量 カ ロ リ ー
                 </label>
                 <span class="block text-2xl font-bold"><%= number_with_delimiter(session[:target_calorie].round) %> kcal</span> 

@@ -7,29 +7,14 @@ class MoviesController < ApplicationController
   def search
     if params[:looking_for]
       movie_title = params[:looking_for]
-      movies = []
-      (1..3).each do |page|
-        url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title) + "&page=#{page}"
-        response = Net::HTTP.get_response(URI.parse(url))
-        if response.code == "200"
-          result = JSON.parse(response.body)
-          movies.concat(result["results"])
-        end
-      end
+      url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title)
     else
-      movies = []
-      (1..3).each do |page|
-        url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja&page=#{page}"
-        response = Net::HTTP.get_response(URI.parse(url))
-        if response.code == "200"
-          result = JSON.parse(response.body)
-          movies.concat(result["results"])
-        end
-      end
+      url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja"
+      text = params[:looking_for]
+      res = Faraday.get(url, q: text, langRestrict: 'ja', maxResults: 20)
     end
-    @movies = Kaminari.paginate_array(movies).page(params[:page]).per(20)
+    @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
   end
-
 
   def show
     movie_id = params[:id]
