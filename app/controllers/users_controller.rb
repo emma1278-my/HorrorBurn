@@ -18,13 +18,13 @@ class UsersController < ApplicationController
   end
 
 
-  def withdraw
-    @user = User.find(current_user.id)
-    @user.update(is_deleted: true)
-    reset_session
-    flash[:notice] = t(".notice")
-    redirect_to root_path
-  end
+    def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      flash[:success] = t(".success")
+      redirect_to root_url
+    end
+     
 
   def guest_login
     @guest_user = User.create(
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def check_guest_user
     if current_user.guest?
-      redirect_to root_path, alert: 'ゲストユーザーはプロフィールを編集できないよ。'
+      redirect_to root_path, alert: 'ゲストユーザーはプロフィールを編集できません'
     end
   end
 end

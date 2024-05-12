@@ -27,16 +27,15 @@ Rails.application.routes.draw do
   post 'metabolism_calculators', to: 'metabolism_calculators#create'
   get '/metabolism_calculators', to: redirect('/metabolism_calculators/new')
   
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create destroy]
   resources :profiles
   resources :dashboards, only: %i[index create show]
   resources :weight_logs, only: %i[create edit update]
   get 'weight_logs', to: 'weight_logs#new'
 
   # プロフィール
-  resource :profile, only: %i[show edit update new create]
-  get '/users/withdraw', to: 'users#withdraw'
-  patch  '/users/withdraw' => 'users#withdraw'
+  resource :profile, only: %i[show edit update new create destroy]
+
 
   resources :movie_histories, only: [:create]
   get '/movie_histories', to: redirect('/dashboards/show')

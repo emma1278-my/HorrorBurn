@@ -43,11 +43,10 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
-      withdraw: 退会しました
     guest_login:
       success: お試し版です。ぜひ本登録してお楽しみください！
-    withdraw:
-      notice: 退会しました！またのご利用お待ちしています
+    destroy:
+      success: 退会しました！またのご利用お待ちしています
   header:
     login: ログイン
     logout: ログアウト
@@ -81,6 +80,8 @@ ja:
   weight_logs:
     create:
       success: 体重を記録しました
+      failure: 体重記録に失敗しました
+      next_weight_log: 目標体重に到達しました！次の目標を設定しましょう
   movie_histories:
     create:
       success: 映画を記録しました
