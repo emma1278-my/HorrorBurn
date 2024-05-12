@@ -3,7 +3,9 @@
 </div>
 
 <div class='text-center'>
-<%= link_to "退会希望の方はこちら", users_withdraw_path, method: :patch, class: "btn btn-danger p-8 max-w-xl mx-auto my-10 border-gray-400/30 bg-violet-300 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 text-black", data: { confirm: "本当に退会しますか？" } %>
+
+      <%= link_to "退会希望の方はこちら", user_path(current_user), data: { turbo_method: :delete, turbo_confirm: '本当に退会しますか？'}, class: "text-white dark:text-gray-400 hover:underline  rounded-full bg-blue-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white  shadow-lg rounded-lg shadow-violet-300 no-underline" %>
+
 <div class="h-80">
   <div x-data="{ showModal: true }" x-on:keydown.window.escape="showModal = false">
     <div class="flex justify-center">

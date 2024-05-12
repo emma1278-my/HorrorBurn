@@ -27,7 +27,8 @@
 <div class="p-8 max-w-4xl mx-auto my-10">
      <%= link_to 'passwordを変更する', new_password_reset_path, class: "rounded-full bg-pink-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white float-right shadow-lg rounded-lg shadow-violet-300 items-right no-underline" %>
 
-      <%= link_to "退会希望の方はこちら", users_withdraw_path, method: :patch, class: "text-white dark:text-gray-400 hover:underline  rounded-full bg-blue-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white  shadow-lg rounded-lg shadow-violet-300 no-underline", data: { confirm: "本当に退会しますか？" } %>
+
+      <%= link_to "退会希望の方はこちら", user_path(current_user), data: { turbo_method: :delete, turbo_confirm: '本当に退会しますか？'}, class: "text-white dark:text-gray-400 hover:underline  rounded-full bg-blue-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white  shadow-lg rounded-lg shadow-violet-300 no-underline" %>
 </div>
 <% end %>
  
