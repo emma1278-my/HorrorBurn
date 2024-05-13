@@ -4,8 +4,7 @@ class CreateMovies < ActiveRecord::Migration[7.1]
       t.string :title
       t.integer :runtime
       t.string :release_date
-      t.integer :calories_burned
-
+    
       t.timestamps
     end
   end

@@ -44,10 +44,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-  def check_guest_user
-    if current_user.guest?
-      redirect_to root_path, alert: 'ゲストユーザーはプロフィールを編集できません'
-    end
-  end
 end

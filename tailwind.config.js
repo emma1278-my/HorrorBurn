@@ -11,7 +11,7 @@ module.exports = {
         'kiwi-maru': ["Kiwi Maru", "serif"],
       },
       colors: {
-        primary: "#222831",               
+        'neon-yellow': '#C8F560',               
         secondary: "#31363F",              
         accent: "#c1ff72",           
         neutral: "#25262b",           

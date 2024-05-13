@@ -20,13 +20,12 @@ class WeightLogsController < ApplicationController
       latest_weight = @weight_log.weight
       # 目標体重までの残り
       target_weight = session[:target_weight]
-      @remaining_weight = target_weight - latest_weight
+      @remaining_weight = latest_weight - target_weight
       
       # 目標体重に到達したかチェック
     if @remaining_weight <= 0
       flash[:success] = t(".next_weight_log")
     end
-    
     redirect_to dashboard_path(id: current_user.id)
   else
     flash[:alert] = t(".failure")

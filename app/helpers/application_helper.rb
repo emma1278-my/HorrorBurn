@@ -29,5 +29,5 @@ def set_google_book_params(google_book)
     google_book['volumeInfo']['systemid'] = google_book['volumeInfo']['industryIdentifiers']&.select { |h| h["type"].include?("ISBN") }.first["identifier"]
   end
    #volumeInfoの中が必要な項目のみになるようsliceを使って絞りこむ
-  google_book['volumeInfo'].slice('title', 'authors', 'publishedDate', 'infoLink', 'bookImage', 'systemid', 'canonicalVolumeLink')
+  movie['volumeInfo'].slice('title', 'runtime')
 end

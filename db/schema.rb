@@ -35,7 +35,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_12_065857) do
     t.string "title"
     t.integer "runtime"
     t.string "release_date"
-    t.integer "calories_burned"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
