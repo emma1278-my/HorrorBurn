@@ -7,7 +7,6 @@ class DashboardsController < ApplicationController
     @profile = @user.profile
     @weight_logs = @user.weight_logs.order(created_at: :asc).pluck(:created_at, :weight)
     @latest_weight_log = @user.weight_logs.order(created_at: :desc).first
-    @movie_histories = current_user.movie_histories.includes(:movie)
     if @latest_weight_log.present? && @user.profile.present?
       current_weight = @latest_weight_log.weight
       session[:target_weight] = target_weight
@@ -15,7 +14,7 @@ class DashboardsController < ApplicationController
       @remaining_weight = current_weight - target_weight
     end
   end
-
+ 
     private
 
   def check_guest_user

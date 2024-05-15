@@ -2,13 +2,19 @@
   <div class="movie-detail text-white">
     <div class="text-center">
       <p class="text-lg font-extrabold tracking-tight text-white mb-8">
-      <%= link_to "この映画を保存する", movie_histories_path, method: :post, remote: true, data: { title: @movie['title'], runtime: @movie['runtime'] }, class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" do %>
-        
-          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-            </svg>
-              この映画を観た
-            <% end %>  
+      <%= link_to movie_histories_path, method: :post, params: { title: @movie['title'], runtime: @movie['runtime'] }, class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" do %>
+  <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+  </svg>
+  この映画を観た
+<% end %>
+
+<%= form_with model: @movie_history, local: true, url: movie_histories_path, method: :post do |form| %>
+<%= form.hidden_field :movie_id, value: @movie['id'] %>
+  <%= form.hidden_field :title, value: @movie['title'] %>
+  <%= form.hidden_field :runtime, value: @movie['runtime'] %>
+  <%= form.submit 'この映画をみた', class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
+<% end %>
       </p>
     </div>
    
@@ -20,6 +26,8 @@
     <% end %>
     <p><%= @movie['overview'] %></p>
     <div class="ml-auto"> 
-    <%= link_to "検索ページに戻る", movies_search_path(movie_id: @movie['id']), class: "text-white bg-blue-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
+     <p class="text-sm !mt-10 text-center text-white"> 
+    <%= link_to "☜ 検索ページに戻る", movies_search_path(movie_id: @movie['id']), class: "text-blue-600 hover:underline ml-1 whitespace-nowrap" %></p>
+   
   </div>
 </section>

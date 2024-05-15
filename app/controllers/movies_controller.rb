@@ -11,9 +11,8 @@ class MoviesController < ApplicationController
     else
       url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja"
       text = params[:looking_for]
-      res = Faraday.get(url, q: text, langRestrict: 'ja', maxResults: 20)
+      @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
     end
-    @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
   end
 
   def show
@@ -21,17 +20,9 @@ class MoviesController < ApplicationController
     url = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV['TMDB_API']}&language=ja"
     response = Net::HTTP.get(URI.parse(url))
     @movie = JSON.parse(response)
+    @movie_history = MovieHistory.new  
   end
 end
-
-  def create
-    @movie = Movie.new(movie_params)
-    if @movie.save
-      redirect_to @movie, notice: '映画が保存されました。'
-    else
-      render :new
-    end
-  end
 
 private 
 
@@ -39,7 +30,7 @@ private
     params.require(:movie).permit(:title, :runtime)
   end
 
-def save_movies(movies)
+def save_movie(movies)
   current_user = User.find(session[:user_id])
   movies.each do |movie_data|
     movie = Movie.find_or_initialize_by(tmdb_id: movie_data['id'])

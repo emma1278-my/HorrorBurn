@@ -10,7 +10,7 @@ ja:
       password: パスワード
   defaults:
     register: 登 録
-    edit: 変 更
+    edit: 編 集
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -85,3 +85,4 @@ ja:
   movie_histories:
     create:
       success: 映画を記録しました
+      failure: 映画の記録に失敗しました

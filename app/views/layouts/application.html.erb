@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     
   </head>
-   <body class="flex flex-col min-h-screen bg-gradient-to-b bg-zinc-900">
+   <body class="flex flex-col min-h-screen  bg-zinc-900 bg-gradient-to-b from-violet-600/10 via-transparent">
    <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>

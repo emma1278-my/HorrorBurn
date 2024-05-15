@@ -41,9 +41,7 @@ Rails.application.routes.draw do
   get '/movie_histories', to: redirect('/dashboards/show')
   
   resources :movies do
-    collection do
-      get :search
-    end
+    collection { get :search }
   end
   resource :dashboard, only: [:show]
 end
