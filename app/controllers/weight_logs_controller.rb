@@ -21,7 +21,6 @@ class WeightLogsController < ApplicationController
       # 目標体重までの残り
       target_weight = session[:target_weight]
       @remaining_weight = latest_weight - target_weight
-      
       # 目標体重に到達したかチェック
     if @remaining_weight <= 0
       flash[:success] = t(".next_weight_log")

@@ -114,17 +114,12 @@
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
     <span>映画視聴履歴</span>
   </div>
-    <div class="overflow-auto">
-      <%= debug(@movie_histories) %>
-        <% if @movie_histories.any? %>
-          <ul>
-            <% @movie_histories.each do |history| %>
-              <% if history.movie.present? %> 
-                <li><%= history.movie.title %></li>
-              <% end %>
-        <% end %>
-          </ul>
-        <% else %>
+    <div class="overflow-auto">    
+  
+     
+        <% if @movie_history.present? %> 
+          <li><%= history.movie.title %></li>
+        <% else %> 
           <p class="justify-center">視聴履歴がありません</p>
         <% end %>
     </div>

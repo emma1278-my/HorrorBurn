@@ -3,7 +3,9 @@ class CreateMovieHistories < ActiveRecord::Migration[7.1]
     create_table :movie_histories do |t|
       t.references :user, null: false, foreign_key: true
       t.integer :movie_id
-
+      t.string :title
+      t.integer :runtime
+      t.string :release_date
       t.timestamps
     end
   end

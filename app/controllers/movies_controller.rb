@@ -20,15 +20,7 @@ class MoviesController < ApplicationController
     url = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV['TMDB_API']}&language=ja"
     response = Net::HTTP.get(URI.parse(url))
     @movie = JSON.parse(response)
-  end
-end
-
-  def create
-    @movie = Movie.new(movie_params)
-    if @movie.save
-      redirect_to dashboard_path, notice: '映画を保存しました。'
-    else
-      render :new
+    @movie_history = MovieHistory.new  
   end
 end
 
