@@ -86,3 +86,12 @@ ja:
     create:
       success: 映画を記録しました
       failure: 映画の記録に失敗しました
+      next_target_runtime: 目標映画視聴時間に到達しました！次の目標を設定しましょう
+  password_resets:
+    update:
+      failure: パスワードリセットに失敗しました
+    edit:
+      title: パスワード再設定
+    new:
+      title: パスワードリセット申請
+      submit: 申請

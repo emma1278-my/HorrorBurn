@@ -20,6 +20,10 @@ class MovieHistoriesController < ApplicationController
     total_watched_runtime = current_user.total_watched_runtime
     @remaining_runtime = session[:target_calorie] / 113.0 * 90 / 60.0 - total_watched_runtime / 60.0
     session[:remaining_runtime] = @remaining_runtime
+    # 目標視聴時間に到達したかチェック
+    if @remaining_runtime <= 0
+      flash[:success] = t(".next_target_runtime")
+    end
   end
 end
 

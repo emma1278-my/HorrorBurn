@@ -116,15 +116,18 @@
   </div>
     <div class="overflow-auto">    
      <ul>
-   <% if @movie_histories.present? %>
-  <ul>
-    <% @movie_histories.each do |history| %>
-      <li><%= history.title %> (<%= history.runtime %>分)</li>
+      <% if @movie_histories.present? %>
+    <ul>
+      <% @movie_histories.each do |history| %>
+      <li>
+        <h2 class="font-medium text-white"><%= history.title %></h2>
+        <h3 class="mt-2 text-sm text-gray-500">(<%= history.runtime %>分)</h3>
+      </li>
+      <% end %>
+    </ul>
+      <% else %>
+    <p>視聴履歴がありません</p>
     <% end %>
-  </ul>
-<% else %>
-  <p>視聴履歴がありません</p>
-<% end %>
         
     </div>
   </div>

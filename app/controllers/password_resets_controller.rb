@@ -30,7 +30,8 @@ class PasswordResetsController < ApplicationController
       redirect_to login_path
       flash[:success]= 'パスワードがリセットされました'
     else
-      render action: 'edit'
+      flash.now[:danger] = t('.failure')
+      render :edit, status: :unprocessable_entity
     end
   end
 end
