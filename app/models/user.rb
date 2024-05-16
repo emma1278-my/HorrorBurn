@@ -21,12 +21,15 @@ class User < ApplicationRecord
     update(is_deleted: Time.current)
   end
 
+  def total_watched_runtime
+    movie_histories.sum(:runtime)
+  end
+
   private
 
   def active_for_authentication?
     super && is_deleted.nil?
   end
-
 
     # ランダムなユーザーIDを生成
   def set_user_id
