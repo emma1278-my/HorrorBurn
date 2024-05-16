@@ -8,6 +8,7 @@ class DashboardsController < ApplicationController
     @weight_logs = @user.weight_logs.order(created_at: :asc).pluck(:created_at, :weight)
     @movie_histories = current_user.movie_histories
     @latest_weight_log = @user.weight_logs.order(created_at: :desc).first
+    @total_watched_runtime = current_user.movie_histories.sum(:runtime)
     if @latest_weight_log.present? && @user.profile.present?
       current_weight = @latest_weight_log.weight
       session[:target_weight] = target_weight

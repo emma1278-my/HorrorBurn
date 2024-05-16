@@ -3,14 +3,17 @@
     <div class="text-center">
       <p class="text-3xl font-extrabold tracking-tight text-white lg:text-5xl mb-8">体 重 入 力</p>
     </div>
-    <div class="max-w-3xl px-6 py-16 mx-auto text-center">
-      <div class="flex flex-col mt-8 space-y-3 sm:space-y-0 sm:flex-row sm:justify-center sm:-mx-2">
-        <%= form_with model: @weight_log, url: weight_logs_path, data: { turbo: false }, html: { class: "w-64 mx-auto" } do |f| %>
-          <%= f.number_field :weight, step: 0.1, min: 30.0, max: 150.0, class: "px-4 py-2 text-gray-700 bg-white border rounded-md sm:mx-2 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40", placeholder: "今日の体重を入力してください", required: true %>
+    <div class="max-w-md mx-auto text-center">
+    <%= form_with model: @weight_log, url: weight_logs_path, data: { turbo: false }, html: { class: "w-64 mx-auto" } do |f| %>
+      <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+    </div>
+          <%= f.number_field :weight, step: 0.1, min: 30.0, max: 150.0, class: "block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "今日の体重を入力してください", required: true %>
 
           <button type="submit" class="px-4 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-md sm:mx-2 hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             体重を記録
           </button>
+          </div>
         <% end %>
       </div>
 
