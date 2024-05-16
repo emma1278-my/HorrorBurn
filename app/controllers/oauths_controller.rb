@@ -8,7 +8,6 @@ class OauthsController < ApplicationController
     
       def callback
         provider = auth_params[:provider]
-        # 既存のユーザーをプロバイダ情報を元に検索し、存在すればログイン
         if (@user = login_from(provider))
           redirect_to root_path, notice:"#{provider.titleize}アカウントでログインしました"
         else

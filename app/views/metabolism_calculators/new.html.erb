@@ -9,11 +9,11 @@
     
       <div class="text-left mt-12 ml-10">
         <%= form.label :current_weight, '現 在 の 体 重 は ?', class: "mb-3 block text-base font-medium" %>
-        <%= form.number_field :current_weight, id: "current_weight", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>  kg
+        <%= form.number_field :current_weight, step: 0.1, min: 30.0, max: 150.0, id: "current_weight", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>  kg
       </div>
         <div class="text-left mt-12 ml-10">
           <%= form.label :target_weight, '目 標 体 重 は ?', class: "mb-3 block text-base font-medium" %>
-          <%= form.number_field :target_weight, id: "target_weight", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>  kg
+          <%= form.number_field :target_weight, step: 0.1, min: 30.0, max: 150.0, id: "target_weight", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>  kg
         </div>
         <div class="-mx-3 flex flex-wrap">
           <div class="w-full px-3 sm:w-1/2">

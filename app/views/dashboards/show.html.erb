@@ -30,8 +30,8 @@
             </svg> 
           </div>
           <div>
-            <span class="block text-2xl font-bold"><%= @total_movie_runtime %> 本</span>
-            <span class="block text-gray-500">映画視聴数</span>
+            <span class="block text-2xl font-bold"><%= @movie_histories.size %> 本</span>
+            <span class="block text-gray-500">合計映画視聴数</span>
           </div>
         </div>
         
@@ -112,14 +112,22 @@
                 
      <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-    <span>映画視聴履歴</span>
+    <span>映画視聴履歴 </span>
   </div>
     <div class="overflow-auto">    
      <ul>
+      <% if @movie_histories.present? %>
+    <ul>
       <% @movie_histories.each do |history| %>
-    <li><%= history.title %> (<%= history.runtime %>分)</li>
-  <% end %>
-</ul>
+      <li>
+        <h2 class="font-medium text-white"><%= history.title %></h2>
+        <h3 class="mt-2 text-sm text-gray-500">(<%= history.runtime %>分)</h3>
+      </li>
+      <% end %>
+    </ul>
+      <% else %>
+    <p>視聴履歴がありません</p>
+    <% end %>
         
     </div>
   </div>
