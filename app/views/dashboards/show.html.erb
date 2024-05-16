@@ -115,13 +115,12 @@
     <span>映画視聴履歴</span>
   </div>
     <div class="overflow-auto">    
-  
-     
-        <% if @movie_history.present? %> 
-          <li><%= history.movie.title %></li>
-        <% else %> 
-          <p class="justify-center">視聴履歴がありません</p>
-        <% end %>
+     <ul>
+      <% @movie_histories.each do |history| %>
+    <li><%= history.title %> (<%= history.runtime %>分)</li>
+  <% end %>
+</ul>
+        
     </div>
   </div>
 
