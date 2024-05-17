@@ -63,11 +63,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_025315) do
     t.string "name"
     t.string "avatar"
     t.boolean "guest", default: false, null: false
-    t.boolean "is_deleted"
     t.string "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
     t.integer "access_count_to_reset_password_page", default: 0
+    t.boolean "is_deleted"
     t.float "current_weight"
     t.float "target_weight"
     t.float "remaining_weight"
