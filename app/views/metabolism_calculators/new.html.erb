@@ -5,7 +5,7 @@
 </p>
 <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
   <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
-    <%= form_with url: metabolism_calculators_path, data: { turbo: false } do |form| %>
+    <%= form_with model: @user, url: metabolism_calculators_path, data: { turbo: false } do |form| %>
     
       <div class="text-left mt-12 ml-10">
         <%= form.label :current_weight, '現 在 の 体 重 は ?', class: "mb-3 block text-base font-medium" %>
