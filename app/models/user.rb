@@ -3,7 +3,7 @@ class User < ApplicationRecord
  
   mount_uploader :avatar, AvatarUploader
   
-  validates :email, uniqueness: { scope: :is_deleted }, presence: true
+  validates :email, uniqueness: { scope: :deleted_at }, presence: true
   validates :name, presence: true, length: { maximum: 255 }
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :weight_logs, dependent: :destroy
    
   def soft_delete
-    update(is_deleted: Time.current)
+    update(deleted_at : Time.current)
   end
 
   def total_watched_runtime
@@ -28,7 +28,7 @@ class User < ApplicationRecord
   private
 
   def active_for_authentication?
-    super && is_deleted.nil?
+    super && deleted_at.nil?
   end
 
     # ランダムなユーザーIDを生成
