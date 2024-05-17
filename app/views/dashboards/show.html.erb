@@ -42,7 +42,13 @@
             </svg>
           </div>
           <div>
-            <span class="block text-2xl font-bold"> <%= current_user.remaining_runtime.round %> 時間</span>
+            <span class="block text-2xl font-bold"> 
+              <% if current_user.remaining_runtime %>
+                <%= current_user.remaining_runtime.round %> 時間
+              <% else %>
+               0 時間
+              <% end %>
+            </span>
             <span class="block text-gray-500">目標体重までの目標映画視聴時間</span>
           </div>
         </div>
