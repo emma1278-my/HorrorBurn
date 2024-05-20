@@ -29,3 +29,94 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      create: REGISTER
+      submit: SAVE
+      update: UPDATE
+      edit: EDIT
+    label:
+      email: Email
+      password: Password
+  defaults:
+    register: REGISTER
+    edit: EDIT
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+    header:
+      login: LOGIN
+      logout: LOGOUT
+      profile: ACCOUNT
+  application:
+    not_authenticated: Please enter your ID and your password and log in.
+  user_sessions:
+    new:
+      title: 
+      login: LOGIN
+      password_forget: LOST YOUR PASSWORD?
+    destroy:
+      success: SEE YOU SOON!
+    create:
+      alert: The username or password you entered is incorrect.
+      success: Welcome Back!
+      failure: The login attempt failed.  
+  users:
+    new:
+      title: REGISTER
+      to_login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました
+      failure: ユーザー登録に失敗しました
+    guest_login:
+      success: お試し版です。ぜひ本登録してお楽しみください！
+    destroy:
+      success: 退会しました！またのご利用お待ちしています
+  header:
+    login: ログイン
+    logout: ログアウト
+    users_new: 新規登録
+    bookmark_index: ブックマーク一覧
+    profile: プロフィール
+    dashboard: マイページ
+    metabolism_calculators: ホラー映画視聴ノルマ計算
+    movie_search: 映画検索
+  footer:
+    terms_of_service: 利用規約
+    privacy_policy: プライバシーポリシー
+  profiles:
+    show:
+     title: プロフィール 
+     edit: 編集
+    edit:
+     title: プロフィール編集
+     to_login_page: ログインページへ
+     avatar: アイコン
+     edit: 編集
+  tops:
+    title:
+      terms_of_service: 利用規約
+      privacy_policy: プライバシーポリシー
+  dashboards:
+    show:
+      title: マイページ 
+    check_guest_user:
+      trial: マイページを使用するためには本登録してください
+  weight_logs:
+    create:
+      success: 体重を記録しました
+      failure: 体重記録に失敗しました
+      next_weight_log: 目標体重に到達しました！次の目標を設定しましょう
+  movie_histories:
+    create:
+      success: 映画を記録しました
+      failure: 映画の記録に失敗しました
+      next_target_runtime: 目標映画視聴時間に到達しました！次の目標を設定しましょう
+  password_resets:
+    update:
+      failure: パスワードリセットに失敗しました
+    edit:
+      title: パスワード再設定
+    new:
+      title: パスワードリセット申請
+      submit: Submit
