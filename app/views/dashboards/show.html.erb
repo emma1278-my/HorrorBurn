@@ -42,7 +42,13 @@
             </svg>
           </div>
           <div>
-            <span class="block text-2xl font-bold"> <%= session[:remaining_runtime] ? session[:remaining_runtime].round : 0 %> 時間</span>
+            <span class="block text-2xl font-bold"> 
+              <% if current_user.remaining_runtime %>
+                <%= current_user.remaining_runtime.round %> 時間
+              <% else %>
+               0 時間
+              <% end %>
+            </span>
             <span class="block text-gray-500">目標体重までの目標映画視聴時間</span>
           </div>
         </div>
@@ -70,7 +76,7 @@
             </svg>
           </div>
           <div>
-       <span class="block text-2xl font-bold"><%= session[:target_weight] %> kg</span>
+       <span class="block text-2xl font-bold"><%= current_user.target_weight %> kg</span>
             <span class="block text-gray-500">目標体重</span>
           </div>      
         </div>
@@ -112,7 +118,7 @@
                 
      <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-    <span>映画視聴履歴 </span>
+    <span>映画視聴履歴 合計 <%= @total_watched_runtime %> 時間</span>
   </div>
     <div class="overflow-auto">    
      <ul>

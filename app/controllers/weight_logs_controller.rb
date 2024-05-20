@@ -19,7 +19,7 @@ class WeightLogsController < ApplicationController
       # 最新の体重
       latest_weight = @weight_log.weight
       # 目標体重までの残り
-      target_weight = session[:target_weight]
+      target_weight = current_user.target_weight
       @remaining_weight = latest_weight - target_weight
       # 目標体重に到達したかチェック
     if @remaining_weight <= 0
