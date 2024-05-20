@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_052057) do
     t.float "target_calorie"
     t.float "remaining_runtime"
     t.datetime "deleted_at"
+    t.boolean "is_deleted"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end

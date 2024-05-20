@@ -1,18 +1,51 @@
-<section class="relative flex items-center justify-center">
-  <div class="container mx-auto px-4 py-12 sm:py-16 lg:py-20">
-    <div class="text-center">
-   
-      <p class="mt-4 text-lg text-gray-300">
-        </p>
+<body class="text-gray-800">
+  <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+       <button
+          class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          type="button" onclick="toggleNavbar('example-collapse-navbar')">
+          <i class="text-white fas fa-bars"></i>
+        </button>
+      </div>
     </div>
-  <div class="max-w-2xl mx-auto text-white">
-  <p><span class="block float-left text-6xl mr-3 mb-3 text-center">2</span>012年のウエストミンスター大学の研究では、体重50㎏の女性が90分のホラー映画を観ると、30分間ほどウォーキングをしたのと同じ約113カロリーを消費することが明らかになっています。 恐い映像やホラー映画の視聴後に感じる疲労感は、恐怖や緊張によって引き起こされる心拍数の上昇や基礎代謝の増加により、カロリーが消費されると考えられます。つまりホラー映画を見るだけでダイエットが実現できるということです。</p>
-   <p class="text-center text-3xl text-gray-300 mt-12">アプリの使い方</p>
-  </div>
+  </nav>
   
-  
-    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 p-4 md:p-8">
-    <!-- Step 1 -->
+  <main>
+
+    <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 85vh;">
+      <div class="absolute top-0 w-full h-full bg-top bg-cover"
+        style='background-image: url("https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80");'>
+        <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+      </div>
+      <div class="container relative mx-auto" data-aos="fade-in">
+        <div class="items-center flex flex-wrap">
+          <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+            <div>
+              <h1 class="text-white text-5xl">
+              <span class="text-violet-700">HORROR</span> MOVIES<span class="text-violet-700"> BURN</span> CALORIES</span>
+              </h1>
+              <p class="mt-16 text-lg text-gray-300"><span class="block float-left text-6xl mr-3 mb-3 text-center">2</span>012年のウェストミンスター大学の研究では、90分のホラー映画を観ると、30分間ほどウォーキングをしたのと同じ約113カロリーを消費できることが明らかになっています。生理学的には、恐い映像・ホラー映画視聴時の恐怖や緊張によって引き起こされる心拍数の上昇・アドレナリンの急増により基礎代謝が増加し、カロリーが消費されると考えられます。つまりホラー映画を見るだけでダイエットが実現できます。
+              </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+        style="height: 70px; transform: translateZ(0px);">
+        <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+          <polygon points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+    <h1 class="text-white text-3xl text-center mt-8">
+      アプリの使い方           
+    </h1>
+
+     <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 p-4 md:p-8">
+ 
     <div
         class="p-8 py-12 sm:p-12 rounded-3xl bg-white border border-gray-100 bg-opacity-10 border-gray-400/30 backdrop-blur-lg shadow-lg shadow-violet-300 text-white">
         <div class="space-y-12">
@@ -26,8 +59,8 @@
             </div>
         </div>
     </div>
+ 
 
-    <!-- Step 2 -->
     <div
         class="p-8 py-12 sm:p-12 rounded-3xl bg-white border border-gray-100 bg-opacity-10 border-gray-400/30 backdrop-blur-lg shadow-lg shadow-violet-300 text-white">
         <div class="space-y-12">
@@ -41,7 +74,7 @@
         </div>
     </div>
 
-    <!-- Step 3 -->
+
     <div
         class="p-8 py-12 sm:p-12 rounded-3xl bg-white border border-gray-100 bg-opacity-10 border-gray-400/30 backdrop-blur-lg shadow-lg shadow-violet-300 text-white">
         <div class="space-y-12">
@@ -54,13 +87,117 @@
             </div>
         </div>
     </div>
+  </div>
+    
+      <div class="flex justify-center mt-16">
+          <%= link_to '早速使ってみる', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 btn-effect" %>
+        </div>
+
+        <div class="text-white justify-center items-center text-center mt-16">
+          <h2 class="text-3xl font-bold mb-4">燃やせる映画トップ10</h2>
+          <div class="list">
+            <div class="item mb-2">
+              <span class="font-bold">1位.</span> シャイニング <span class="text-sm">(184カロリー)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">2位.</span> ジョーズ <span class="text-sm">(161カロリー)</span>    
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">3位.</span> エクソシスト <span class="text-sm">(158カロリー)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">4位.</span> エイリアン <span class="text-sm">(152カロリー)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">5位.</span> のこぎり <span class="text-sm">(133カロリー)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">6位.</span> エルム街の悪夢 <span class="text-sm">(118カロリー)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">7位.</span> 超常現象アクティビティ <span class="text-sm">(111カロリー)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">8位.</span> ブレア・ウィッチ・プロジェクト <span class="text-sm">(105カロリー)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">9位.</span> テキサスチェーンソー虐殺 <span class="text-sm">(107カロリー)</span>
+            </div>
+            <div class="item">
+              <span class="font-bold">10位.</span> [Rec] <span class="text-sm">(101カロリー)</span>
+            </div>
+          </div>
+        </div>
+        
+
+  
+
+
+        <div class="py-8 text-white text-xs justify-center items-center text-center mt-12">
+           参考文献：<br>
+          <i>The Guardian.</i> (2012). Scare Yourself Thin: Horror Movies Help Burn Calories, Study Finds.<br>
+            https://www.theguardian.com/film/2012/oct/29/horror-movies-help-burn-calories
+        </div>
+
+
+<div class="w-full mt-30 container py-20 px-4 mx-auto">
+<div class="group relative">
+  <a onclick="$(this).toggleClass('btn-special-active'); return false;" title="Press to toggle Special Offers" href="#" class="relativebtn--special inline-block p-2 text-sm mr-0 mx-md-4 font-semibold w-auto text-red-600 border-2 border-red-600 bg-white rounded-lg hover:text-white active:text-white hover:bg-red-600 active:bg-red-600">                              
+  <i class="far fa-badge-dollar mr-1" aria-hidden="true"></i> Special Offer                       
+</a>
+      <span
+      class="border rounded border-red-100 bg-red-50 py-1 px-3 text-red-600  pointer-events-none absolute -top-12 text-xs left-0 w-60 opacity-0 transition-opacity group-hover:opacity-100"
+    >
+      Toggle button to show/hide businesses that have Special Offers.
+    </span>
+  </div>
+  
 </div>
-<div class="flex flex-col space-y-8 mt-7">
-  <div class="hero bg-base-200 mt-17 space-y-12">
-    <div class="max-w-md">
-      <%= link_to '早速使ってみる', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 btn-effect mt-16" %>
+
+
+
+
+
+
+
+
+<body class="flex items-center justify-center w-screen h-screen">
+
+  <!-- Component Start -->
+  <div class="relative flex flex-col items-center group">
+    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+    </svg>
+    <div class="absolute bottom-0 flex flex-col items-center hidden mb-5 group-hover:flex">
+      <span class="relative rounded-md z-10 p-4 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">A top aligned tooltip. That has enough text to be multi-line!<p class="pt-4 pb-4">Just check it out!</p></span>
+      <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
     </div>
   </div>
+  <!-- Component End  -->
+
+<div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 p-4 md:p-8">
+<div class="p-8 py-12 sm:p-12 rounded-3xl bg-white border border-gray-100 bg-opacity-10 border-gray-400/30 backdrop-blur-lg shadow-lg shadow-violet-300 text-white">
+        <div class="space-y-12">
+            <div class="m-auto flex h-12 w-12 items-center justify-center rounded-full bg-purple-50">
+            
+                <span class="font-bold text-xl text-purple-600">3</span>
+            </div>
+            <div class="space-y-4">
+                <h3 class="text-2xl font-semibold transition text-center text-white">視聴時間を記録</h3>
+                <p class="text-white">毎日の体重・視聴したホラー映画を記録しましょう<br>とにかくホラー映画の視聴を繰り返しましょう</p>
+            </div>
+        </div>
+    </div>
   </div>
-</section>
+
+
+</body>
+
+
+
+
+
+
+</body>
+
 
