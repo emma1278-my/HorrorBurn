@@ -16,13 +16,15 @@ COPY Gemfile Gemfile.lock /horror_burn/
 
 RUN bundle install
 
- COPY package.json yarn.lock /horror_burn/
+COPY package.json yarn.lock /horror_burn/
 
- RUN yarn install
+RUN yarn install
 
- RUN yarn add daisyui
+RUN yarn add daisyui
 
 COPY . /horror_burn/
+
+RUN bundle exec rails assets:precompile
 
 COPY entrypoint.sh /usr/bin/
 
