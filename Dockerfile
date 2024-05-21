@@ -24,7 +24,7 @@ RUN yarn add daisyui
 
 COPY . /horror_burn/
 
-RUN rails assets:precompile
+RUN rails assets:precompile RAILS_ENV=production
 
 COPY entrypoint.sh /usr/bin/
 
