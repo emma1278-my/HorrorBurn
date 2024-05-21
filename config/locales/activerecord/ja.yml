@@ -39,7 +39,6 @@ ja:
   users:
     new:
       title: 新規登録
-      to_login_page: ログインページへ
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
@@ -51,7 +50,6 @@ ja:
     login: ログイン
     logout: ログアウト
     users_new: 新規登録
-    bookmark_index: ブックマーク一覧
     profile: プロフィール
     dashboard: マイページ
     metabolism_calculators: ホラー映画視聴ノルマ計算
@@ -65,7 +63,6 @@ ja:
      edit: 編集
     edit:
      title: プロフィール編集
-     to_login_page: ログインページへ
      avatar: アイコン
      edit: 編集
   tops:
