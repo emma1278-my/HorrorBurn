@@ -24,6 +24,8 @@ RUN yarn add daisyui
 
 COPY . /horror_burn/
 
+RUN rails assets:precompile
+
 COPY entrypoint.sh /usr/bin/
 
 RUN chmod +x /usr/bin/entrypoint.sh
