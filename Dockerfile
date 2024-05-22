@@ -16,13 +16,17 @@ COPY Gemfile Gemfile.lock /horror_burn/
 
 RUN bundle install
 
- COPY package.json yarn.lock /horror_burn/
+COPY package.json yarn.lock /horror_burn/
 
- RUN yarn install
+RUN yarn install
 
- RUN yarn add daisyui
+RUN yarn add daisyui
 
 COPY . /horror_burn/
+
+WORKDIR /horror_burn
+
+RUN bundle exec rails assets:precompile RAILS_ENV=production
 
 COPY entrypoint.sh /usr/bin/
 
@@ -31,7 +35,3 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
 CMD ["./bin/dev"]
-
-RUN /app/bin/rails assets:precompile
-
-CMD ["rails", "server", "-b", "0.0.0.0"]

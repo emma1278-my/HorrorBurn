@@ -1,31 +1,123 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      create: REGISTER
+      submit: SAVE
+      update: UPDATE
+      edit: EDIT
+    label:
+      email: Email
+      password: Password
+  defaults:
+    register: REGISTER
+    edit: EDIT
+    flash_message:
+      created: "Created %{item} successfully!"
+      not_created: "Failed to create %{item}"
+    header:
+      login: LOGIN
+      logout: LOGOUT
+      profile: ACCOUNT
+  application:
+    not_authenticated: Please enter your ID and your password and log in.
+  user_sessions:
+    new:
+      title: 
+      login: LOGIN
+      password_forget: LOST YOUR PASSWORD?
+    destroy:
+      success: SEE YOU SOON!
+      failure: Failed to logout. Please try again.
+    create:
+      alert: The username or password you entered is incorrect.
+      success: Welcome Back!
+      failure: The login attempt failed. 
+    reject_end_user:
+      item_blank: Please enter the item
+      not_found: User not found
+  users:
+    new:
+      title: REGISTER
+    create:
+      success: Welcome to Horror Burn! 
+      failure: User registration failed.
+    guest_login:
+      success: This is a trial version. Please register and enjoy!
+    destroy:
+      success: Your membership cancellation was successful! We look forward to seeing you again.
+      failure: Failed to your menbership cancellation. Please try again.
+    guest_name: Guest
+  header:
+    login: LOGIN
+    logout: LOGOUT
+    users_new: REGISTER    
+    profile: PROFILE
+    dashboard: MY PAGE
+    metabolism_calculators: HORROR MOVIE VIEWING QUOTA CALCULATOR
+    movie_search: MOVIE SEARCH
+  footer:
+    terms_of_service: TERM OF SERVICE
+    privacy_policy: PRIVACY POLICY
+  profiles:
+    show:
+     title: PROFILE
+     edit: EDIT
+     reset_password: SET NEW PASSWORD
+     delete_account: DELETE ACCOUNT
+    edit:
+     title: EDIT PROFILE
+     avatar: AVATER
+     edit: EDIT
+     submit: SAVE
+  tops:
+    title:
+      terms_of_service: TERM OF SERVICE
+      privacy_policy: PRIVACY POLICY
+  dashboards:
+    show:
+      title: MY PAGE
+      record_movie: RECORD MOVIE
+      record_weight: LOG WEIGHT
+      total_watched_movies: Total Movies Watched
+      total_count:  movie titles
+      hours:  hours
+      zero_hours: 0 hours
+      target_movie_runtime: Movie Hours to Achieve Target Weight
+      no_record: NO RECORD
+      current_weight: Current Weight
+      target_weight: Target Weight
+      weight_log: weight Log
+      watched_movie: Movie Record
+      total: Total
+    check_guest_user:
+      trial: Please register to use MY PAGE
+  weight_logs:
+    create:
+      success: New Weight log added successfully.
+      failure: Failed to record weight.
+      next_weight_log: Congratulations! You've hit your target weight. Time to aim for a new goal.
+  movie_histories:
+    create:
+      success: Movie logged successfully.
+      failure: Movie logged failed.
+      next_target_runtime: Congratulations! Reached your target movie runtime. Time to aim for a new goal.
+      remind_calculator: Movie logged successfully. Please register your target weight and calculate your target movie runtime.
+  password_resets:
+    update:
+      failure: Failed to reset password.
+    edit:
+      title: RESET YOUR PASSWORD
+    new:
+      title: REQUEST A PASSWORD RESET
+      submit: SUBMIT
+    create:
+      send_email: A password reset email has been sent
+    update:
+      success: Password reset successfully
+      failed: Failed to password reset
+  metabolism_calculators:
+    new:
+      explanation: Enter your target weight. We will calculate the quota for required horror movie runtime.
+      question: Please answer the following questions.
+      follow: Lose weight at a comfortable pace, following a plan.
