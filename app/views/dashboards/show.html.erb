@@ -10,14 +10,14 @@
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
             </svg>
-              映画を記録
+              <%= t('.record_movie') %>
             <% end %>
 
           <%= link_to weight_logs_path, class: "inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline" do %>
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
           </svg>
-            体重を入力
+            <%= t('.record_weight') %>
           <% end %>
           </div>
         </div>
@@ -30,8 +30,8 @@
             </svg> 
           </div>
           <div>
-            <span class="block text-2xl font-bold"><%= @movie_histories.size %> 本</span>
-            <span class="block text-gray-500">合計映画視聴数</span>
+            <span class="block text-2xl font-bold"><%= @movie_histories.size %> <%= t('.total_count') %></span>
+            <span class="block text-gray-500"><%= t('.total_watched_movies') %></span>
           </div>
         </div>
         
@@ -44,12 +44,13 @@
           <div>
             <span class="block text-2xl font-bold"> 
               <% if current_user.remaining_runtime %>
-                <%= current_user.remaining_runtime.round %> 時間
+                <%= current_user.remaining_runtime.round %> 
+                <%= t('.hours') %>
               <% else %>
-               0 時間
+               <%= t('.zero_hours') %>
               <% end %>
             </span>
-            <span class="block text-gray-500">目標体重までの目標映画視聴時間</span>
+            <span class="block text-gray-500"><%= t('.target_movie_runtime') %></span>
           </div>
         </div>
         <div class="flex items-center p-8 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
@@ -63,9 +64,9 @@
         <% if @weight_logs.present? %>
         <span class="block text-2xl font-bold"><%= @weight_logs.last[1] %> kg</span>
         <% else %>
-        <span class="block text-2xl font-bold">記録なし</span>
+        <span class="block text-2xl font-bold"><%= t('.no_record') %></span>
         <% end %>
-        <span class="block text-gray-500">現体重</span>
+        <span class="block text-gray-500"><%= t('.current_weight') %></span>
       </div>
     </div>
 
@@ -77,14 +78,14 @@
           </div>
           <div>
        <span class="block text-2xl font-bold"><%= current_user.target_weight %> kg</span>
-            <span class="block text-gray-500">目標体重</span>
+            <span class="block text-gray-500"><%= t('.target_weight') %></span>
           </div>      
         </div>
       </section>
 
       <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col mt-8">
         <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
-          <div class="px-6 py-3 font-semibold border-b border-gray-100 mt-2">体重記録</div>
+          <div class="px-6 py-3 font-semibold border-b border-gray-100 mt-2"><%= t('.weight_log') %></div>
             <div class="p-4 flex-grow">
               <div class="p-4 flex-grow rounded-md">  
                 <%= line_chart @weight_logs.map { |created_at, weight| { created_at.strftime("%Y年%m月%d日") => weight } }.inject(:merge),
@@ -118,7 +119,7 @@
                 
      <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-    <span>映画視聴履歴 合計 <%= @total_watched_runtime %> 時間</span>
+    <span><%= t('.watched_movie') %>  <%= t('.total') %> <%= @total_watched_runtime %> <%= t('.hours') %></span>
   </div>
     <div class="overflow-auto">    
      <ul>
@@ -132,12 +133,10 @@
       <% end %>
     </ul>
       <% else %>
-    <p>視聴履歴がありません</p>
+    <p><%= t('.no_record') %></p>
     <% end %>
-        
     </div>
   </div>
-
  </section> 
    </main>
   </div>

@@ -1,40 +1,45 @@
 <p class="text-center text-lg text-white mt-6 ">
-  目標体重からホラー映画視聴ノルマを算出します
-  <br>以下質問にお答えください
-  <br>減量は計画的に！
+  <%= t('.explanation') %>
+  <br><%= t('.question') %>
+  <br><%= t('.follow') %>
 </p>
 <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
   <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
     <%= form_with model: @user, url: metabolism_calculators_path, data: { turbo: false } do |form| %>
     
       <div class="text-left mt-12 ml-10">
-        <%= form.label :current_weight, '現 在 の 体 重 は ?', class: "mb-3 block text-base font-medium" %>
+      <%= form.label :current_weight, t('.current_weight'), class: "mb-3 block text-base font-medium" %>
         <%= form.number_field :current_weight, step: 0.1, min: 30.0, max: 150.0, id: "current_weight", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>  kg
       </div>
         <div class="text-left mt-12 ml-10">
-          <%= form.label :target_weight, '目 標 体 重 は ?', class: "mb-3 block text-base font-medium" %>
+          <%= form.label :target_weight, t('.target_weight'), class: "mb-3 block text-base font-medium" %>
           <%= form.number_field :target_weight, step: 0.1, min: 30.0, max: 150.0, id: "target_weight", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %>  kg
         </div>
         <div class="-mx-3 flex flex-wrap">
           <div class="w-full px-3 sm:w-1/2">
             <div class="text-left mt-12 ml-10">
-              <%= form.label :weight_achieved_date, "い つ ま で に 達 成 し た い ？", class: "mb-3 block text-base font-medium" %>
-              <%= form.date_field :weight_achieved_date, id: "weight_achieved_date", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %> ま で に
+              <%= form.label :weight_achieved_date, t('.achieved_date'), class: "mb-3 block text-base font-medium" %>
+              <%= form.date_field :weight_achieved_date, id: "weight_achieved_date", class: "rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md w-1/2" %> <%= t('.until') %>
             </div>
           </div>
         </div>
       <div class="text-right mt-12 ml-10 mb-8">
-        <%= form.submit "計算する", class: 'btn btn-9 float-center rounded-lg shadow-violet-300-lg mt-6 mb-8 bg-violet-500' %>
+        <%= form.submit t('.calculate'), class: 'btn btn-9 float-center rounded-lg shadow-violet-300-lg mt-6 mb-8 bg-violet-500' %>
         </div>
        <% end %>
   </div>
   </div>
   <p class="text-center text-xs text-white mt-6 justify-center max-w-4xl mx-auto my-10 py-6 ">
+  <%= t('.asterisk1') %>
   ※本アプリ計算式は、ホラー映画を見ることによりどのくらいカロリーを消費できるかを求めています。<br>
+  <%= t('.asterisk2') %>
   「体重の減少＝脂肪の減少」と定義しているため、1kgの脂肪が持つエネルギー量が一般的に7000～7700kcalと言われていることに基づき、1kgの脂肪を燃焼するために必要なカロリーを7200kcalと設定しています。<br>
+  <%= t('.asterisk3') %>
   1日あたりの目標減少カロリーを「目標減量体重 × 7200 ÷ ダイエット日数」として計算しています。<br>
+  <%= t('.asterisk4') %>
   ホラー映画を観て消費するカロリーは、90分のホラー映画を観ると平均113カロリーが消費されることがわかっています。<br>
+  <%= t('.asterisk5') %>
   目標減少カロリーを、ホラー映画を観ることによる1分間あたりのカロリー消費量で割ることで、目標減少カロリーを達成するために必要なホラー映画の視聴分数を算出しています。<br>
-  参考文献：https://www.theguardian.com/film/2012/oct/29/horror-movies-help-burn-calories
+  <%= t('.ref') %>
 </p>
 

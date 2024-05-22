@@ -1,5 +1,5 @@
   <p class="text-center text-lg text-white mt-6">
-    結果がこちら
+    <%= t('.title') %>
   </p>
 <div class="flex items-center justify-center p-8 max-w-4xl mx-auto my-10 py-6 sm:py-12">
   <div class="max-w-[550px] mx-auto px-6 relative flex flex-col min-w-0 break-words border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 font-Kiwi Maru text-white w-full">
@@ -7,7 +7,7 @@
           <div class="text-left mt-12 ml-10 mb-8">
                 <div class="text-left mt-12 ml-10">
                 <label for="target_weight" class="mb-3 block text-base font-medium">
-                   <span class="block text-base"> 目 標 体 重 (<%= current_user.target_weight %> kg )  に 対 し て</span>
+                   <span class="block text-base">  <%= t('.target_weight') %> (<%= current_user.target_weight %> kg )<%= t('.for') %></span>
                 </label>                
             </div> 
                 <div class="text-left mt-12 ml-10 mb-8">
@@ -38,7 +38,7 @@
             </div>
             <div class="pl-2 mr-4 max-w-md mt-10">
             <%= link_to ' やり直す ', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
-              <%= link_to 'マイページへ', dashboard_path(id: current_user.id), class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 mb-8 ml-10" %>
+              <%= link_to t('dashboards.show.title'), dashboard_path(id: current_user.id), class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 mb-8 ml-10" %>
             </div>
             </div>
           </div>

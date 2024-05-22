@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def guest_login
     @guest_user = User.create(
-    name: 'ゲスト',
+    name: t('users.guest_name'),
     email: SecureRandom.uuid + "@example.com",
     password: 'password',
     password_confirmation: 'password',

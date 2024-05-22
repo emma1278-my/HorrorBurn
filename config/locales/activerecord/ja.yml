@@ -30,8 +30,12 @@ ja:
       login: ログイン
       to_register_page: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
+    reject_end_user:
+      item_blank: 項目を入力してください
+      not_found: 該当するユーザーが見つかりません
     destroy:
       success: ログアウトしました
+      failure: ログアウトに失敗しました
     create:
       alert: メールアドレスかパスワードが正しくありません
       success: ログインしました
@@ -46,6 +50,8 @@ ja:
       success: お試し版です。ぜひ本登録してお楽しみください！
     destroy:
       success: 退会しました！またのご利用お待ちしています
+      failure: 退会に失敗しました
+    guest_name: "ゲスト"
   header:
     login: ログイン
     logout: ログアウト
@@ -60,11 +66,14 @@ ja:
   profiles:
     show:
      title: プロフィール 
-     edit: 編集
+     edit: 編 集
+     reset_password: パスワード変更
+     delete_account: 退会する
     edit:
      title: プロフィール編集
      avatar: アイコン
-     edit: 編集
+     edit: 編 集
+     submit: 更 新
   tops:
     title:
       terms_of_service: 利用規約
@@ -72,6 +81,19 @@ ja:
   dashboards:
     show:
       title: マイページ 
+      record_movie: 映画を記録
+      record_weight: 体重を記録
+      total_watched_movies: 合計映画視聴数
+      total_count:  本
+      hours:  時間
+      zero_hours: 0 時間
+      target_movie_runtime: 目標体重までの目標映画視聴時間
+      no_record: 記録なし
+      current_weight: 現体重
+      target_weight: 目標体重
+      weight_log: 体重記録
+      watched_movie: 映画視聴履歴
+      total: 合計
     check_guest_user:
       trial: マイページを使用するためには本登録してください
   weight_logs:
@@ -84,6 +106,7 @@ ja:
       success: 映画を記録しました
       failure: 映画の記録に失敗しました
       next_target_runtime: 目標映画視聴時間に到達しました！次の目標を設定しましょう
+      remind_calculator: 映画視聴履歴を追加しました。目標体重の登録・目標映画視聴時間の計算をしてください。
   password_resets:
     update:
       failure: パスワードリセットに失敗しました
@@ -92,3 +115,29 @@ ja:
     new:
       title: パスワードリセット申請
       submit: 申 請
+    create:
+      send_email: パスワードリセットのメールを送信しました
+    update:
+      success: パスワードがリセットされました
+      failure: パスワードリセットに失敗しました
+  metabolism_calculators:
+    new:
+      explanation: "目標体重からホラー映画視聴時間ノルマを算出します"
+      question: "以下質問にお答えください"
+      follow: "無理せず、減量は計画的に！"
+      current_weight: 現 在 の 体 重 は ?
+      target_weight: 目 標 体 重 は ?
+      achieved_date: い つ ま で に 達 成 し た い ？
+      until: ま で に
+      calculate: 計算する
+      asterisk1: ※本アプリ計算式は、ホラー映画を見ることによりどのくらいカロリーを消費できるかを求めています。
+      asterisk2: 「体重の減少＝脂肪の減少」と定義しているため、1kgの脂肪が持つエネルギー量が一般的に7000～7700kcalと言われていることに基づき、1kgの脂肪を燃焼するために必要なカロリーを7200kcalと設定しています。
+      asterisk3: 1日あたりの目標減少カロリーを「目標減量体重 × 7200 ÷ ダイエット日数」として計算しています。
+      asterisk4: ホラー映画を観て消費するカロリーは、90分のホラー映画を観ると平均113カロリーが消費されることがわかっています。
+      asterisk5: 目標減少カロリーを、ホラー映画を観ることによる1分間あたりのカロリー消費量で割ることで、目標減少カロリーを達成するために必要なホラー映画の視聴分数を算出しています。
+      ref: 参考文献：https://www.theguardian.com/film/2012/oct/29/horror-movies-help-burn-calories
+    show:
+      title: 結果がこちら
+      target_weight: 目 標 体 重
+      for: に 対 し て
+      

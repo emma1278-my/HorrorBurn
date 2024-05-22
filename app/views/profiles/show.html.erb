@@ -25,10 +25,10 @@
 </section>
 <% unless current_user.guest? %>
 <div class="p-8 max-w-4xl mx-auto my-10">
-     <%= link_to 'パスワードを変更する', new_password_reset_path, class: "rounded-full bg-neon-yellow active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-black float-right shadow-lg rounded-lg shadow-violet-300 items-right no-underline" %>
+     <%= link_to t('.reset_password'), new_password_reset_path, class: "rounded-full bg-neon-yellow active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-black float-right shadow-lg rounded-lg shadow-violet-300 items-right no-underline" %>
 
 
-      <%= link_to "退会希望の方はこちら", user_path(current_user), data: { turbo_method: :delete, turbo_confirm: '本当に退会しますか？'}, class: "text-white dark:text-gray-400 hover:underline  rounded-full bg-blue-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white  shadow-lg rounded-lg shadow-violet-300 no-underline" %>
+      <%= link_to t('.delete_account'), user_path(current_user), data: { turbo_method: :delete, turbo_confirm: '本当に退会しますか？'}, class: "text-white dark:text-gray-400 hover:underline  rounded-full bg-blue-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white  shadow-lg rounded-lg shadow-violet-300 no-underline" %>
 </div>
 <% end %>
  
