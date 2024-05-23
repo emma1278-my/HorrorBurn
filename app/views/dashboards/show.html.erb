@@ -117,7 +117,7 @@
             </div> 
           </div>
                 
-     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
+     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300">
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
     <span><%= t('.watched_movie') %>  <%= t('.total') %> <%= @total_watched_runtime %> <%= t('.hours') %></span>
   </div>
@@ -142,13 +142,26 @@
   </div>
 </body>
 
-<!--
-    <div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
-    <div class="px-6 py-5 font-semibold border-b border-gray-100">あなたにおススメの映画</div>
-    <div class="p-4 flex-grow">
-      <div class="flex items-center justify-center px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">movies</div>
-    </div>
-  </div>   
+<div class="flex flex-col md:col-span-2 md:row-span-2 text-white border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
+  <div class="px-6 py-5 font-semibold border-b border-gray-100">あなたにおススメの映画</div>
+  <div class="p-4 flex-grow">
+    <% if @recommendations.present? %>
+      <div class="grid grid-cols-3 gap-4">
+        <% @recommendations.each do |movie| %>
+          <div class="bg-gray-800 rounded-lg overflow-hidden">
+            <img src="https://image.tmdb.org/t/p/w300<%= movie['poster_path'] %>" alt="<%= movie['title'] %>" class="w-full h-auto">
+            <div class="px-4 py-2">
+              <div class="font-bold text-sm mb-2"><%= movie['title'] %></div>
+              <div class="text-xs text-gray-400"><%= movie['release_date'] %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="flex items-center justify-center px-4 py-24 text-gray-400 text-3xl font-semibold  border-2 border-gray-200 border-dashed rounded-md">推薦映画はありません</div>
+    <% end %>
+  </div>
+</div>
       
   
  
