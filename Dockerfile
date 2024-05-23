@@ -2,6 +2,8 @@ FROM ruby:3.2.2
 
 ENV TZ Asia/Tokyo
 
+ENV SECRET_KEY_BASE=<secure_random_string>
+
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs && apt-get install -y vim
 
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - \
@@ -26,7 +28,7 @@ COPY . /horror_burn/
 
 WORKDIR /horror_burn
 
-RUN bundle exec rails assets:precompile RAILS_ENV=production
+RUN bundle exec rails assets:precompile RAILS_ENV=development
 
 COPY entrypoint.sh /usr/bin/
 
