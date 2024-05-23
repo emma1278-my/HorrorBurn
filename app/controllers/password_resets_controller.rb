@@ -7,7 +7,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by(email: params[:email])
     @user&.deliver_reset_password_instructions!
     redirect_to login_path
-    flash[:success]= = t(".send_email")
+    flash[:success]= t(".send_email")
   end
 
   def edit
