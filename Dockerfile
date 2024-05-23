@@ -26,7 +26,7 @@ COPY . /horror_burn/
 
 WORKDIR /horror_burn
 
-RUN bundle exec rails assets:precompile RAILS_ENV=production
+RUN bundle exec rails assets:precompile RAILS_ENV=development
 
 COPY entrypoint.sh /usr/bin/
 
