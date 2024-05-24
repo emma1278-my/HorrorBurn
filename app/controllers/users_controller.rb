@@ -20,10 +20,15 @@ class UsersController < ApplicationController
 
     def destroy
       @user = User.find(params[:id])
-      @user.destroy
+      if @user.destroy
       flash[:success] = t(".success")
       redirect_to root_url
+    else
+      flash[:error] = t(".error")
+      redirect_to user_path(@user)
     end
+  end
+
      
 
   def guest_login

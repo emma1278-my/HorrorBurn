@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   # プロフィール
   resource :profile, only: %i[show edit update new create destroy]
 
-  resources :movie_histories, only: [:create]
+  resources :movie_histories, only: [:create, :destroy]
   get '/movie_histories', to: redirect('/dashboards/show')
   
   resources :movies do
