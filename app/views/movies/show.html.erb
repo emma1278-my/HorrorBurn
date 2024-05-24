@@ -7,21 +7,21 @@
 <%= form.hidden_field :movie_id, value: @movie['id'] %>
   <%= form.hidden_field :title, value: @movie['title'] %>
   <%= form.hidden_field :runtime, value: @movie['runtime'] %>
-  <%= form.submit 'この映画をみた', class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
+  <%= form.submit t('.save'), class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
 <% end %>
       </p>
     </div>
    
     <p><%= @movie['title'] %></p>
-    <p>公開日 <%= @movie['release_date'] %></p>
-    <p>上映時間 <%= @movie['runtime'] %>分</p>
+    <p><%= t('.release_date') %> <%= @movie['release_date'] %></p>
+    <p><%= t('.runtime') %> <%= @movie['runtime'] %><%= t('.min') %></p>
     <% if @movie['poster_path'] %>
         <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'],class: "card-size" %></p>
     <% end %>
     <p><%= @movie['overview'] %></p>
     <div class="ml-auto"> 
      <p class="text-sm !mt-10 text-center text-white"> 
-    <%= link_to "☜ 検索ページに戻る", movies_search_path(movie_id: @movie['id']), class: "text-blue-600 hover:underline ml-1 whitespace-nowrap" %></p>
+    <%= link_to t('.back_to_search'), movies_search_path(movie_id: @movie['id']), class: "text-blue-600 hover:underline ml-1 whitespace-nowrap" %></p>
    
   </div>
 </section>
