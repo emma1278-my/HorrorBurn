@@ -101,12 +101,13 @@ ja:
       success: 体重を記録しました
       failure: 体重記録に失敗しました
       next_weight_log: 目標体重に到達しました！次の目標を設定しましょう
+      target_calorie_not_set: 体重を追加しました。目標体重の登録・目標映画視聴時間の計算をしてください。
   movie_histories:
     create:
       success: 映画を記録しました
       failure: 映画の記録に失敗しました
       next_target_runtime: 目標映画視聴時間に到達しました！次の目標を設定しましょう
-      remind_calculator: 映画視聴履歴を追加しました。目標体重の登録・目標映画視聴時間の計算をしてください。
+      remind_calculator: 目標体重の登録・目標映画視聴時間の計算を先に行ってください。
   password_resets:
     update:
       failure: パスワードリセットに失敗しました
@@ -140,4 +141,24 @@ ja:
       title: 結果がこちら
       target_weight: 目 標 体 重
       for: に 対 し て
-      
+      remaining_weight: 目 標 体 重 ま で 残 り 
+      remaining_weight_round: 減 ら し ま し ょ う
+      target_calorie: 目 標 体 重 到 達 ま で に 必 要 な 減 量 カ ロ リ ー
+      target_weight: 目 標 体 重 ま で  
+      remaining_runtime_round2: ホ ラ ー 映 画 を 観 ま し ょ う
+      Recalculate: やり直す
+      remaining_runtime_hours: 時 間
+  movies:
+    search:
+      title: 映 画 検 索 
+      result: 検索結果
+      release_date: 公開日
+      search: 検 索
+      movie_title: "映画タイトルを入れてください"
+    show:
+      min: 分
+      release_date: 公開日
+      runtime: 上映時間
+      back_to_search:  ☜ 検索ページに戻る
+      save: この映画を観た
+    

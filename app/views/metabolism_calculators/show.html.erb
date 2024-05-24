@@ -12,32 +12,32 @@
             </div> 
                 <div class="text-left mt-12 ml-10 mb-8">
                 <label for="remaining_weight" class="mb-3 block text-base font-medium">
-                    目 標 体 重 ま で 残 り       
+                  <%= t('.remaining_weight') %>      
                 </label>
                 <div class="flex items-baseline">
                 <span class="block text-2xl font-bold"><%= current_user.remaining_weight.round(2) %> kg</span>
-                <p class="ml-8 mb-3 block text-sm font-medium">減 ら し ま し ょ う</p>
+                <p class="ml-8 mb-3 block text-sm font-medium"><%= t('.remaining_weight_round') %></p>
                 </div>
             </div>
 
 
             <div class="text-left mt-12 ml-10">
                 <label for="target_calorie" class="mb-3 block text-base font-medium">
-                   目 標 体 重 到 達 ま で に 必 要 な 減 量 カ ロ リ ー
+                  <%= t('.target_calorie') %>
                 </label>
                 <span class="block text-2xl font-bold"><%= current_user.target_calorie.round %> kcal</span> 
             </div>
             <div class="text-left mt-12 ml-10 mb-8">
                 <label for="target_weight" class="mb-3 block text-base font-medium">
-                    目 標 体 重 ま で        
+                  <%= t('.target_weight') %>      
                 </label>
                 <div class="flex items-baseline">
-                <span class="block text-2xl font-bold"><%= @remaining_runtime.round %> 時間 </span>
-                <p class="ml-8 mb-3 block text-sm font-medium">ホ ラ ー 映 画 を 観 ま し ょ う</p>
+                <span class="block text-2xl font-bold"><%= @remaining_runtime.round %> <%= t('.remaining_runtime_hours') %> </span>
+                <p class="ml-8 mb-3 block text-sm font-medium"><%= t('.remaining_runtime_round2') %></p>
                 </div>
             </div>
             <div class="pl-2 mr-4 max-w-md mt-10">
-            <%= link_to ' やり直す ', new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
+            <%= link_to t('.Recalculate'), new_metabolism_calculators_path, class: "btn btn-9 bg-violet-400 float-right shadow-lg rounded-lg shadow-violet-300" %>
               <%= link_to t('dashboards.show.title'), dashboard_path(id: current_user.id), class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 mb-8 ml-10" %>
             </div>
             </div>
