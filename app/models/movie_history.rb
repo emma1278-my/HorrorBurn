@@ -1,5 +1,5 @@
 class MovieHistory < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   validates :movie_id, presence: true
 

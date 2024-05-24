@@ -50,7 +50,7 @@ ja:
       success: お試し版です。ぜひ本登録してお楽しみください！
     destroy:
       success: 退会しました！またのご利用お待ちしています
-      failure: 退会に失敗しました
+      error: 退会に失敗しました
     guest_name: "ゲスト"
   header:
     login: ログイン
