@@ -42,7 +42,32 @@
           <% i += 1 %>
         <% end %>
       </div>
-    <% end %>
+  <%else%>
   </div>
-  <%#= paginate @movies, theme: 'user' %>
+ <%# 検索されていない時に表示 %>
+    <h2 class="text-white">今日の世界で人気なホラー映画</h2>
+    <% movieinfo = Tmdb::Genre.movies(27) %>
+    <% i = 0 %>
+    <div class="card-wrapper ">
+        <% while i < movieinfo.results.count %>
+            <div class="card">
+                <div class="card-upperinfo">
+                    <%if movieinfo.results[i].title.present?%>
+                        <h3><%= link_to movieinfo.results[i].title, movie_path(movieinfo.results[i].id)%></h3>
+                    <%end%>
+
+                    <% if movieinfo.results[i].release_date.present? %>
+                        <p class="release-date text-white"><%= movieinfo.results[i].release_date %></p>
+                    <%end%>
+                </div>
+
+                <% if movieinfo.results[i].poster_path.present? %>
+                    <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo.results[i].poster_path, class: "card-img", size: "200x300" %></p>
+                <%end%>
+            </div>
+
+            <% i += 1%>
+        <%end%>
+    </div>
+<%end%>
 </section>
