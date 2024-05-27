@@ -25,6 +25,8 @@ class DashboardsController < ApplicationController
     redirect_to dashboard_path, success: t('defaults.flash_message.deleted', item: MovieHistory.model_name.human), status: :see_other
   end
 
+
+   
     private
 
   def check_guest_user

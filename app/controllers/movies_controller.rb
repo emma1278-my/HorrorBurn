@@ -23,6 +23,21 @@ class MoviesController < ApplicationController
     @movie_history = MovieHistory.new  
   end
 end
+  
+def radam(params = {})
+  genre_id = params[:genre_id]
+  genre = URI.encode_www_form({with_genres: genre_id})
+  tmdb = URI.parse("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV['API_KEY']}&language=ja-JP&#{genre}")
+  response = Net::HTTP.get(tmdb)
+  uri = URI.parse("https://api.themoviedb.org/3/discover/tv?api_key=#{ENV['API_KEY']}&language=ja-JP&#{genre}&page=#{rand(tmdb_list['total_pages'])+1}")
+  json = Net::HTTP.get(uri)
+  data_list = JSON.parse(json)
+  movie = data_list["results"]
+  movie.map do |data|
+  Movie.new(data)
+  end
+end
+
 
 private 
 
