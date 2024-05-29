@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: HorrorBurn-1
+    name: HorrorBurn
     env: ruby
     region: singapore
     plan: free
@@ -17,5 +17,7 @@ services:
         fromDatabase:
           name: Horror_Burn
           property: connectionString
+      - key: RAILS_ENV
+        value: production    
       - key: RAILS_MASTER_KEY
         sync: false
