@@ -1,6 +1,6 @@
 databases:
   - name: Horror_Burn
-    databaseName: horror_burn_ls9a
+    databaseName: horror_burn_db
     user: HorrorBurn
     region: singapore
 
