@@ -1,3 +1,4 @@
-web: env RUBY_DEBUG_OPEN=true bin/rails server -b 0.0.0.0 -p 3000
-js: yarn build --watch
-css: yarn watch:css
+docker compose build
+docker compose up
+docker compose exec web bin/rails db:create db:migrate
+docker compose exec web g controller StaticPages top
