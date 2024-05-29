@@ -8,6 +8,7 @@ Rails.application.config.sorcery.submodules = [:external, :reset_password]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
+  #config.encryption_key = Rails.application.credentials.secret_key_base
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
@@ -155,9 +156,14 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
-  config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
-  config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
-  config.google.callback_url = Settings.sorcery[:google_callback_url]
+  #config.encryption_key = ENV['SECRET_KEY_BASE'] || Rails.application.credentials.secret_key_base
+  config.google.key = ENV['GOOGLE_CLIENT_ID'] || Rails.application.credentials.dig(:google, :google_client_id)
+  config.google.secret = ENV['GOOGLE_CLIENT_SECRET'] || Rails.application.credentials.dig(:google, :google_client_secret)
+  config.google.callback_url = ENV['GOOGLE_CALLBACK_URL'] || Rails.application.credentials.dig(:sorcery, :google_callback_url)
+
+  #config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
+  #config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
+  #config.google.callback_url = Settings.sorcery[:google_callback_url]
   config.google.user_info_mapping = {:email => "email", :name => "name"}
 
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
