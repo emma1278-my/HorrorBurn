@@ -402,6 +402,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   letter_opener_web
+  oauth
   oauth2
   pg (~> 1.1)
   puma (>= 5.0)
