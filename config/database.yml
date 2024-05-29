@@ -82,6 +82,9 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  url: <%= ENV["DATABASE_URL"] %>
+  #adapter: postgresql
+  #encoding: unicode
+  #url: <%= ENV["DATABASE_URL"] %>
+  database: horror_burn_ls9a
+  username: horror_burn_ls9a_user
+  url: <%= ENV['DATABASE_URL'] %>
