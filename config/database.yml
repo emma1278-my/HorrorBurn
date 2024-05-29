@@ -86,6 +86,7 @@ test:
   #url: <%= ENV["DATABASE_URL"] %>
 production:
   <<: *default
+  host: dpg-cobpt9tjm4es739tft6g-a
   adapter: postgresql
   encoding: unicode
   url: <%= ENV['DATABASE_URL'] %>
