@@ -117,9 +117,10 @@
             </div> 
           </div>
                 
-     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white text-sm border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
+     <div class="flex flex-col md:col-span-2 md:row-span-2 text-white text-base border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-    <span><%= t('.watched_movie') %>  <%= t('.total') %> <%= @total_watched_runtime %> <%= t('.hours') %></span>
+    <span><%= t('.watched_movie') %>  <%= t('.total') %> <%= @total_watched_runtime %> <%= t('.hours') %> </span>   
+    <span><%= t('.watched_calorie') %> =<%= @total_watched_calorie %> kcal</span>
   </div>
   <div class="overflow-auto" style="height:360px;">    
     <ul>
