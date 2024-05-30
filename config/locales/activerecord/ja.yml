@@ -95,6 +95,7 @@ ja:
       weight_log: 体重記録
       watched_movie: 映画視聴履歴
       total: 合計
+      watched_calorie: 総消費カロリー
     check_guest_user:
       trial: マイページを使用するためには本登録してください
   weight_logs:
