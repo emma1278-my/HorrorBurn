@@ -39,10 +39,14 @@
                           <span class="absolute inset-x-0 h-px bg-gray-300"></span>
                           <span class="relative px-4 text-sm text-gray-400 bg-zinc-900">または</span>
                         </div>
+                        
                         <div class="relative flex items-center justify-center">
                          <button class="flex items-center justify-center w-full px-6 py-2 mx-9 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none shadow-blue-300 shadow-lg">
                           <%= link_to "Googleアカウントでログイン", auth_at_provider_path(provider: :google), class: "text-white no-underline inline-block" %>
                         </button>
+                        </div>
+                        <div class="relative flex items-center justify-center">
+                         <%= link_to "ログイン", login_path, class: "text-white underline inline-block" %>
                         </div>
                         <div class="relative flex items-center justify-center">
                          <%= link_to "ゲストユーザーでお試し", guest_login_path, class: "text-white underline inline-block" %>

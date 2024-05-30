@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
      @user = login(params[:email], params[:password])
     if @user
       flash[:success] = t(".success")
-      redirect_to root_path
+      redirect_to dashboard_path(current_user)
     else
       flash.now[:alert] = t(".alert")
       render :new, status: :unprocessable_entity
