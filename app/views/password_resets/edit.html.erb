@@ -4,18 +4,18 @@
   <div class="row">
     <div class="col-md-10 col-lg-8 mx-auto">
       <h1 class="text-3xl font-extrabold tracking-tight text-white lg:text-5xl mb-8 text-center"><%= t('.title') %></h1>
-        <div class="max-w-md mx-auto text-left" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="max-w-md mx-auto text-left text-white" style="display: flex; flex-direction: column; align-items: center;">
           <%= form_with model: @user, url: password_reset_path(@token), method: :patch do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
           <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
           <%= @user.email %>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 text-white">
           <%= f.label :password, class: "form-label" %>
           <%= f.password_field :password, class: "form-control", placeholder: "Enter Password" %>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 text-white">
           <%= f.label :password_confirmation, class: "form-label" %>
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Enter Password" %>
         </div>
