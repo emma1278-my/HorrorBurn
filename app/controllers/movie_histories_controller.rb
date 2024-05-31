@@ -15,6 +15,8 @@ class MovieHistoriesController < ApplicationController
     end
 
   def destroy
+  end
+
     
   private
 
