@@ -113,7 +113,7 @@
                   crosshair: { 
                     focused: { color: '#3bc', opacity: 0.8 } 
                   },
-                  series: { 0 => { color: '#6633CC', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 2, pointsVisible: true } },
+                  series: { 0 => { color: '#540076', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 2, pointsVisible: true } },
                   animation: {
                     startup: true,
                     duration: 1000,
@@ -127,27 +127,40 @@
                 
      <div class="flex flex-col md:col-span-2 md:row-span-2 text-white text-base border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
   <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-    <span><%= t('.watched_movie') %>  <%= t('.total') %> <%= @total_watched_runtime %> <%= t('.hours') %> </span>   
-    <span><%= t('.watched_calorie') %> =<%= @total_watched_calorie %> kcal</span>
+    <span>
+      <%= t('.watched_movie') %>
+      <%= t('.total') %>
+      <%= @total_watched_runtime %>
+      <%= t('.hours') %>
+    </span>
+    <span>
+      <%= t('.watched_calorie') %> =
+      <%= @total_watched_calorie %> kcal
+    </span>
   </div>
-  <div class="overflow-auto" style="height:360px;">    
+  <div class="overflow-auto" style="height:360px;">
     <ul>
       <% if @movie_histories.present? %>
-        <ul>
-          <% @movie_histories.each do |history| %>
-          <li>
-            <h2 class="font-medium text-white"><%= history.title %></h2>
-            <h3 class="mt-2 text-sm text-gray-500">(<%= history.runtime %>分)</h3>
+        <% @movie_histories.each do |history| %>
+          <li class="flex items-center justify-between px-6 py-2">
+            <div>
+              <span class="font-medium text-white"><%= history.title %></span>
+              <span class="ml-2 text-sm text-gray-500">(<%= history.runtime %>分)</span>
+            </div>
+            <%= button_to movie_history_path(history), method: :delete, remote: true, class: "btn btn-danger flex items-center" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            <% end %>
           </li>
-          <% end %>
-        </ul>
+        <% end %>
       <% else %>
-        <p><%= t('.no_record') %></p>
+        <p class="px-6 py-2"><%= t('.no_record') %></p>
       <% end %>
     </ul>
   </div>
-  </div>
-  </div>
+</div>
+</div>
 </body>      
 </section> 
 </main>  
