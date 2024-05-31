@@ -14,7 +14,7 @@ class WeightLogsController < ApplicationController
 
   def create
     @weight_log = current_user.weight_logs.new(weight_params)
-    
+   
     if current_user.target_calorie.present?
       if @weight_log.save
         flash[:success] = t(".success")

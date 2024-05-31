@@ -10,7 +10,6 @@ class DashboardsController < ApplicationController
     @latest_weight_log = @user.weight_logs.order(created_at: :desc).first
     @total_watched_runtime = current_user.movie_histories.sum(:runtime) /60
     @total_watched_calorie = (@total_watched_runtime * 60) * 1.26
-
     if @latest_weight_log.present? && @user.profile.present?
      @current_weight = @latest_weight_log.weight
      @target_weight = current_user.target_weight
@@ -29,6 +28,7 @@ class DashboardsController < ApplicationController
 
    
     private
+
 
   def check_guest_user
     if current_user.email.end_with?('@example.com')
