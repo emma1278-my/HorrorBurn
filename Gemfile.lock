@@ -138,6 +138,8 @@ GEM
     faraday-net_http (3.1.0)
       net-http
     ffi (1.16.3)
+    font-awesome-sass (6.5.2)
+      sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-cloud-env (2.1.1)
@@ -324,6 +326,8 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.18.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -396,6 +400,7 @@ DEPENDENCIES
   dotenv-rails
   draper
   faraday
+  font-awesome-sass
   googleauth
   groupdate
   jbuilder
