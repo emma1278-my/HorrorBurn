@@ -54,9 +54,9 @@ ja:
       error: 退会に失敗しました
     guest_name: "ゲスト"
   header:
-    login: ログイン
-    logout: ログアウト
-    users_new: 新規登録
+    login: ロ グ イ ン
+    logout: ロ グ ア ウ ト
+    users_new: 新 規 登 録
     profile: プロフィール
     dashboard: マイページ
     metabolism_calculators: ホラー映画視聴ノルマ計算
@@ -110,6 +110,8 @@ ja:
       failure: 映画の記録に失敗しました
       next_target_runtime: 目標映画視聴時間に到達しました！次の目標を設定しましょう
       remind_calculator: 目標体重の登録・目標映画視聴時間の計算を先に行ってください。
+    destroy:
+      success: 映画を削除しました
   password_resets:
     update:
       failure: パスワードリセットに失敗しました

@@ -18,7 +18,7 @@ class MovieHistoriesController < ApplicationController
     @movie_history = current_user.movie_histories.find(params[:id])
     @movie_history.destroy
     update_remaining_runtime
-    redirect_to dashboard_path(current_user), notice: t('movie_histories.create.success')
+    redirect_to dashboard_path(current_user), notice: t('.destroy.success')
     end
   end
 
