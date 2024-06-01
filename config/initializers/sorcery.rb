@@ -159,7 +159,7 @@ Rails.application.config.sorcery.configure do |config|
   #config.encryption_key = ENV['SECRET_KEY_BASE'] || Rails.application.credentials.secret_key_base
   config.google.key = ENV['GOOGLE_CLIENT_ID'] || Rails.application.credentials.dig(:google, :google_client_id)
   config.google.secret = ENV['GOOGLE_CLIENT_SECRET'] || Rails.application.credentials.dig(:google, :google_client_secret)
-  config.google.callback_url = 'http://localhost:3000/oauth/callback?provider=google'
+  config.google.callback_url = ENV['GOOGLE_CALLBACK_URL'] || Rails.application.credentials.dig(:sorcery, :google_callback_url)
 
   #config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
   #config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
