@@ -37,19 +37,19 @@
                         <%= f.submit (t 'defaults.register'), class: "relative z-10 bg-[#b621fe] border-none rounded-md text-white py-3 px-6 text-base font-medium focus:shadow-md w-1/2 transition duration-300 ease-in-out hover:bg-[#663dff] hover:text-white active:top-[2px] shadow-violet-300 shadow-xl focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50" %> 
                         </div>
                         <div class="relative flex items-center justify-center">
-                          <span class="absolute inset-x-0 h-px bg-gray-300"></span>
-                          <span class="relative px-4 text-sm text-gray-400 bg-zinc-900">または</span>
+                        <hr class="flex-grow border-gray-400">
+                        <span class="relative px-4 text-sm text-gray-400 bg-transparent">または</span>
+                        <hr class="flex-grow border-gray-400">
                         </div>
-                        
                         <div class="relative flex items-center justify-center">
                          <button class="flex items-center justify-center w-full px-6 py-2 mx-9 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none shadow-blue-300 shadow-lg">
                           <%= link_to "Googleアカウントでログイン", auth_at_provider_path(provider: :google), class: "text-white no-underline inline-block" %>
                         </button>
                         </div>
                         <div class="relative flex items-center justify-center">
-                         <%= link_to "ログイン", login_path, class: "text-white underline inline-block" %>
+                        <p class="text-sm !mt-10 text-center text-white">ログインは<%= link_to 'こちら', login_path, class: "text-blue-600 hover:underline ml-1 whitespace-nowrap" %></p>
                         </div>
-                        <div class="relative flex items-center justify-center">
+                        <div class="relative flex items-center justify-center text-sm">
                          <%= link_to "ゲストユーザーでお試し", guest_login_path, class: "text-white underline inline-block" %>
                         </div>
                     </form>
