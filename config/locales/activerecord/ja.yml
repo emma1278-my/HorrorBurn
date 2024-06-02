@@ -55,7 +55,7 @@ ja:
     guest_name: "ゲスト"
   header:
     login: ロ グ イ ン
-    logout: ロ グ ア ウ ト
+    logout: ログアウト
     users_new: 新 規 登 録
     profile: プロフィール
     dashboard: マイページ

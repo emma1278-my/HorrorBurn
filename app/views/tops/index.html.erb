@@ -92,20 +92,18 @@
                 <p class="text-white text-center">毎日の体重・視聴したホラー映画を記録しましょう<br>目標映画視聴時間に到達するまで、とにかくホラー映画の視聴を繰り返しましょう</p>
 
     
-  </div>
+     </div>
 </div>
-
-
-
             </div>
         </div>
     </div>
   </div>
-    
+    <% if current_user.nil? %>
       <div class="flex justify-center mt-16">
-          <%= link_to '早速使ってみる', new_user_path, class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 btn-effect" %>
-        </div>
-
+      <%= link_to '早速使ってみる', new_user_path, class: "btn btn-9 bg-violet-400 shadow-lg rounded-lg shadow-violet-300 btn-effect" %>
+      </div>
+    <% end %>
+ 
         <div class="text-white justify-center items-center text-center mt-16">
           <h2 class="text-3xl font-bold mb-4">🔥燃やせる映画トップ10🔥</h2>
           <div class="list">

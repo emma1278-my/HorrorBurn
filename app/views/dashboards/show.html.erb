@@ -88,9 +88,9 @@
           <div class="px-6 py-3 font-semibold border-b border-gray-100 mt-2"><%= t('.weight_log') %></div>
             <div class="p-4 flex-grow">
               <div class="p-4 flex-grow rounded-md">  
-                <%= line_chart @weight_logs.map { |created_at, weight| { created_at.strftime("%m月%d日") => weight } }.inject(:merge), data: { "turbolinks" => false },
+                 <%= line_chart @weight_logs.select { |_, weight| weight > 30 }.map { |created_at, weight| { created_at.strftime("%m月%d日") => weight } }.inject(:merge),
                   label: "体重(kg)",
-                  height: "800px",
+                  height: "900px",
                   width: "100%",
                   library: {
                   xtitle: "日付",
@@ -102,24 +102,16 @@
                       min: @min_weight,
                       max: @max_weight
                     },
-                    textStyle: { color: '#ffffff' },
-                  },
+                    textStyle: { color: '#ffffff' }
+                    },
                   hAxis: {
-                    textStyle: { color: '#ffffff'},
-                    gridlines: {
-                      color: '#444444'
-                    }
+                    textStyle: { color: '#ffffff'}
                   },
                   crosshair: { 
                     focused: { color: '#3bc', opacity: 0.8 } 
                   },
-                  series: { 0 => { color: '#540076', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 2, pointsVisible: true } },
-                  animation: {
-                    startup: true,
-                    duration: 1000,
-                    easing: 'out'
-                    }
-                   } 
+                  series: { 0 => { color: '#6633CC', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 3, pointsVisible: true } }
+                  }
                   %>
               </div>
             </div> 
