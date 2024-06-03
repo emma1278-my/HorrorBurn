@@ -73,9 +73,9 @@ RSpec.describe User, type: :model do
       it 'プロバイダー名"google"の確認が出来ているか' do
         expect(user.google_check).to eq true
       end
+    end
   end
 end
-  
 
   
  
