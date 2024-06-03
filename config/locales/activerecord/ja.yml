@@ -101,6 +101,7 @@ ja:
   weight_logs:
     new: 
       title: 体 重 入 力
+      placeholder: 今日の体重を入力
     create:
       success: 体重を記録しました
       failure: 体重記録に失敗しました
