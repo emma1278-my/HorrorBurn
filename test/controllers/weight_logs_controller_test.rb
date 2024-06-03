@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class WeightLogsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do

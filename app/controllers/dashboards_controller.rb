@@ -8,32 +8,30 @@ class DashboardsController < ApplicationController
     @weight_logs = @user.weight_logs.order(created_at: :asc).pluck(:created_at, :weight)
     @movie_histories = current_user.movie_histories
     @latest_weight_log = @user.weight_logs.order(created_at: :desc).first
-    @total_watched_runtime = current_user.movie_histories.sum(:runtime) /60
+    @total_watched_runtime = current_user.movie_histories.sum(:runtime) / 60
     @total_watched_calorie = (@total_watched_runtime * 60) * 1.26
-    if @latest_weight_log.present? && @user.profile.present?
-     @current_weight = @latest_weight_log.weight
-     @target_weight = current_user.target_weight
-     @remaining_weight = @current_weight - @target_weight
-     @target_calorie = current_user.target_calorie
-     @remaining_runtime = current_user.remaining_runtime
-    end
+    return unless @latest_weight_log.present? && @user.profile.present?
+
+    @current_weight = @latest_weight_log.weight
+    @target_weight = current_user.target_weight
+    @remaining_weight = @current_weight - @target_weight
+    @target_calorie = current_user.target_calorie
+    @remaining_runtime = current_user.remaining_runtime
   end
-  
+
   def destroy
-    movie_history = current_user.movie_histories.find(movie_history_params)  
+    movie_history = current_user.movie_histories.find(movie_history_params)
     movie_historie.destroy!
-    redirect_to dashboard_path, success: t('defaults.flash_message.deleted', item: MovieHistory.model_name.human), status: :see_other
+    redirect_to dashboard_path, success: t('defaults.flash_message.deleted', item: MovieHistory.model_name.human),
+                                status: :see_other
   end
 
-
-   
-    private
-
+  private
 
   def check_guest_user
-    if current_user.email.end_with?('@example.com')
-      flash[:alert] = t('dashboards.check_guest_user.trial')
-      redirect_to new_user_path
-    end
+    return unless current_user.email.end_with?('@example.com')
+
+    flash[:alert] = t('dashboards.check_guest_user.trial')
+    redirect_to new_user_path
   end
 end
