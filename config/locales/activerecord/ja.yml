@@ -99,11 +99,13 @@ ja:
     check_guest_user:
       trial: マイページを使用するためには本登録してください
   weight_logs:
+    new: 
+      title: 体 重 入 力
     create:
       success: 体重を記録しました
       failure: 体重記録に失敗しました
       next_weight_log: 目標体重に到達しました！次の目標を設定しましょう
-      target_calorie_not_set: 体重を追加しました。目標体重の登録・目標映画視聴時間の計算をしてください。
+      target_calorie_not_set: 体重入力前に、目標体重の登録・目標映画視聴時間の計算をしてください。
   movie_histories:
     create:
       success: 映画を記録しました
@@ -158,7 +160,7 @@ ja:
       result: 検索結果
       release_date: 公開日
       search: 検 索
-      movie_title: "タイトルを入れてください"
+      movie_title: "タイトルを入力"
     show:
       min: 分
       release_date: 公開日
