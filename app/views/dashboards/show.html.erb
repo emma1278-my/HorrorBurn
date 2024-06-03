@@ -1,11 +1,16 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+</style>
 <body class="flex bg-gray-100 min-h-screen mt-6 mb-6 text-white ">        
     <main class="p-6 sm:p-10 space-y-6">
       <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
         <div class="mr-6">
           <h1 class="text-4xl font-semibold mb-2 text-white"><%= t('.title') %></h1>
         </div>
-          <div class="flex flex-wrap items-start justify-end -mb-3">
+      <div class="flex items-start justify-end -mb-3">
           <%= link_to movies_search_path, class: "inline-flex px-5 py-3 text-purple bg-white hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline" do %>       
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -88,7 +93,7 @@
           <div class="px-6 py-3 font-semibold border-b border-gray-100 mt-2"><%= t('.weight_log') %></div>
             <div class="p-4 flex-grow">
               <div class="p-4 flex-grow rounded-md">  
-                 <%= line_chart @weight_logs.select { |_, weight| weight > 30 }.map { |created_at, weight| { created_at.strftime("%m月%d日") => weight } }.inject(:merge),
+              <%= line_chart @weight_logs.map { |created_at, weight| { created_at.strftime("%Y年%m月%d日") => weight } }.inject(:merge),
                   label: "体重(kg)",
                   height: "900px",
                   width: "100%",
@@ -110,34 +115,35 @@
                   crosshair: { 
                     focused: { color: '#3bc', opacity: 0.8 } 
                   },
-                  series: { 0 => { color: '#6633CC', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 3, pointsVisible: true } }
-                  }
-                  %>
+                  series: { 0 => { color: '#9f44ee', enableInteractivity: true, pointSize: 8, pointShape: 'circle', lineWidth: 3, pointsVisible: true } }
+                   } %>
               </div>
             </div> 
           </div>
                 
      <div class="flex flex-col md:col-span-2 md:row-span-2 text-white text-base border-gray-400/30 backdrop-blur-lg shadow-lg rounded-lg shadow-violet-300 h-[50%]">
-  <div class="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-    <span>
-      <%= t('.watched_movie') %>
-      <%= t('.total') %>
-      <%= @total_watched_runtime %>
-      <%= t('.hours') %>
-    </span>
-    <span>
-      <%= t('.watched_calorie') %> =
-      <%= @total_watched_calorie %> kcal
-    </span>
-  </div>
-  <div class="overflow-auto" style="height:360px;">
+      <div class="flex items-center justify-between px-6 py-8 font-semibold border-b border-gray-100">
+        <span>
+          <%= t('.watched_movie') %>
+          <%= t('.total') %>
+          <%= @total_watched_runtime %>
+          <%= t('.hours') %>
+        </span>
+        <span>
+          <%= t('.watched_calorie') %> =
+          <%= @total_watched_calorie %> kcal
+        </span>
+      </div>
+
+  
+  <div class="overflow-auto no-scrollbar" style="height:390px;">
     <ul>
       <% if @movie_histories.present? %>
         <% @movie_histories.each do |history| %>
           <li class="flex items-center justify-between px-6 py-2">
-            <div>
+            <div class="flex flex-col">
               <span class="font-medium text-white"><%= history.title %></span>
-              <span class="ml-2 text-sm text-gray-500">(<%= history.runtime %>分)</span>
+              <span class="text-sm text-gray-500">(<%= history.runtime %>分)</span>
             </div>
             <%= button_to movie_history_path(history), method: :delete, remote: true, class: "btn btn-danger flex items-center" do %>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

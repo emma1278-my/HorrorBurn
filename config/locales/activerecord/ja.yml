@@ -158,7 +158,7 @@ ja:
       result: 検索結果
       release_date: 公開日
       search: 検 索
-      movie_title: "映画タイトルを入れてください"
+      movie_title: "タイトルを入れてください"
     show:
       min: 分
       release_date: 公開日
