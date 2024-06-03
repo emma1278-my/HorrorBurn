@@ -10,83 +10,83 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_22_015914) do
+ActiveRecord::Schema[7.1].define(version: 20_240_522_015_914) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "authentications", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "provider", null: false
-    t.string "uid", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  create_table 'authentications', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.string 'provider', null: false
+    t.string 'uid', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index %w[provider uid], name: 'index_authentications_on_provider_and_uid'
   end
 
-  create_table "movie_histories", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "movie_id"
-    t.string "title"
-    t.integer "runtime"
-    t.string "release_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_movie_histories_on_user_id"
+  create_table 'movie_histories', force: :cascade do |t|
+    t.bigint 'user_id', null: false
+    t.integer 'movie_id'
+    t.string 'title'
+    t.integer 'runtime'
+    t.string 'release_date'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_movie_histories_on_user_id'
   end
 
-  create_table "movies", force: :cascade do |t|
-    t.string "title"
-    t.integer "runtime"
-    t.string "release_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'movies', force: :cascade do |t|
+    t.string 'title'
+    t.integer 'runtime'
+    t.string 'release_date'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.float "current_weight"
-    t.integer "target_calorie"
-    t.float "target_weight"
-    t.integer "remaining_runtime"
-    t.date "weight_achieved_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+  create_table 'profiles', force: :cascade do |t|
+    t.bigint 'user_id', null: false
+    t.float 'current_weight'
+    t.integer 'target_calorie'
+    t.float 'target_weight'
+    t.integer 'remaining_runtime'
+    t.date 'weight_achieved_date'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_profiles_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "crypted_password"
-    t.string "salt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "avatar"
-    t.boolean "guest", default: false, null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_token_expires_at"
-    t.datetime "reset_password_email_sent_at"
-    t.integer "access_count_to_reset_password_page", default: 0
-    t.float "current_weight"
-    t.float "target_weight"
-    t.float "remaining_weight"
-    t.float "target_calorie"
-    t.float "remaining_runtime"
-    t.datetime "deleted_at"
-    t.boolean "is_deleted"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', null: false
+    t.string 'crypted_password'
+    t.string 'salt'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'name'
+    t.string 'avatar'
+    t.boolean 'guest', default: false, null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_token_expires_at'
+    t.datetime 'reset_password_email_sent_at'
+    t.integer 'access_count_to_reset_password_page', default: 0
+    t.float 'current_weight'
+    t.float 'target_weight'
+    t.float 'remaining_weight'
+    t.float 'target_calorie'
+    t.float 'remaining_runtime'
+    t.datetime 'deleted_at'
+    t.boolean 'is_deleted'
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token'
   end
 
-  create_table "weight_logs", force: :cascade do |t|
-    t.float "weight"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_weight_logs_on_user_id"
+  create_table 'weight_logs', force: :cascade do |t|
+    t.float 'weight'
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_weight_logs_on_user_id'
   end
 
-  add_foreign_key "movie_histories", "users"
-  add_foreign_key "profiles", "users"
-  add_foreign_key "weight_logs", "users"
+  add_foreign_key 'movie_histories', 'users'
+  add_foreign_key 'profiles', 'users'
+  add_foreign_key 'weight_logs', 'users'
 end

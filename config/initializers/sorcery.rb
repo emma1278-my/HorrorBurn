@@ -4,11 +4,11 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:external, :reset_password]
+Rails.application.config.sorcery.submodules = %i[external reset_password]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
-  #config.encryption_key = Rails.application.credentials.secret_key_base
+  # config.encryption_key = Rails.application.credentials.secret_key_base
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
@@ -156,15 +156,15 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
-  #config.encryption_key = ENV['SECRET_KEY_BASE'] || Rails.application.credentials.secret_key_base
+  # config.encryption_key = ENV['SECRET_KEY_BASE'] || Rails.application.credentials.secret_key_base
   config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
   config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
   config.google.callback_url = Settings.sorcery[:google_callback_url]
 
-  #config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
-  #config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
-  #config.google.callback_url = Settings.sorcery[:google_callback_url]
-  config.google.user_info_mapping = {:email => "email", :name => "name"}
+  # config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
+  # config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
+  # config.google.callback_url = Settings.sorcery[:google_callback_url]
+  config.google.user_info_mapping = { email: 'email', name: 'name' }
 
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
@@ -230,7 +230,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.line.bot_prompt = "normal"
   # config.line.user_info_mapping = {name: 'displayName'}
 
-  config.user_class = "User"
+  config.user_class = 'User'
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2
   # config.discord.key = "xxxxxx"
@@ -568,5 +568,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = "User"
+  config.user_class = 'User'
 end

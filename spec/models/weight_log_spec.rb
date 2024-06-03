@@ -10,7 +10,7 @@ RSpec.describe WeightRecord, type: :model do
   describe 'カスタムメソッドチェック' do
     it '日付のレコードが当日であるか' do
       user = FactoryBot.create(:user)
-      weight_log = FactoryBot.create(:weight_log, user: user)
+      weight_log = FactoryBot.create(:weight_log, user:)
       expect(WeightLog.weight_log_for_day(user)).to eq weight_log
     end
   end

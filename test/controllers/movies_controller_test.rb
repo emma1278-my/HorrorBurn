@@ -1,12 +1,12 @@
-require "test_helper"
+require 'test_helper'
 
 class MoviesControllerTest < ActionDispatch::IntegrationTest
-  test "should get search" do
+  test 'should get search' do
     get movies_search_url
     assert_response :success
   end
 
-  test "should get show" do
+  test 'should get show' do
     get movies_show_url
     assert_response :success
   end

@@ -8,36 +8,33 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = t(".success")
+      flash[:success] = t('.success')
       auto_login(@user)
       redirect_to new_metabolism_calculators_path
     else
-      flash.now[:alert] = t(".failure")
+      flash.now[:alert] = t('.failure')
       render :new, status: :unprocessable_entity
     end
   end
 
-
-    def destroy
-      @user = User.find(params[:id])
-      if @user.destroy
-      flash[:success] = t(".success")
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:success] = t('.success')
       redirect_to root_url
     else
-      flash[:error] = t(".error")
+      flash[:error] = t('.error')
       redirect_to user_path(@user)
     end
   end
 
-     
-
   def guest_login
     @guest_user = User.create(
-    name: t('users.guest_name'),
-    email: SecureRandom.uuid + "@example.com",
-    password: 'password',
-    password_confirmation: 'password',
-    guest: true
+      name: t('users.guest_name'),
+      email: SecureRandom.uuid + '@example.com',
+      password: 'password',
+      password_confirmation: 'password',
+      guest: true
     )
     auto_login(@guest_user)
     flash[:success] = t('.success')

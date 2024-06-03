@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   require 'themoviedb-api'
   Tmdb::Api.key(ENV['TMDB_API'])
-  Tmdb::Api.language("ja")
+  Tmdb::Api.language('ja')
   HORROR_GENRE_ID = 27
 
   def search
@@ -20,18 +20,15 @@ class MoviesController < ApplicationController
     url = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV['TMDB_API']}&language=ja"
     response = Net::HTTP.get(URI.parse(url))
     @movie = JSON.parse(response)
-    @movie_history = MovieHistory.new  
+    @movie_history = MovieHistory.new
   end
 end
-  
 
+private
 
-
-private 
-
-  def movie_params
-    params.require(:movie).permit(:title, :runtime)
-  end
+def movie_params
+  params.require(:movie).permit(:title, :runtime)
+end
 
 def save_movie(movies)
   current_user = User.find(session[:user_id])
