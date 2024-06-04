@@ -154,7 +154,8 @@ ja:
       target_weight: 目 標 体 重 ま で  
       remaining_runtime_round2: ホ ラ ー 映 画 を 観 ま し ょ う
       Recalculate: やり直す
-      remaining_runtime_hours: 時 間
+      remaining_runtime_hours: 時間
+      back_to_dashboard: ☜ マイページへ
   movies:
     search:
       title: 映 画 検 索 
