@@ -1,4 +1,4 @@
-## 🌐👻 アプリ名　Horror Burn
+## 🌐 アプリ名　Horror Burn
 
 ### **https://horrorburn-1.onrender.com**  
 　
