@@ -1,16 +1,17 @@
-<footer class="bg-gray-800 text-white body-font  bottom-0 w-full text-right">
+<footer class="bg-transparent body-font sticky">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-    
-    <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-700 sm:py-2 sm:mt-0 mt-4">
-      © 2024 HorrorBurn
+    <p class="text-sm text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 HorrorBurn
     </p>
     <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
       <div class="px-5 py-2">
-        <%= link_to t('footer.terms_of_service'), terms_of_service_path, class: "text-gray-400 text-sm transition duration-100 hover:text-white active:text-indigo-600 no-underline" %>
-      </div>
-      <div class="px-5 py-2">
-        <%= link_to t('footer.privacy_policy'), privacy_policy_path, class: "text-gray-400 text-sm transition duration-100 hover:text-white active:text-indigo-600 no-underline" %>
-      </div>
+            <%= link_to t('footer.terms_of_service'), terms_of_service_path, class: "text-white transition duration-100 hover:text-gray-900 active:text-indigo-600 no-underline text-xs" %>
+            </div>
+            <div class="px-5 py-2">
+                <%= link_to t('footer.privacy_policy'), privacy_policy_path, class: "text-white transition duration-100 hover:text-gray-900 active:text-indigo-600 no-underline text-xs" %>
+            </div>
+
     </span>
+    <aside>
+  </aside>
   </div>
 </footer>

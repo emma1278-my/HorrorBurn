@@ -1,34 +1,26 @@
 <section class="flex relative justify-center p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300">
-  <div class="movie-detail text-white">
-    <div class="text-center">
-      <p class="text-lg font-extrabold tracking-tight text-white mb-8">
-
-    <%= form_with model: @movie_history, local: true, url: movie_histories_path, method: :post do |form| %>
-    <%= form.hidden_field :movie_id, value: @movie['id'] %>
-    <%= form.hidden_field :title, value: @movie['title'] %>
-    <%= form.hidden_field :runtime, value: @movie['runtime'] %>
-    <%= form.submit t('.save'), class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
-    <% end %>
-      </p>
-
-
-
-      
+  <div class="movie-detail text-white flex flex-col items-center">
+ 
+    <div class="flex justify-center mb-4">
+      <%= form_with model: @movie_history, local: true, url: movie_histories_path, method: :post, class: 'mr-4' do |form| %>
+        <%= form.hidden_field :movie_id, value: @movie['id'] %>
+        <%= form.hidden_field :title, value: @movie['title'] %>
+        <%= form.hidden_field :runtime, value: @movie['runtime'] %>
+        <%= form.submit t('.save'), class: "text-white bg-purple-500 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
+      <% end %>
+     
+        <% consumed_calories = (@movie['runtime'].to_f * 1.26).round %>
+        <% tweet_text = "#{@movie['title']}を視聴しました！ 消費カロリー：約#{consumed_calories}kcal" %>
+        <% current_url = request.original_url %>
+        <% encoded_text = CGI.escape(tweet_text) %>
+        <% encoded_url = CGI.escape(current_url) %>
+        <a href="https://twitter.com/intent/tweet?text=<%= encoded_text %>&url=<%= encoded_url %>" target="_blank" class="text-white bg-black hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline border-white">
+          <svg width="12" height="12" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+          </svg>
+        </a>
     </div>
 
-  <div class="text-center mt-4">
-    <% tweet_text = "#{@movie['title']}を視聴しました！" %>
-    <% current_url = request.original_url %>
-    <% encoded_text = ERB::Util.url_encode(tweet_text) %>
-    <% encoded_url = ERB::Util.url_encode(current_url) %>
-    <a href="https://twitter.com/intent/tweet?text=<%= encoded_text %>&url=<%= encoded_url %>" target="_blank" class="text-white bg-black hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline text-xs justify-center fle">
-    <svg width="12" height="12" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
-    </svg>
-      でみんなにおススメする
-    
-    </a>
-  </div>
 
     <p><%= @movie['title'] %></p>
     <p><%= t('.release_date') %> <%= @movie['release_date'] %></p>
@@ -37,9 +29,8 @@
         <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'],class: "card-size" %></p>
     <% end %>
     <p><%= @movie['overview'] %></p>
-    <div class="ml-auto"> 
-     <p class="text-sm !mt-10 text-center text-white"> 
-    <%= link_to t('.back_to_search'), movies_search_path(movie_id: @movie['id']), class: "text-blue-600 hover:underline ml-1 whitespace-nowrap" %></p>
    
-  </div>
+    <div class="text-center inline-flex items-center"> 
+      <%= link_to t('.back_to_search'), movies_search_path(movie_id: @movie['id']), class: "text-blue-600 hover:underline ml-1 whitespace-nowrap text-center inline-flex items-center" %>
+    </div>
 </section>
