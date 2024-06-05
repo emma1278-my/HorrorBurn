@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MetabolismCalculator < ApplicationRecord
   include ActiveModel::Model
 

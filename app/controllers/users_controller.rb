@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create guest_login]
 
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
   def guest_login
     @guest_user = User.create(
       name: t('users.guest_name'),
-      email: SecureRandom.uuid + '@example.com',
+      email: "#{SecureRandom.uuid}@example.com",
       password: 'password',
       password_confirmation: 'password',
       guest: true

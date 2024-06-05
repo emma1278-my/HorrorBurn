@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MovieHistoriesController < ApplicationController
   def create
     @movie_history = current_user.movie_histories.build(movie_history_params)

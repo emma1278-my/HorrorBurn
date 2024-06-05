@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MetabolismCalculatorsController < ApplicationController
   skip_before_action :require_login, only: %i[new show create destroy]
 
@@ -8,8 +10,7 @@ class MetabolismCalculatorsController < ApplicationController
     current_weight = params[:current_weight].to_f
     target_weight = params[:target_weight].to_f
     remaining_weight = current_weight - target_weight
-    # 計算式
-    calories_per_movie = 113 # 90分のホラー映画で消費されるカロリー
+    # 計算式 # 90分のホラー映画で消費されるカロリー
     movie_duration = 90 # ホラー映画の時間(分)
     target_calorie = (current_weight - target_weight) * 7200 # 脂肪1kgあたりに必要な消費カロリー
     # 必要なホラー映画視聴時間を計算

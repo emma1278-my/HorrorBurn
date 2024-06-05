@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WeightLogsController < ApplicationController
   before_action :set_weight_log, only: %i[show edit update destroy]
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DashboardDecorator < Draper::Decorator
   delegate_all
 
