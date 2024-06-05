@@ -1,4 +1,4 @@
-<section class="relative justify-center p-4 md:p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300">
+<section class="relative justify-center p-4 md:p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300 text-center item-center ">
   <div class="container mx-auto px-4 py-12 sm:py-16 lg:py-20">
     <div class="text-center">
       <p class="text-3xl font-extrabold tracking-tight text-white lg:text-5xl mb-8"><%= t('.title') %></p>
@@ -19,14 +19,14 @@
     <%# 映画を表示 %>
     <% if params[:looking_for].present? %>
       <% movieinfo = JSON.parse((Tmdb::Search.movie(params[:looking_for])).to_json) %>
-      <h2 class="text-white text-3xl"><%= t('.result') %> '<%= params[:looking_for] %>'</h2>
+      <h2 class="text-white text-3xl no-underline"><%= t('.result') %> '<%= params[:looking_for] %>'</h2>
       <% i = 0 %>
       <div class="card-wrapper">
         <% while i < movieinfo['table']['results'].count %>
           <div class="card">
             <div class="card-upperinfo">
               <% if movieinfo['table']['results'][i]['table']['title'].present? %>
-                <h3 class><%= link_to movieinfo['table']['results'][i]['table']['title'], movie_path(movieinfo['table']['results'][i]['table']['id']), class: " no-underline"%></h3>
+                <h3 class><%= link_to movieinfo['table']['results'][i]['table']['title'], movie_path(movieinfo['table']['results'][i]['table']['id']), class: "no-underline"%></h3>
               <% end %>
               <% if movieinfo['table']['results'][i]['table']['release_date'].present? %>
                 <p class="release-date text-white"><%= t('.release_date') %>:  <%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
@@ -45,15 +45,15 @@
   <%else%>
   </div>
  <%# 検索されていない時に表示 %>
-    <h2 class="text-white">今日の世界で人気なホラー映画</h2>
+    <h2 class="text-white text-3xl">今日の世界で人気なホラー映画</h2>
     <% movieinfo = Tmdb::Genre.movies(27) %>
     <% i = 0 %>
     <div class="card-wrapper ">
         <% while i < movieinfo.results.count %>
             <div class="card">
-                <div class="card-upperinfo ">
+                <div class="card-upperinfo no-underline">
                     <%if movieinfo.results[i].title.present?%>
-                        <h3><%= link_to movieinfo.results[i].title, movie_path(movieinfo.results[i].id)%></h3>
+                        <h3 class="no-underline"><%= link_to movieinfo.results[i].title, movie_path(movieinfo.results[i].id)%></h3>
                     <%end%>
 
                     <% if movieinfo.results[i].release_date.present? %>
