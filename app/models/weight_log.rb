@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WeightLog < ApplicationRecord
   belongs_to :user, dependent: :destroy
   validates :weight, presence: true

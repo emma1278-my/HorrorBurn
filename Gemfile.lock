@@ -134,6 +134,11 @@ GEM
       ruby2_keywords
     drb (2.2.1)
     erubi (1.12.0)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
@@ -422,6 +427,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   draper
+  factory_bot_rails
   faraday
   font-awesome-sass
   googleauth

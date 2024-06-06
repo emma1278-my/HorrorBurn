@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MoviesController < ApplicationController
   require 'themoviedb-api'
   Tmdb::Api.key(ENV['TMDB_API'])
@@ -7,10 +9,10 @@ class MoviesController < ApplicationController
   def search
     if params[:looking_for]
       movie_title = params[:looking_for]
-      url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title)
+      "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title)
     else
       url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja"
-      text = params[:looking_for]
+      params[:looking_for]
       @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
     end
   end

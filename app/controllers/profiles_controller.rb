@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[edit update]
 
-  def show
-    # @profile = Profile.find(params[:id])
-  end
+  def show; end
 
   def edit; end
 

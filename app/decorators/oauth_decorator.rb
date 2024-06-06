@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OauthDecorator < Draper::Decorator
   delegate_all
 
