@@ -8,11 +8,20 @@
         <%= form.hidden_field :runtime, value: @movie['runtime'] %>
         <%= form.submit t('.save'), class: "text-white bg-purple-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline" %>
       <% end %>
-     
-    <% consumed_calories = (@movie['runtime'].to_f * 1.26).round %>
-    <%= link_to "https://twitter.com/share?url=#{ request.url }&text=%0a%0a#{@movie['title']}を視聴しました！約#{consumed_calories}kcal消費しました! #HorrorBurn", target: '_blank' do %>
-    <i class="fa-brands fa-square-x-twitter fa-2x "></i>
-    <% end %>
+ 
+<% consumed_calories = (@movie['runtime'].to_f * 1.26).round %>
+<% tweet_text = "#{@movie['title']}を視聴しました！ 約#{consumed_calories}kcal消費しました #HorrorBurn #ホラー映画" %>
+<% current_url = request.original_url %>
+<% encoded_text = CGI.escape(tweet_text) %>
+<% encoded_url = CGI.escape(current_url) %>
+<% image_url = asset_path('xshare.png') %>
+
+<a href="https://twitter.com/intent/tweet?text=<%= encoded_text %>&url=<%= encoded_url %>&media=<%= image_url %>" target="_blank" class="text-white bg-black hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md px-4 py-2 no-underline border-white">
+  <svg width="12" height="12" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+  </svg>
+</a>
+
 
     </div>
 

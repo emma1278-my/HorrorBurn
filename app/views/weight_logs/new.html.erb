@@ -3,12 +3,13 @@
     <div class="text-center">
       <p class="text-3xl font-extrabold tracking-tight text-white lg:text-5xl mb-8"><%= t('.title') %></p>
     </div>
-    <div class="max-w-md mx-auto">
-       <%= form_with model: @weight_log, url: weight_logs_path, data: { turbo: false }, html: { class: "flex flex-col sm:flex-row items-center justify-center " } do |f| %>
+    <div class="max-w-md mx-auto lg:ml-auto flex-auto">
+      <%= form_with model: @weight_log, url: weight_logs_path, data: { turbo: false }, html: { class: "flex flex-col sm:flex-row items-center justify-center lg:justify-end ml-3" } do |f| %>
         <div class="relative flex-grow mb-2 sm:mb-0 sm:mr-0">
-          <%= f.number_field :weight, step: 0.1, min: 30.0, max: 150.0, class: "block w-64 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('.placeholder'), required: true %>
+          <%= f.number_field :weight, step: 0.1, min: 30.0, max: 150.0, class: "block w-64 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-6", placeholder: t('.placeholder'), required: true %>
         </div>
-        <button type="submit" class="btn btn-9 float-center rounded-lg shadow-violet-300-lg mt-6 mb-8 bg-violet-500">記 録</button>
+        <button type="submit" class="text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm">記 録</button>
       <% end %>
     </div>
+  </div>
 </section>

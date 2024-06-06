@@ -13,22 +13,19 @@
         <% end %>
       </div>
     </div>
-    <div class="mt-8 text-xl justyfy-center text-center">
+    <div class="mt-8 text-xl flex flex-col items-center justify-center">
       <p><%= current_user.name %></p>
       <p><%= current_user.email %></p>
       <% unless current_user.guest? %>
-        <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-9 float-center rounded-lg shadow-violet-300-lg mt-6 mb-8 bg-violet-700' %>
-      <% end %>
-    </div>
+      <%= link_to t('defaults.edit'), edit_profile_path, class: 'text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm' %>
+    <% end %>
+  </div>
   </div>
 </div>
 </section>
 <% unless current_user.guest? %>
 <div class="p-8 max-w-4xl mx-auto my-10">
-     <%= link_to t('.reset_password'), new_password_reset_path, class: "rounded-full bg-neon-yellow active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-black float-right shadow-lg rounded-lg shadow-violet-300 items-right no-underline" %>
-
-
-      <%= link_to t('.delete_account'), user_path(current_user), data: { turbo_method: :delete, turbo_confirm: '本当に退会しますか？'}, class: "text-white dark:text-gray-400 hover:underline  rounded-full bg-blue-500 active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-white  shadow-lg rounded-lg shadow-violet-300 no-underline" %>
+    <%= link_to t('.delete_account'), user_path(current_user), data: { turbo_method: :delete, turbo_confirm: '本当に退会しますか？'}, class: "rounded-full bg-neon-yellow active:bg-violet-600  hover:bg-violet-700 py-1 px-5 text-black float-right shadow-lg rounded-lg shadow-violet-300 items-right no-underline" %>
 </div>
 <% end %>
  
