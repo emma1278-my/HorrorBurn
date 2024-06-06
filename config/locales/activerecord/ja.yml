@@ -18,10 +18,6 @@ ja:
     header:
       login: ログイン
       logout: ログアウト
-      board: 掲示板
-      board_index: 掲示板一覧
-      create_board: 掲示板作成
-      bookmark_index: ブックマーク一覧
       profile: プロフィール
   application:
     not_authenticated: ログインしてください
@@ -61,6 +57,7 @@ ja:
     dashboard: マイページ
     metabolism_calculators: ホラー映画視聴ノルマ計算
     movie_search: 映画検索
+    weight_log: 体重入力
   footer:
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
