@@ -8,13 +8,20 @@ class MoviesController < ApplicationController
 
   def search
     if params[:looking_for]
-      movie_title = params[:looking_for]
-      "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title)
+      movie_title = params[:looking_for].strip
+      if movie_title.empty?
+        flash[:error] = '映画のタイトルを入力してください。'
+        redirect_to root_path and return
+      end
+
+      url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=" + URI.encode_www_form_component(movie_title)
     else
       url = "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_API']}&language=ja"
-      params[:looking_for]
-      @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
     end
+    @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
+  rescue JSON::ParserError
+    flash[:error] = '映画情報の取得に失敗しました。'
+    redirect_to root_path
   end
 
   def show
