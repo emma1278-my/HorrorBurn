@@ -5,11 +5,11 @@
 
     <div class="mb-4 ">
       <%= f.label :email, class: "block text-sm font-medium text-white" %>
-      <%= f.email_field :email, class: "form-input mt-1 block w-full rounded-md bg-white placeholder-gray-400 shadow-sm focus:bg-white/30 focus:ring-violet-500 focus:border-violet-500 sm:text-sm", placeholder: "Enter email" %>
+      <%= f.email_field :email, class: "form-input mt-1 block w-full rounded-md bg-white shadow-sm focus:bg-white/30 focus:ring-violet-500 focus:border-violet-500 sm:text-sm", placeholder: "Enter email" %>
     </div>
     <div class="mb-4 ">
        <%= f.label :name, class: "block text-sm font-medium text-white" %>
-      <%= f.text_field :name, class: "form-input mt-1 block w-full rounded-md bg-white  placeholder-gray-400 shadow-sm focus:bg-white/30 focus:ring-violet-500 focus:border-violet-500 sm:text-sm", placeholder: "Enter name" %>
+      <%= f.text_field :name, class: "form-input mt-1 block w-full rounded-md bg-white shadow-sm focus:bg-white/30 focus:ring-violet-500 focus:border-violet-500 sm:text-sm", placeholder: "Enter name" %>
     </div>
     <div>
     </div>
@@ -22,7 +22,7 @@
       <%= image_tag @user.avatar.url, class: 'rounded-full mx-auto', id: 'preview', width: '125', height: '125' %>
     </div>
     <div class="text-center">
-      <%= f.submit t('.submit'), class: 'text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm' %>
+      <%= f.submit t('.submit'), class: 'text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm shadow-lg shadow-violet-300 mb-6' %>
     </div>
   <% end %>
 </section>
