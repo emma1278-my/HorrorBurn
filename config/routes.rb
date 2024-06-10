@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get '/movie_histories', to: redirect('/dashboards/show')
 
   resources :movies do
+    get :autocomplete, on: :collection
     collection { get :search }
   end
   resource :dashboards, only: [:show]
