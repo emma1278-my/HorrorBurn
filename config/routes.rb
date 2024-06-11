@@ -2,7 +2,10 @@
 
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
-
+  constraints host: 'horrorburn-1.render.com' do
+    get '/(*path)', to: redirect { |path_params,| "https://www.horrorburn.com/#{path_params[:path]}" }
+  end
+  
   root 'tops#index'
 
   get 'top_index', to: 'tops#index'
