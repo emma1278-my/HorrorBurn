@@ -2,6 +2,9 @@
 
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  constraints host: 'horrorburn-1.onrender.com' do
+    get '/(*path)', to: redirect { |path_params,| "https://horrorburn.com/#{path_params[:path]}" }
+  end
 
   root 'tops#index'
 
@@ -41,6 +44,7 @@ Rails.application.routes.draw do
   get '/movie_histories', to: redirect('/dashboards/show')
 
   resources :movies do
+    get :autocomplete, on: :collection
     collection { get :search }
   end
   resource :dashboards, only: [:show]
