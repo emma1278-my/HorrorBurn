@@ -10,9 +10,7 @@
     "daisyui": "^4.8.0",
     "esbuild": "^0.20.2",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.1",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "tailwindcss": "^3.4.1"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
