@@ -37,20 +37,20 @@ export default class extends Controller {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const avatarInput = document.getElementById('avatar-input');
-  const preview = document.getElementById('preview');
+document.addEventListener('DOMContentLoaded', function() {
+  const avatarInput = document.getElementById('avator-input');
+  const previewImage = document.getElementById('preview');
 
-  if (avatarInput) {
-    avatarInput.addEventListener('change', function(event) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          preview.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
+  avatarInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        previewImage.src = e.target.result;
       }
-    });
-  }
+      reader.readAsDataURL(file);
+    } else {
+      previewImage.src = '/path/to/default/sample.jpg';
+    }
+  });
 });
