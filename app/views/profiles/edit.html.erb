@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'profiles' %>
+
 <h1 class="mb-5 text-center text-white"><%= t('.title') %></h1>
 <section class="flex justify-center items-center p-8 max-w-4xl mx-auto my-10 border-gray-400/30 backdrop-blur-lg shadow-xl rounded-2xl shadow-violet-300 text-white">
   <%= form_with model: @user, url: profile_path, method: :put, local: true, html: { class: 'needs-validation w-full max-w-md', novalidate: '' } do |f| %>
