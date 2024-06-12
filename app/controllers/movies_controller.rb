@@ -34,13 +34,10 @@ class MoviesController < ApplicationController
 end
 
 def autocomplete
-  query = params[:q]
-  url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=#{URI.encode_www_form_component(query)}"
-  response = Net::HTTP.get(URI.parse(url))
-  movies = JSON.parse(response)['results'].map { |movie| { id: movie['id'], title: movie['title'] } }
-  render json: movies
-rescue JSON::ParserError
-  render json: []
+  query = params[:looking_for]
+  url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=#{URI.encode(query)}"
+  @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
+  render json: @movies['results'].map { |movie| { title: movie['title'] } }
 end
 
 private
