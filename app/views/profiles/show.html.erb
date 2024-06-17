@@ -3,14 +3,19 @@
   <div class="text-center">
     
     <div class="relative my-10 max-w-sm mx-auto">
-  <div class="rounded overflow-hidden">
-    <div class=" text-xl flex flex-col items-center justify-center">
+  <div class="rounded overflow-hidden"> 
+    <div class="text-xl flex flex-col items-center justify-center"> 
+    <% if current_user.guest? %>
+      <div class="h-32 w-32">
+          <%= image_tag 'guset.png', class: 'item-center justyfy-center rounded-full', width: '125', height: '125' %>
+        <% end %>
+      </div>
       <p><%= current_user.name %></p>
-      <p><%= current_user.email %></p>
       <% unless current_user.guest? %>
-      <%= link_to t('defaults.edit'), edit_profile_path, class: 'text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm shadow-lg shadow-violet-300 mb-6' %>
-    <% end %>
-  </div>
+        <p><%= current_user.email %></p>
+        <%= link_to t('defaults.edit'), edit_profile_path, class: 'text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm shadow-lg shadow-violet-300 mb-6' %>
+      <% end %>
+    </div>
   </div>
 </div>
 </section>
