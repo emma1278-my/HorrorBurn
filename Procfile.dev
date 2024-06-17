@@ -2,5 +2,3 @@ docker compose build
 docker compose up
 docker compose exec web bin/rails db:create db:migrate
 docker compose exec web g controller StaticPages top
-web: bundle exec rails s
-js: yarn build --watch
