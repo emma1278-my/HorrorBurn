@@ -167,4 +167,5 @@ ja:
       runtime: 上映時間
       back_to_search:  ☜ 検索ページに戻る
       save: この映画を観た
-    
+  messages:
+    extension_allowlist_error: アバター設定に失敗しました

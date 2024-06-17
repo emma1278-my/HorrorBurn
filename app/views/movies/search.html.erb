@@ -4,17 +4,17 @@
       <p class="text-3xl font-extrabold tracking-tight text-white lg:text-5xl mb-8"><%= t('.title') %></p>
     </div>
     <div class="max-w-md mx-auto">
-     <%= form_tag(movies_search_path, method: :get, data: { controller: "autocomplete", autocomplete_url_value: "/movies/autocomplete" }, class: 'flex flex-col sm:flex-row items-center') do %>
-        <div class="relative flex-grow mb-4 sm:mb-0 sm:mr-4">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-            </svg>
-          </div>
-            <%= search_field_tag :looking_for, nil, data: { autocomplete_target: "input", action: "input->autocomplete#search" }, class: "block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('.movie_title'), required: true %>
-        </div>
-        <button type="submit" class="text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm float-center shadow-lg shadow-violet-300"><%= t('.search') %></button>
-      <% end %>
+    <%= form_tag(movies_search_path, method: :get, data: { controller: "autocomplete", autocomplete_source_value: autocomplete_movies_path }) do %>
+  <div class="relative flex-grow mb-4 sm:mb-0 sm:mr-4">
+    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+      </svg>
+    </div>
+    <%= search_field_tag :looking_for, nil, data: { autocomplete_target: "input", action: "input->autocomplete#search" }, class: "block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('.movie_title'), required: true %>
+  </div>
+  <button type="submit" class="text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm float-center shadow-lg shadow-violet-300"><%= t('.search') %></button>
+<% end %>
     </div>
     <%# 映画を表示 %>
     <% if params[:looking_for].present? %>
