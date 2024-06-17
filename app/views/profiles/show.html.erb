@@ -4,16 +4,7 @@
     
     <div class="relative my-10 max-w-sm mx-auto">
   <div class="rounded overflow-hidden">
-    <div class="w-full flex justify-center">
-      <div class="h-32 w-32">
-        <% if current_user.guest? %>
-          <%= image_tag 'guset.png', class: 'item-center justyfy-center rounded-full', width: '125', height: '125' %>
-        <% else %>
-          <%= image_tag current_user.avatar_url, class: 'item-center rounded-full', width: '125', height: '125' %>
-        <% end %>
-      </div>
-    </div>
-    <div class="mt-8 text-xl flex flex-col items-center justify-center">
+    <div class=" text-xl flex flex-col items-center justify-center">
       <p><%= current_user.name %></p>
       <p><%= current_user.email %></p>
       <% unless current_user.guest? %>
