@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe MetabolismCalculator, type: :model do 
  
 describe '計算する' do
+  let(:user) { FactoryBot.create(:user) }
   let(:current_weight) { 80.0 }
   let(:target_weight) { 70.0 }
   let(:valid_params) { { current_weight: current_weight, target_weight: target_weight } }
