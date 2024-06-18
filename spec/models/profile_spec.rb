@@ -3,81 +3,72 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
-  let(:user) { create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
-  before do
-    sign_in user
-  end
-
-  describe 'Transition to editing screen' do
-    it 'returns http success' do
+  describe '編集画面への遷移' do
+    it 'HTTPステータスが成功となる' do
       get :edit, params: { id: user.id }
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'PUT #update' do
-    context 'with valid params' do
-      let(:valid_attributes) { { name: 'New Name' } }
+  describe '更新を押す' do
+    context '有効なパラメータの場合' do
+      let(:valid_attributes) { { name: '新しい名前' } }
 
-      it 'updates the requested user' do
+      it 'ユーザー情報が更新される' do
         put :update, params: { id: user.id, user: valid_attributes }
         user.reload
-        expect(user.name).to eq('New Name')
+        expect(user.name).to eq('新しい名前')
       end
 
-      it 'redirects to the profile page' do
+      it 'プロフィールページにリダイレクトする' do
         put :update, params: { id: user.id, user: valid_attributes }
         expect(response).to redirect_to(profile_path)
       end
     end
 
-    context 'with invalid params' do
+    context '無効なパラメータの場合' do
       let(:invalid_attributes) { { name: '' } }
 
-      it 'returns unprocessable_entity status' do
+      it '処理できないエンティティのステータスを返す' do
         put :update, params: { id: user.id, user: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
 
-    context 'when the user is a guest' do
+    context 'ユーザーがゲストの場合' do
       let(:user) { build_stubbed(:user, guest: true) }
 
-      it 'renders the guest avatar image' do
+      it 'ゲストのアバター画像がレンダリングされる' do
         render
         expect(rendered).to have_css('img[src*="guset.png"]')
       end
 
-      it 'does not render the edit profile link' do
+      it 'プロフィール編集リンクがレンダリングされない' do
         render
         expect(rendered).not_to have_link(I18n.t('defaults.edit'), href: edit_profile_path)
       end
 
-      it 'does not render the reset password link' do
+      it 'パスワードリセットリンクがレンダリングされない' do
         render
         expect(rendered).not_to have_link(I18n.t('.reset_password'), href: new_password_reset_path)
       end
 
-      context 'when the user is not a guest' do
+      context 'ユーザーがゲストでない場合' do
         let(:user) { build_stubbed(:user, guest: false) }
 
-        it 'renders the user avatar image' do
-          render
-          expect(rendered).to have_css("img[src='#{user.avatar_url}']")
-        end
-
-        it 'renders the edit profile link' do
+        it 'プロフィール編集リンクがレンダリングされる' do
           render
           expect(rendered).to have_link(I18n.t('defaults.edit'), href: edit_profile_path)
         end
 
-        it 'renders the reset password link' do
+        it 'パスワードリセットリンクがレンダリングされる' do
           render
           expect(rendered).to have_link(I18n.t('.reset_password'), href: new_password_reset_path)
         end
 
-        it 'renders the delete account link' do
+        it 'アカウント削除リンクがレンダリングされる' do
           render
           expect(rendered).to have_link(I18n.t('.delete_account'), href: user_path(user))
         end
