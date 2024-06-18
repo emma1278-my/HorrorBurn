@@ -4,7 +4,7 @@
       <p class="text-3xl font-extrabold tracking-tight text-white lg:text-5xl mb-8"><%= t('.title') %></p>
     </div>
     <div class="max-w-md mx-auto">
-    <%= form_tag(movies_search_path, method: :get, data: { controller: "autocomplete", autocomplete_source_value: autocomplete_movies_path }) do %>
+   <%= form_tag(movies_search_path, method: :get, data: { controller: "autocomplete" }) do %>
   <div class="relative flex-grow mb-4 sm:mb-0 sm:mr-4">
     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
       <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -12,12 +12,13 @@
       </svg>
     </div>
     <%= search_field_tag :looking_for, nil, data: { autocomplete_target: "input", action: "input->autocomplete#search" }, class: "block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('.movie_title'), required: true %>
+    <div data-autocomplete-target="results" class="absolute z-10 bg-white shadow-lg max-h-60 overflow-y-auto mt-1 w-full border border-gray-300 rounded-md"></div>
   </div>
   <button type="submit" class="text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm float-center shadow-lg shadow-violet-300"><%= t('.search') %></button>
 <% end %>
-    </div>
-    <%# 映画を表示 %>
-    <% if params[:looking_for].present? %>
+
+<%# 映画を表示 %>
+<% if params[:looking_for].present? %>
       <% movieinfo = JSON.parse((Tmdb::Search.movie(params[:looking_for])).to_json) %>
       <h2 class="text-white text-3xl no-underline"><%= t('.result') %> '<%= params[:looking_for] %>'</h2>
       <% i = 0 %>
@@ -36,7 +37,7 @@
               <% end %>
             </div>
             <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
-              <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'], class: "card-img round-2xl", size: "200x300" %></p>
+              <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'], class: "round-xl", size: "200x300" %></p>
             <% end %>
           </div>
           <% i += 1 %>
@@ -62,7 +63,7 @@
                 </div>
 
                 <% if movieinfo.results[i].poster_path.present? %>
-                    <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo.results[i].poster_path, class: "card-img", size: "200x300" %></p>
+                    <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo.results[i].poster_path, class: "round-xl", size: "200x300" %></p>
                 <%end%>
             </div>
 
