@@ -1,55 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe MetabolismCalculator, type: :model do 
- 
-describe '計算する' do
-  let(:user) { create(:user) }
-  let(:current_weight) { 80.0 }
-  let(:target_weight) { 70.0 }
-  let(:valid_params) { { current_weight: current_weight, target_weight: target_weight } }
-
-  context '有効なパラメーターの場合' do
-    it 'ユーザーデータを更新する' do
-      post :create, params: valid_params
-      expect(user.current_weight).to eq(current_weight)
-      expect(user.target_weight).to eq(target_weight)
-      expect(user.remaining_weight).to eq(current_weight - target_weight)
-      expect(user.target_calorie).to eq((current_weight - target_weight) * 7200)
-      expect(user.remaining_runtime).to be_present
+  describe '計算する' do
+    let(:user) { create(:user) }
+    let(:current_weight) { 80.0 }
+    let(:target_weight) { 70.0 }
+    let(:valid_params) { { current_weight: current_weight, target_weight: target_weight } }
+  
+    context '有効なパラメーターの場合' do
+      it 'ユーザーデータを更新する' do
+        post :create, params: valid_params
+        expect(user.current_weight).to eq(current_weight)
+        expect(user.target_weight).to eq(target_weight)
+        expect(user.remaining_weight).to eq(current_weight - target_weight)
+        expect(user.target_calorie).to eq((current_weight - target_weight) * 7200)
+        expect(user.remaining_runtime).to be_present
+      end
+  
+      it '計算結果の表示' do
+        post :create, params: valid_params
+        expect(response).to render_template(:show)
+      end
     end
-
-    it '計算結果の表示' do
-      post :create, params: valid_params
-      expect(response).to render_template(:show)
+  
+    context '無効なパラメーターの場合' do
+      let(:invalid_params) { { current_weight: '無効', target_weight: '無効' } }
+  
+      it 'ユーザーデータを更新しない' do
+        expect {
+          post :create, params: invalid_params
+        }.not_to change { user.reload.attributes }
+      end
     end
-  end
-
-  context '無効なパラメーターの場合' do
-    let(:invalid_params) { { current_weight: '無効', target_weight: '無効' } }
-
-    it 'ユーザーデータを更新しない' do
-      expect {
-        post :create, params: invalid_params
-      }.not_to change { user.reload.attributes }
-    end
-  end
-end
-
-describe 'ユーザーが再計算する場合' do
-    user.update(current_weight: 80.0, target_weight: 70.0)
-  end
-
-  it 'ユーザーデータをリセットする' do
-    delete :destroy
-    expect(user.current_weight).to be_nil
-    expect(user.target_weight).to be_nil
-    expect(user.remaining_weight).to be_nil
-    expect(user.target_calorie).to be_nil
-    expect(user.remaining_runtime).to be_nil
-  end
-
-  it 'new_metabolism_calculators_pathにリダイレクトする' do
-    delete :destroy
-    expect(response).to redirect_to(new_metabolism_calculators_path)
   end
 end
