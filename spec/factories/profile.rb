@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-factory :profile do
-  name { 'Taro' }
-  email { 'example@example.com' }
+FactoryBot.define do
+  factory :profile do
+    name { 'Taro' }
+    email { 'example@example.com' }
+  end
 end
