@@ -6,6 +6,7 @@ RSpec.describe MovieHistory, type: :model do
   let(:user) { create(:user) }
   let(:movie) { create(:movie) }
   let(:valid_params) { { movie_history: { movie_id: movie.id, title: movie.title, runtime: movie.runtime } } }
+
   describe '映画視聴履歴を追加' do
     context 'ユーザーがゲストではない場合' do
       context '有効' do
@@ -31,21 +32,23 @@ RSpec.describe MovieHistory, type: :model do
           expect(response).to redirect_to(movies_search_path)
         end
       end
+    end 
+  end
 
   describe '映画視聴履歴を削除' do
     let(:movie_history) { create(:movie_history, user:, movie:) }
-      it 'マイページから消える' do
-        expect { delete :destroy, params: { id: movie_history.id } }.to change(MovieHistory, :count).by(-1)
-      end
 
-      it '残りの目標映画視聴時間が更新' do
-        expect { delete :destroy, params: { id: movie_history.id } }.to(change { user.reload.remaining_runtime })
-      end
+    it 'マイページから消える' do
+      expect { delete :destroy, params: { id: movie_history.id } }.to change(MovieHistory, :count).by(-1)
+    end
 
-      it 'マイページにとどまる' do
-        delete :destroy, params: { id: movie_history.id }
-        expect(response).to redirect_to(dashboard_path(user))
-      end
+    it '残りの目標映画視聴時間が更新' do
+      expect { delete :destroy, params: { id: movie_history.id } }.to(change { user.reload.remaining_runtime })
+    end
+
+    it 'マイページにとどまる' do
+      delete :destroy, params: { id: movie_history.id }
+      expect(response).to redirect_to(dashboard_path(user))
     end
   end
 end
