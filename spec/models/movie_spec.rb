@@ -1,9 +1,8 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  let(:movie) { create(:movie, title: 'テスト映画', runtime: 120) }
+  let(:movie) { build(:movie, title: 'テスト映画', runtime: 120) }
+  
   describe 'バリデーション' do
     it '有効' do
       expect(movie).to be_valid
