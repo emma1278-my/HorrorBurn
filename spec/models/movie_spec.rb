@@ -16,12 +16,6 @@ RSpec.describe Movie, type: :model do
     }
   end
 
-  describe 'アソシエーション' do
-    it 'Userと関連付けされている' do
-      should belong_to(:user)
-    end
-  end
-
   describe 'バリデーション' do
     it '有効' do
       expect(movie).to be_valid

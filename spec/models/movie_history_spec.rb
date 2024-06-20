@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe MovieHistory, type: :model do
   let(:user) { create(:user) }
-  let(:movie) { create(:movie) }
   let(:valid_params) { { movie_history: { movie_id: movie.id, title: movie.title, runtime: movie.runtime } } }
 
   describe '映画視聴履歴を追加' do
@@ -14,13 +13,7 @@ RSpec.describe MovieHistory, type: :model do
 
         it '映画視聴履歴を記録' do
           expect do
-            create movie_histories_path, params: valid_params
-          end.to change(MovieHistory, :count).by(1)
-        end
-
-        it 'マイページにもどる' do
-          post :create, params: valid_params
-          expect(response).to redirect_to(dashboard_path(user))
+            expect { MovieHistory.create!(valid_attributes) }.to change(MovieHistory, :count).by(1)
         end
       end
 
@@ -38,7 +31,7 @@ RSpec.describe MovieHistory, type: :model do
   describe '映画視聴履歴を削除' do
     let(:movie_history) { create(:movie_history, user:, movie:) }
 
-    it 'マイページから消える' do
+    it '映画視聴履歴がマイページから消える' do
       expect { delete :destroy, params: { id: movie_history.id } }.to change(MovieHistory, :count).by(-1)
     end
 

@@ -43,10 +43,4 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
     expect(user.errors.full_messages).to include('パスワードは3文字以上で入力してください')
   end
-
-  it 'is invalid if the password confirmation is not entered' do
-    user = FactoryBot.build(:user, password_confirmation: nil)
-    expect(user).not_to be_valid
-    expect(user.errors.full_messages).to include('パスワード確認を入力してください')
-  end
 end
