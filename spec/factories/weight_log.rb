@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :weight_log do
-    weight { 40.5 }
+    weight { 80.0 }
     created_at { Time.zone.now }
   end
 end

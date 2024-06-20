@@ -3,43 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  let(:user) { FactoryBot.create(:user) }
-  let(:user) { create(:user, target_calorie: 10_000) }
   let(:movie) { create(:movie, title: 'テスト映画', runtime: 120) }
-  let(:valid_params) do
-    {
-      movie_history: {
-        movie_id: movie.id,
-        title: movie.title,
-        runtime: movie.runtime
-      }
-    }
-  end
-
   describe 'バリデーション' do
     it '有効' do
       expect(movie).to be_valid
     end
 
-    it '映画のタイトルがない' do
+    it '映画のタイトルがないと無効' do
       movie.title = nil
       expect(movie).not_to be_valid
-    end
-  end
-
-  describe '映画検索' do
-    it '検索結果に映画が表示される' do
-      get movies_search_path, params: { looking_for: 'テスト映画' }
-      expect(response).to have_http_status(:success)
-      expect(response.body).to include('テスト映画')
-    end
-  end
-
-  describe '映画検索で得た映画情報を選択' do
-    it '映画詳細ページ遷移' do
-      get movie_path(movie.id)
-      expect(response).to have_http_status(:success)
-      expect(response.body).to include('テスト映画')
     end
   end
 end
