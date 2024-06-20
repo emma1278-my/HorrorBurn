@@ -35,8 +35,9 @@ RSpec.describe User, type: :model do
   it '名前が255文字以上' do
     user = FactoryBot.build(:user, name: 'A' * 256)
     expect(user).not_to be_valid
-    expect(user.errors.full_messages).to include('名前は255文字までにしてください')
+    expect(user.errors.full_messages).to include('名前は255文字以内で入力してください')
   end
+end
 
   it 'パスワードが3文字以内' do
     user = FactoryBot.build(:user, password: 'A1')

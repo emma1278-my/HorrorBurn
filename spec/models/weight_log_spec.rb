@@ -6,9 +6,10 @@ RSpec.describe WeightLog, type: :model do
   let(:user) { create(:user) }
   describe 'アソシエーション確認' do
     it 'Userモデルとの関連付けされている' do
-      should belong_to(:user)
+      is_expected.to belong_to(:user)
     end
   end
+end
  
   describe '独自メソッドのチェック' do
     it 'weight_logからcreated_atが今日の日付のレコードを検索しているか' do

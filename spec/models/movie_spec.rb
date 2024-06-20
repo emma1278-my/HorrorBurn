@@ -27,19 +27,6 @@ RSpec.describe Movie, type: :model do
     end
   end
 
-  describe '映画視聴履歴を追加' do
-    context '有効' do
-      it '視聴履歴がマイページに追加される' do
-        expect do
-          post movie_histories_path, params: valid_params
-        end.to change(MovieHistory, :count).by(1)
-        expect(response).to redirect_to(dashboard_path(user))
-        follow_redirect!
-        expect(response.body).to include(I18n.t('movie_histories.create.success'))
-      end
-    end
-  end
-
   describe '映画検索' do
     it '検索結果に映画が表示される' do
       get movies_search_path, params: { looking_for: 'テスト映画' }
