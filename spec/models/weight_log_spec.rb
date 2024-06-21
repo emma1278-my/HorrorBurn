@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe WeightLog, type: :model do
-  let(:user) { build(:user) }
-
   describe 'アソシエーション確認' do
     it 'Userモデルとの関連付けされている' do
       should belong_to(:user)
