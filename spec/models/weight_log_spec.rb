@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe WeightLog, type: :model do
   describe 'アソシエーション確認' do
     it 'Userモデルとの関連付けされている' do
-      should belong_to(:user)
+      is_expected.to belong_to(:user)
     end
   end
 
