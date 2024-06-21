@@ -81,4 +81,5 @@ group :test do
   gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'shoulda-matchers'
 end
