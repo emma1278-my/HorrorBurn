@@ -7,7 +7,7 @@
     <div class="text-xl flex flex-col items-center justify-center"> 
          <%= form_with model: @weight_log, url: weight_logs_path, data: { turbo: false }, html: { class: "flex flex-col sm:flex-row items-center justify-center" } do |f| %>
         <div class="relative flex-grow mb-2 sm:mb-0 sm:mr-0 pr-4">
-          <%= f.number_field :weight, step: 0.1, min: 30.0, max: 150.0, class: "block w-64 p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-6", placeholder: t('.placeholder'), required: true %>
+          <%= f.number_field :weight, step: 0.1, min: 30.0, max: 150.0, class: "block w-64 p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 ml-6", placeholder: t('.placeholder'), required: true %>
 
         <button type="submit" class="text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md mt-3 no-underline text-sm shadow-lg shadow-violet-300 mb-6">記 録</button>
       <% end %>        
