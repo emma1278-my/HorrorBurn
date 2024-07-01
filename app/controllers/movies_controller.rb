@@ -31,20 +31,17 @@ class MoviesController < ApplicationController
     @movie = JSON.parse(response)
     @movie_history = MovieHistory.new
   end
-end
 
-def autocomplete
-  query = params[:looking_for]
-  url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=#{URI.encode(query)}"
-  @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
-  render json: @movies['results'].map { |movie| { title: movie['title'] } }
+
+  def autocomplete
+    query = params[:looking_for]
+    url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=#{URI.encode(query)}"
+    @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
+    render json: @movies['results'].map { |movie| { title: movie['title'] } }
+  end
 end
 
 private
-
-def movie_params
-  params.require(:movie).permit(:title, :runtime)
-end
 
 def save_movie(movies)
   current_user = User.find(session[:user_id])
