@@ -31,14 +31,6 @@ class MoviesController < ApplicationController
     @movie = JSON.parse(response)
     @movie_history = MovieHistory.new
   end
-
-
-  def autocomplete
-    query = params[:looking_for]
-    url = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API']}&language=ja&query=#{URI.encode(query)}"
-    @movies = JSON.parse(Net::HTTP.get(URI.parse(url)))
-    render json: @movies['results'].map { |movie| { title: movie['title'] } }
-  end
 end
 
 private

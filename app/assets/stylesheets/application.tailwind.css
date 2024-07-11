@@ -29,6 +29,7 @@
   position: relative;
   cursor: pointer;
   display: inline-block;
+  box-sizing: border-box;
 }
 
 .hover-me {
