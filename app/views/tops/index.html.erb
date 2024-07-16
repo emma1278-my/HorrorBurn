@@ -96,12 +96,15 @@
   </div>
     <% if current_user.nil? %>
       <div class="flex justify-center item-center text-center flex-col items-center mt-16">
-      <%= link_to '早速使ってみる', new_user_path, class: "text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline text-sm shadow-lg shadow-violet-300 float-center" %>
+      <%= link_to '早速始めてみる', new_user_path, class: "text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline text-sm shadow-lg shadow-violet-300 float-center" %>
       </div>
+    <% else %>
+       <div class="flex justify-center item-center text-center flex-col items-center mt-16">
+      <%= link_to '映画を記録する', movies_search_path, class: "text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline text-sm shadow-lg shadow-violet-300 float-center" %>
     <% end %>
  
         <div class="text-white justify-center items-center text-center mt-16">
-          <h2 class="text-3xl font-bold mb-4">🔥燃える映画トップ10🔥</h2>
+          <h2 class="text-3xl font-bold mb-4">🔥燃える映画トップ10(2012)🔥</h2>
           <div class="list">
             <div class="item mb-2">
               <span class="font-bold">1位.</span> シャイニング <span class="text-sm">(184カロリー)</span>
@@ -135,18 +138,70 @@
             </div>
           </div>
           <div class="item pt-7">
-              <span class="font-bold text-sm mb-7">(結果は2012年のものです)</span>
+          
             </div>
         </div>
 
+<div class="text-white justify-center items-center text-center mt-16">
+          <h2 class="text-3xl font-bold mb-4">🔥Science of Scare Projectによる最も怖いホラー映画トップ10(2023年度)🔥</h2>
+          <div class="list">
+            <div class="item mb-2">
+              <span class="font-bold">1位.</span> フッテージ <span class="text-sm">(最大心拍数131bpm)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">2位.</span> ズーム <span class="text-sm">(最大心拍数130bpm)</span>    
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">3位.</span> スキナマリンク <span class="text-sm">(最大心拍数113bpm)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">4位.</span> インシディアス <span class="text-sm">(最大心拍数133bpm)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">5位.</span> 死霊館 <span class="text-sm">(最大心拍数132bpm)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">6位.</span> ヘレディタリー/継承 <span class="text-sm">(最大心拍数104bpm)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">7位.</span> スマイル <span class="text-sm">(最大心拍数114bpm)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">8位.</span> エミリー・ローズ <span class="text-sm">(最大心拍数96bpm)</span>
+            </div>
+            <div class="item mb-2">
+              <span class="font-bold">9位.</span> Hell House LLC <span class="text-sm">(最大心拍数107bpm)</span>
+            </div>
+            <div class="item">
+              <span class="font-bold">10位.</span>  Hell House LLC <span class="text-sm">(最大心拍数106bpm)</span>
+            </div>
+          </div>
+          <div class="item pt-7">
+              <span class="text-xs mb-7 text-white justify-center items-center text-center mt-12">
+              ※恐怖の科学プロジェクト（Science of Scare Project）とは<br>
+              2020年にBroadbandChoices.co.ukによって設立され、毎年最も恐ろしい英語映画のリストを作成している。<br>
+              250人の参加者に心拍数モニターを装着し、特殊な部屋で批評家などが選出したホラー映画40作品（新旧問わず）を鑑賞。<br>
+              各映画を通して心拍数を追跡され、安静時と視聴中の心拍数の平均を比較し大きな差があった作品がランキングされる。 </span>
+            </div>
+        </div>
+ <div class="flex justify-center item-center text-center flex-col items-center mt-16">
+      <%= link_to '映画を記録する', movies_search_path, class: "text-center inline-flex items-center justify-center px-3 py-3 text-white bg-purple-600 hover:bg-purple-300 focus:bg-purple-700 rounded-md ml-6 mb-3 no-underline text-sm shadow-lg shadow-violet-300 float-center" %>
+      </div>
 
 
-        <div class="py-8 text-white text-xs justify-center items-center text-center mt-12">
+
+        <div class="py-16 text-white text-xs justify-center items-center text-center mt-12">
            参考文献：<br>
           <i>The Guardian.</i> (2012). Scare Yourself Thin: Horror Movies Help Burn Calories, Study Finds.<br>
             https://www.theguardian.com/film/2012/oct/29/horror-movies-help-burn-calories
         </div>
+        <div class="py-4 text-white text-xs justify-center items-center text-center mt-7">
+        <i>MoneySuperMarket</i> (2023). The Science of Scare: The scariest movies of all time<br>
+           https://www.moneysupermarket.com/broadband/features/science-of-scare/
+        </div>
 
+
+      
 
 
 

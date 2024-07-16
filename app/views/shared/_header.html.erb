@@ -48,7 +48,11 @@
 
    <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-black rounded-box w-52">
       <div class="h-12 text-white no-underline text-center inline-flex items-center">
-         おかえりなさい <%= current_user.name %>さん😀
+       <% if current_user.guest? %>
+         こんにちは ゲストさん👻
+        <% else %>
+         おかえりなさい <%= current_user.name %>さん👻
+        <% end %>
       </div>
 
       <%= link_to dashboard_path(current_user), class: 'menu-item text-white no-underline text-center inline-flex items-center' do %>

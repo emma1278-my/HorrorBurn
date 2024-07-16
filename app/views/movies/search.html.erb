@@ -14,7 +14,7 @@
     </div>
     <%= search_field_tag :looking_for, nil, data: { autocomplete_target: "input", action: "input->autocomplete#search" }, class: "block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500", placeholder: t('.movie_title'), list: "suggests", required: true %>
     <datalist id="suggests">
-      <option>おすすめ映画</option>
+      <option role="presentation" aria-disabled="true">おススメ映画🎃</option>
       <option>シャイニング</option>
       <option>ジョーズ</option>
       <option>エクソシスト</option>
@@ -25,8 +25,16 @@
       <option>ブレア・ウィッチ・プロジェクト</option>
       <option>悪魔のいけにえ</option>
       <option>レック</option>
-      <option>ジョーズ</option>
-
+      <option>フッテージ</option>
+      <option>ズーム</option>
+      <option>スキナマリンク</option>
+      <option>インシディアス</option>
+      <option>死霊館</option>
+      <option>ヘレディタリー/継承</option>
+      <option>スマイル</option>
+      <option>エミリー・ローズ</option>
+      <option> Hell House LLC</option>
+      <option>トーク・トゥ・ミー</option>
       </datalist>
     <div data-autocomplete-target="results" class="absolute z-10 bg-white shadow-lg max-h-60 overflow-y-auto mt-1 w-full border border-gray-300 rounded-md"></div>
   </div>
