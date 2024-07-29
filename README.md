@@ -76,6 +76,19 @@ X（Twitter）シェア
 - The Movie Database (TMDb) API： 映画検索機能：ユーザーがホラー映画を検索し、タイトル等の詳細情報を取得できるようにします。
 - Goolge API： Google Sign-Inを使用してユーザーがログインする場合に使用します。
   
+## 👻 使用技術一覧
+| 　　　　　　　 |使用技術　　　 |
+| ------------- | ------------- |
+|フロントエンド  | TailwindCSS <br>JavaScript  |
+| バックエンド  | 	Ruby 3.2.2　<br> Ruby on Rails 7.1.2 |
+| データベース  |PostgreSQL  |
+| インフラ  | Render  |
+| API  | TMDbAPI <br> GoogleAPI  |
+|CI/CD | Github Actions|
+|その他 |	docker <br> Rspec|
+
+
+
 
 
 ## 👻 画面遷移図
