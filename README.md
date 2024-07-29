@@ -10,6 +10,19 @@ https://horrorburn.com
 
 
 ## 👻 サービス概要
+
+|目標体重を入力|ホラー映画視聴ノルマの算出　　 |
+| ------------- | ------------- |
+|[![Image from Gyazo](https://i.gyazo.com/4687fdd2136e9c3d4c68f5d689c9e228.gif)](https://gyazo.com/4687fdd2136e9c3d4c68f5d689c9e228) |[![Image from Gyazo](https://i.gyazo.com/a703e449effda01e1d45eca59d4b0175.png)](https://gyazo.com/a703e449effda01e1d45eca59d4b0175) |
+
+|視聴した映画を検索|視聴した映画を記録 |
+| ------------- | ------------- |
+|[![Image from Gyazo](https://i.gyazo.com/3680a5bca2a93ea85eddb5f494988bc4.gif)](https://gyazo.com/3680a5bca2a93ea85eddb5f494988bc4) | [![Image from Gyazo](https://i.gyazo.com/419a02b171ea2c91f80df91b0d711936.gif)](https://gyazo.com/419a02b171ea2c91f80df91b0d711936) |
+
+|マイページにて視聴した映画を確認・体重測定の結果をグラフ表示できる |
+| ------------- |
+|　[![Image from Gyazo](https://i.gyazo.com/2dfc9d2522975d1528e19a2b145eab32.gif)](https://gyazo.com/2dfc9d2522975d1528e19a2b145eab32)　　　　　　　|　　　　　　　　　
+
 - アプリに目標体重と目標期間を設定します。
 - 90分のホラー映画を観ると、約113カロリーを消費することを利用し、減少すべきカロリーを算出し、ユーザーにホラー映画視聴本数を提案します。
 - 視聴した映画や消費カロリーはアプリに記録され、進捗が追跡されます。
