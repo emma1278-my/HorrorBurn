@@ -19,7 +19,7 @@ https://horrorburn.com
 | ------------- | ------------- |
 |[![Image from Gyazo](https://i.gyazo.com/3680a5bca2a93ea85eddb5f494988bc4.gif)](https://gyazo.com/3680a5bca2a93ea85eddb5f494988bc4) | [![Image from Gyazo](https://i.gyazo.com/419a02b171ea2c91f80df91b0d711936.gif)](https://gyazo.com/419a02b171ea2c91f80df91b0d711936) |
 
-|マイページにて視聴した映画を確認・体重測定の結果をグラフ表示できる |
+|マイページにて視聴した映画・体重測定の結果を保存し進捗状況を確認できる |
 | ------------- |
 |　[![Image from Gyazo](https://i.gyazo.com/2dfc9d2522975d1528e19a2b145eab32.gif)](https://gyazo.com/2dfc9d2522975d1528e19a2b145eab32)　　　　　　　|　　　　　　　　　
 
