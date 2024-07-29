@@ -62,6 +62,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  
 end
 
 group :development do
@@ -70,7 +71,7 @@ group :development do
   gem 'web-console'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-
+  gem 'binding_of_caller'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
