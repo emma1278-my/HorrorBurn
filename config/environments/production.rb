@@ -27,7 +27,7 @@ Rails.application.configure do
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
-
+  config.public_file_server.enabled = true
   # Do not fall back to assets pipeline if a precompiled asset is missed.
   config.assets.debug = false
   config.assets.compile = true
@@ -111,4 +111,6 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.hosts << 'www.horrorburn.com'
+  config.hosts << 'horrorburn-1.onrender.com'
+  config.hosts << 'horrorburn.com'
 end
